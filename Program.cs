@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Statiq.App;
 using Statiq.Web;
+using Statiq.Web.Netlify;
 
 namespace ciit_linux
 {
@@ -10,6 +11,7 @@ namespace ciit_linux
             await Bootstrapper
                 .Factory
                 .CreateWeb(args)
+                .AddHostingCommands()
                 .RunAsync();
     }
 }
