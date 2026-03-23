@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title></title>
+
+  <link rel="canonical" href='/chapters/chapter-5'>
+
+
+  <meta name="application-name" />
+  <meta name="msapplication-tooltip" />
+  <meta name="msapplication-starturl" content='/' />
+
+  <meta property="og:title" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content='/chapters/chapter-5' />
+
+  <link rel="icon" href='/favicon.ico'>
+
+  <!-- Custom fonts for this template -->
+  <link href='/vendor/fontawesome-free/css/all.min.css' rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" data-no-mirror>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" data-no-mirror>
+
+  <!-- Styles for this template (also includes Bootstrap) -->
+  <link href='/scss/clean-blog.css' rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.3.0/dist/quicklink.umd.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet">
+
+  
+
+
+  
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href='/'></a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto">
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+  <header class="masthead no-image">
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-md-12">
+        <div class='site-heading'>
+          <h1>
+            Linux&#x7528;&#x6237;&#x548C;&#x6743;&#x9650;&#x7BA1;&#x7406;
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div id="content" class="col-md-12">
+        <h2 id="linux">Linux用户和权限管理</h2>
+<h3 id="section">1. 用户账户基础概念</h3>
+<h4 id="section-1">什么是用户账户</h4>
+<ul>
+<li><strong>用户账户</strong>：Linux系统中用于标识和管理用户身份的机制</li>
+<li><strong>作用</strong>：控制用户对系统资源的访问权限</li>
+<li><strong>类型</strong>：超级用户（root）、普通用户、系统用户</li>
+</ul>
+<h4 id="iduididgid">用户ID（UID）和组ID（GID）</h4>
+<ul>
+<li><strong>UID</strong>：用户标识符，唯一标识系统中的每个用户</li>
+<li><strong>GID</strong>：组标识符，唯一标识系统中的每个用户组</li>
+<li><strong>特殊UID</strong>：
+<ul>
+<li>0：root用户</li>
+<li>1-999：系统用户</li>
+<li>1000+：普通用户</li>
+</ul>
+</li>
+</ul>
+<h3 id="section-2">2. 用户管理命令</h3>
+<h4 id="section-3">查看用户信息</h4>
+<pre><code class="language-bash"># 查看当前登录用户
+whoami
+
+# 查看所有登录用户
+who
+w
+
+# 查看系统中所有用户
+cat /etc/passwd
+
+# 查看特定用户信息
+id username
+finger username  # 需要安装finger包
+</code></pre>
+<h4 id="section-4">添加用户</h4>
+<pre><code class="language-bash"># 添加新用户
+sudo useradd username
+
+# 添加用户并创建主目录
+sudo useradd -m username
+
+# 添加用户并指定shell
+sudo useradd -m -s /bin/bash username
+
+# 添加用户并设置用户ID
+sudo useradd -u 1001 username
+
+# 添加用户并设置注释信息
+sudo useradd -c &quot;User Full Name&quot; username
+</code></pre>
+<h4 id="section-5">设置用户密码</h4>
+<pre><code class="language-bash"># 为用户设置密码
+sudo passwd username
+
+# 删除用户密码（禁用账户）
+sudo passwd -d username
+
+# 锁定用户账户
+sudo passwd -l username
+
+# 解锁用户账户
+sudo passwd -u username
+</code></pre>
+<h4 id="section-6">修改用户信息</h4>
+<pre><code class="language-bash"># 修改用户主目录
+sudo usermod -d /home/newdir username
+
+# 修改用户shell
+sudo usermod -s /bin/zsh username
+
+# 修改用户注释信息
+sudo usermod -c &quot;New Comment&quot; username
+
+# 将用户添加到组
+sudo usermod -a -G groupname username
+</code></pre>
+<h4 id="section-7">删除用户</h4>
+<pre><code class="language-bash"># 删除用户但保留主目录
+sudo userdel username
+
+# 删除用户及其主目录
+sudo userdel -r username
+</code></pre>
+<h3 id="section-8">3. 用户组管理</h3>
+<h4 id="section-9">查看组信息</h4>
+<pre><code class="language-bash"># 查看所有用户组
+cat /etc/group
+
+# 查看当前用户所属的组
+groups
+
+# 查看特定用户所属的组
+groups username
+
+# 查看特定组的成员
+getent group groupname
+</code></pre>
+<h4 id="section-10">创建和管理组</h4>
+<pre><code class="language-bash"># 创建新组
+sudo groupadd groupname
+
+# 创建组并指定GID
+sudo groupadd -g 1001 groupname
+
+# 修改组名
+sudo groupmod -n newname oldname
+
+# 删除组
+sudo groupdel groupname
+</code></pre>
+<h4 id="section-11">管理组成员</h4>
+<pre><code class="language-bash"># 将用户添加到组
+sudo gpasswd -a username groupname
+
+# 从组中删除用户
+sudo gpasswd -d username groupname
+
+# 设置组管理员
+sudo gpasswd -A adminuser groupname
+
+# 设置组密码
+sudo gpasswd groupname
+</code></pre>
+<h3 id="section-12">4. 文件权限基础</h3>
+<h4 id="section-13">权限类型</h4>
+<ul>
+<li><strong>读权限（r）</strong>：4 - 可以读取文件内容或列出目录内容</li>
+<li><strong>写权限（w）</strong>：2 - 可以修改文件内容或在目录中创建/删除文件</li>
+<li><strong>执行权限（x）</strong>：1 - 可以执行文件或进入目录</li>
+</ul>
+<h4 id="section-14">查看文件权限</h4>
+<pre><code class="language-bash"># 查看文件详细信息
+ls -l filename
+
+# 查看目录详细信息
+ls -ld directoryname
+
+# 查看隐藏文件
+ls -la
+</code></pre>
+<h4 id="section-15">权限表示方法</h4>
+<pre><code class="language-bash"># 符号表示法
+-rw-r--r--  1 user group size date time filename
+#  | | | | |
+#  | | | | +-- 其他用户权限
+#  | | +------ 组用户权限
+#  | +-------- 所有者权限
+#  +---------- 文件类型
+
+# 数字表示法
+chmod 755 filename  # rwxr-xr-x
+chmod 644 filename  # rw-r--r--
+</code></pre>
+<h3 id="section-16">5. 修改文件权限</h3>
+<h4 id="chmod">使用chmod命令</h4>
+<pre><code class="language-bash"># 使用符号法修改权限
+chmod u+r filename      # 给所有者添加读权限
+chmod g-w filename      # 从组用户移除写权限
+chmod o+x filename      # 给其他用户添加执行权限
+chmod a+r filename      # 给所有用户添加读权限
+
+# 使用数字法修改权限
+chmod 755 filename      # rwxr-xr-x
+chmod 644 filename      # rw-r--r--
+chmod 777 filename      # rwxrwxrwx
+
+# 递归修改目录权限
+chmod -R 755 directory
+</code></pre>
+<h4 id="chown">使用chown命令修改所有者</h4>
+<pre><code class="language-bash"># 修改文件所有者
+sudo chown username filename
+
+# 修改文件所有者和组
+sudo chown username:groupname filename
+sudo chown username.groupname filename  # 某些系统使用点分隔
+
+# 递归修改目录所有者
+sudo chown -R username:groupname directory
+</code></pre>
+<h4 id="chgrp">使用chgrp命令修改组</h4>
+<pre><code class="language-bash"># 修改文件组
+sudo chgrp groupname filename
+
+# 递归修改目录组
+sudo chgrp -R groupname directory
+</code></pre>
+<h3 id="section-17">6. 特殊权限</h3>
+<h4 id="suid">SUID权限</h4>
+<ul>
+<li><strong>作用</strong>：允许用户以文件所有者的身份执行文件</li>
+<li><strong>设置方法</strong>：</li>
+</ul>
+<pre><code class="language-bash">chmod u+s filename
+chmod 4755 filename  # 数字法，4表示SUID
+</code></pre>
+<h4 id="sgid">SGID权限</h4>
+<ul>
+<li><strong>作用</strong>：在文件上表示以组身份执行，在目录上表示新创建的文件继承目录的组</li>
+<li><strong>设置方法</strong>：</li>
+</ul>
+<pre><code class="language-bash">chmod g+s filename
+chmod 2755 filename  # 数字法，2表示SGID
+</code></pre>
+<h4 id="sticky-bit">Sticky Bit</h4>
+<ul>
+<li><strong>作用</strong>：只允许文件/目录的所有者删除自己的文件</li>
+<li><strong>常见用途</strong>：/tmp目录</li>
+<li><strong>设置方法</strong>：</li>
+</ul>
+<pre><code class="language-bash">chmod +t directoryname
+chmod 1755 directoryname  # 数字法，1表示Sticky Bit
+</code></pre>
+<h3 id="sudo">7. sudo权限管理</h3>
+<h4 id="sudo-1">什么是sudo</h4>
+<ul>
+<li><strong>sudo</strong>：以超级用户权限执行命令的安全方式</li>
+<li><strong>优势</strong>：记录命令执行、不需要知道root密码、可以精细控制权限</li>
+</ul>
+<h4 id="sudo-2">配置sudo权限</h4>
+<pre><code class="language-bash"># 编辑sudoers文件（推荐使用visudo）
+sudo visudo
+
+# 或者直接编辑文件
+sudo nano /etc/sudoers
+</code></pre>
+<h4 id="sudoers">sudoers文件语法</h4>
+<pre><code class="language-bash"># 基本语法
+用户名 主机名=(可执行身份) 命令列表
+
+# 示例
+root    ALL=(ALL:ALL) ALL
+%wheel  ALL=(ALL:ALL) ALL
+username ALL=(ALL) ALL
+username ALL=(root) /usr/bin/systemctl
+</code></pre>
+<h4 id="sudo-3">用户组sudo权限</h4>
+<pre><code class="language-bash"># 将用户添加到sudo组
+sudo usermod -a -G wheel username  # CentOS/RHEL
+sudo usermod -a -G sudo username   # Ubuntu/Debian
+
+# 验证用户是否在sudo组中
+groups username
+</code></pre>
+<h3 id="section-18">8. 实践练习</h3>
+<h4 id="section-19">用户管理练习</h4>
+<pre><code class="language-bash"># 1. 创建新用户
+sudo useradd -m -s /bin/bash student1
+sudo passwd student1
+
+# 2. 查看用户信息
+id student1
+cat /etc/passwd | grep student1
+
+# 3. 修改用户信息
+sudo usermod -c &quot;Linux Student&quot; student1
+sudo usermod -a -G wheel student1
+
+# 4. 删除用户
+sudo userdel -r student1
+</code></pre>
+<h4 id="section-20">权限管理练习</h4>
+<pre><code class="language-bash"># 1. 创建测试文件和目录
+touch testfile.txt
+mkdir testdir
+
+# 2. 修改文件权限
+chmod 644 testfile.txt
+chmod 755 testdir
+
+# 3. 查看权限
+ls -l testfile.txt
+ls -ld testdir
+
+# 4. 修改文件所有者
+sudo chown student1 testfile.txt
+
+# 5. 设置特殊权限
+chmod u+s testfile.txt  # 设置SUID
+chmod g+s testdir       # 设置SGID
+chmod +t testdir        # 设置Sticky Bit
+</code></pre>
+<h4 id="sudo-4">sudo练习</h4>
+<pre><code class="language-bash"># 1. 创建新用户
+sudo useradd -m student2
+
+# 2. 将用户添加到sudo组
+sudo usermod -a -G wheel student2
+
+# 3. 验证sudo权限
+su - student2
+sudo whoami  # 应该显示root
+
+# 4. 退出student2账户
+exit
+</code></pre>
+<h3 id="section-21">9. 课后作业</h3>
+<h4 id="section-22">1. 用户管理</h4>
+<ol>
+<li>创建3个新用户：user1、user2、user3</li>
+<li>为每个用户设置密码</li>
+<li>查看每个用户的UID和GID</li>
+<li>将user1添加到wheel组</li>
+<li>删除user3用户及其主目录</li>
+</ol>
+<h4 id="section-23">2. 权限练习</h4>
+<ol>
+<li>创建一个文件test.txt，设置权限为644</li>
+<li>创建一个目录testdir，设置权限为755</li>
+<li>将test.txt的所有者改为user1</li>
+<li>将testdir的组改为user1的主组</li>
+<li>设置test.txt的SUID权限</li>
+<li>设置testdir的SGID和Sticky Bit权限</li>
+</ol>
+<h4 id="sudo-5">3. sudo配置</h4>
+<ol>
+<li>编辑sudoers文件，为user2添加特定命令的sudo权限</li>
+<li>测试user2是否可以执行指定的sudo命令</li>
+<li>记录sudo命令的执行日志</li>
+</ol>
+<h4 id="section-24">4. 综合练习</h4>
+<ol>
+<li>创建一个共享目录/shared</li>
+<li>设置适当的权限，让多个用户可以协作</li>
+<li>配置用户组，实现文件的共享管理</li>
+<li>测试不同用户的访问权限</li>
+</ol>
+<h3 id="section-25">10. 故障排除</h3>
+<h4 id="section-26">常见问题及解决方法</h4>
+<h5 id="section-27">1. 用户无法登录</h5>
+<pre><code class="language-bash"># 检查用户是否存在
+id username
+
+# 检查用户账户状态
+sudo passwd -S username
+
+# 检查用户主目录
+ls -ld /home/username
+</code></pre>
+<h5 id="section-28">2. 权限不足</h5>
+<pre><code class="language-bash"># 查看文件权限
+ls -l filename
+
+# 检查用户所属组
+groups username
+
+# 临时提升权限
+sudo command
+</code></pre>
+<h5 id="sudo-6">3. sudo命令被拒绝</h5>
+<pre><code class="language-bash"># 检查用户是否在sudo组中
+groups username
+
+# 检查sudoers配置
+sudo visudo
+
+# 查看sudo日志
+sudo tail /var/log/secure
+</code></pre>
+<h5 id="section-29">4. 文件无法删除</h5>
+<pre><code class="language-bash"># 检查目录权限
+ls -ld directory
+
+# 检查Sticky Bit设置
+ls -l directory
+
+# 使用sudo删除
+sudo rm filename
+</code></pre>
+<h3 id="section-30">11. 扩展学习</h3>
+<h4 id="section-31">用户资源限制</h4>
+<pre><code class="language-bash"># 查看用户资源限制
+ulimit -a
+
+# 设置用户资源限制（在/etc/security/limits.conf中）
+username soft nofile 1024
+username hard nofile 2048
+</code></pre>
+<h4 id="section-32">用户环境配置</h4>
+<pre><code class="language-bash"># 查看用户环境变量
+env
+
+# 编辑用户环境配置文件
+~/.bashrc
+~/.bash_profile
+~/.profile
+</code></pre>
+<h4 id="section-33">用户审计</h4>
+<pre><code class="language-bash"># 查看登录历史
+last
+
+# 查看命令历史
+history
+
+# 查看系统日志
+sudo tail /var/log/secure
+</code></pre>
+<p>通过本章学习，你应该能够：</p>
+<ol>
+<li>理解Linux用户和组的基本概念</li>
+<li>熟练使用用户管理命令</li>
+<li>掌握文件权限的设置和管理</li>
+<li>理解和配置sudo权限</li>
+<li>解决常见的用户和权限问题</li>
+<li>为系统安全和多用户环境管理打下基础</li>
+</ol>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="copyright"></p>
+
+        <ul class="list-inline text-center small">
+        </ul>
+        <br />
+        <div class="font-weight-bold small"><a href="https://statiq.dev">Generated by Statiq</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src='/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>
+  <script src='/vendor/startbootstrap-clean-blog/js/scripts.js'></script>
+  <script src='/js/clean-blog.js'></script>
+  
+
+  
+
+</body>
+
+</html>
