@@ -7,7 +7,7 @@
           <p class="text-center small text-muted">Originally published at <a href='@Document.GetString("Canonical")'>@Document.GetString("Canonical")</a>.</p>
           <br />
         }
-        @Html.Partial("CleanBlog/_copyright")
+        @Html.Partial("_copyright")
         <ul class="list-inline text-center small">
           @{
             IDocument rssFeed = Outputs["**/*.rss"].FirstOrDefault();

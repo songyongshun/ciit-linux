@@ -61,7 +61,7 @@
   <script src="https://cdn.jsdelivr.net/npm/quicklink@2.3.0/dist/quicklink.umd.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet">
 
-  @Html.Partial("CleanBlog/_head")
+  @Html.Partial("_head")
 
   @RenderSection("Head", false)
 
@@ -70,10 +70,10 @@
 <body>
 
   <!-- Navigation -->
-  @RenderSectionOrPartial("Navigation", "CleanBlog/_navigation")
+  @RenderSectionOrPartial("Navigation", "_navigation")
 
   <!-- Page Header -->
-  @RenderSectionOrPartial("Header", "CleanBlog/_header")
+  @RenderSectionOrPartial("Header", "_header")
 
   <!-- Main Content -->
   <div class="container">
@@ -82,31 +82,31 @@
         @RenderBody()
         @if (isPost)
         {
-          @Html.Partial("CleanBlog/_post-after-content")
+          @Html.Partial("_post-after-content")
         }
         else if (isPage)
         {
-          @Html.Partial("CleanBlog/_page-after-content")
+          @Html.Partial("_page-after-content")
         }
-        @Html.Partial("CleanBlog/_common-after-content")
+        @Html.Partial("_common-after-content")
       </div>
     </div>
     @if (isPost)
     {
-      @Html.Partial("CleanBlog/_post-comments")
+      @Html.Partial("_post-comments")
     }
   </div>
 
   <hr>
 
   <!-- Footer -->
-  @RenderSectionOrPartial("Footer", "CleanBlog/_footer")
+  @RenderSectionOrPartial("Footer", "_footer")
 
   <!-- Scripts -->
   <script src='@Context.GetLink("/vendor/bootstrap/js/bootstrap.bundle.min.js")'></script>
   <script src='@Context.GetLink("/vendor/startbootstrap-clean-blog/js/scripts.js")'></script>
   <script src='@Context.GetLink("/js/clean-blog.js")'></script>
-  @Html.Partial("CleanBlog/_scripts")
+  @Html.Partial("_scripts")
   @RenderSection("Scripts", false)
 
 </body>
