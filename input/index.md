@@ -27,6 +27,11 @@ Layout: /_layout.cshtml
 
 - 请下载[resilio rsync](/files/Resilio-Sync_x64.zip)并安装到你的计算机上，以便在课程中进行文件同步和共享。
 
+- 输入分享码，获取课程文件:
+`JN6SZNLL35OXAESWZ3D4KOM7OHZX5WWDEKHTSLHJHGF3TSHK2BQA`
+
+
+
 ### 课程说明
 
 本课程采用分层结构组织，每个章节都包含理论讲解和实践练习。建议按照顺序学习，以确保掌握必要的基础知识。
