@@ -24,6 +24,9 @@ Layout: /_layout.cshtml
 7. [Linux文件目录结构](/chapters/chapter-7/)
 8. [Linux系统监控和性能优化](/chapters/chapter-8/)
 
+
+- 请下载[resilio rsync](/files/Resilio-Sync_x64.zip)并安装到你的计算机上，以便在课程中进行文件同步和共享。
+
 ### 课程说明
 
 本课程采用分层结构组织，每个章节都包含理论讲解和实践练习。建议按照顺序学习，以确保掌握必要的基础知识。
