@@ -30,6 +30,9 @@ Layout: /_layout.cshtml
 - 输入分享码，获取wsl离线安装文件:
 `BUNBIVCGCPFQBSJVJFR5UJC354CPDT7IU`
 
+- linux课程所有文件：
+`BLVSDAAXJ52MEWU7VBRWR3JAGSYCANIRJ`
+
 ### 课程说明
 
 本课程采用分层结构组织，每个章节都包含理论讲解和实践练习。建议按照顺序学习，以确保掌握必要的基础知识。
