@@ -43,10 +43,12 @@ Layout: /_layout.cshtml
 <img src="image-1.png" alt="alt text" style="width:70%; height:auto; display:block; margin:0 auto;">
 
 - 在VMWare Workstation软件中，顶部菜单栏找到“虚拟机”->“设置”，将“网络适配器”的“网络连接”设置为NAS模式。
+
 <img src="image-2.png" alt="alt text" style="width:70%; height:auto; display:block; margin:0 auto;">
 
 ### 虚拟机CentOS 8网络设置
 - 进入CentOS系统，在右上角的**系统状态栏**中，点击网络图标，查看当前的网络连接状态。当出现“已连接（Wired Connected）”状态时，说明网络连接成功。可以尝试打开Firefox浏览器，访问一个网站（例如www.baidu.com）来验证网络连接是否正常。
+
 <img src="image-3.png" alt="alt text" style="width:70%; height:auto; display:block; margin:0 auto;">
 
 

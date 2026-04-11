@@ -13,25 +13,20 @@ Layout: /_layout.cshtml
 
 欢迎学习Linux管理课程！本课程将帮助你掌握Linux系统的基本操作和管理技能。
 
-### 章节列表
+### 章节列表(2026年春季学期)
 
-1. [Linux界面、网络连接和基本文件操作](/chapters/chapter-1/)
-2. [WSL下Ubuntu的安装与配置](/chapters/chapter-2/)
-3. [Linux软件安装](/chapters/chapter-3/)
-4. [vim编辑器的使用](/chapters/chapter-4/)
-5. [Linux用户和权限管理](/chapters/chapter-5/)
-6. [Linux软件安装和包管理](/chapters/chapter-6/)
-7. [Linux文件目录结构](/chapters/chapter-7/)
-8. [Linux系统监控和性能优化](/chapters/chapter-8/)
-
-
-- 请下载[resilio rsync](/files/Resilio-Sync_x64.zip)并安装到你的计算机上，以便在课程中进行文件同步和共享。
-
-- 输入分享码，获取wsl离线安装文件:
-`BUNBIVCGCPFQBSJVJFR5UJC354CPDT7IU`
-
-- linux课程所有文件：
-`BLVSDAAXJ52MEWU7VBRWR3JAGSYCANIRJ`
+1. [Linux的界面、网络连接和基本文件操作](/chapters/chapter-1)（第4周）
+2. [WSL下Ubuntu的安装与配置](/chapters/chapter-2)（第5周）
+3. [vim编辑器的使用](/chapters/chapter-5)（第6周）
+4. [Linux文件目录结构](/chapters/chapter-8) （第9周）
+5. [Linux用户和权限管理](/chapters/chapter-3)（第10周）
+6. [Linux软件安装和包管理](/chapters/chapter-4)（第11周）
+7. [Shell基础知识](/chapters/chapter-6)（第12周）
+8. [Bash脚本编程](/chapters/chapter-7)（第13周）
+9. [Linux系统进程管理](/chapters/chapter-9)（第14周）
+10. [Linux网络配置和管理](/chapters/chapter-10)（第15周）
+11. [Linux磁盘管理](/chapters/chapter-11)（第16周）
+12. [Linux系统安全和防火墙](/chapters/chapter-12)（第17周）
 
 ### 课程说明
 

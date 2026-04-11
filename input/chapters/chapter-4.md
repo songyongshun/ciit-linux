@@ -1,482 +1,692 @@
 ---
-title: "vim编辑器的使用"
+title: "Linux文件目录结构"
 collection: teaching
 type: "Undergraduate course"
-permalink: /teaching/2026-spring-teaching/chapter-4
+permalink: /teaching/2026-spring-teaching/chapter-5
 venue: "常州工业职业技术学院, 信息工程学院"
 date: 2026-03-01
 location: "Changzhou, China"
 Layout: /_layout.cshtml
 ---
 
-## vim编辑器的使用
+## Linux文件目录结构
 
-### 1. vim编辑器简介
+### 1. 文件系统层次结构标准（FHS）
 
-#### 什么是vim编辑器
-- **vim**：Vi IMproved，是vi编辑器的增强版本
-- **特点**：功能强大、效率高、占用资源少
-- **用途**：Linux系统中最常用的文本编辑器之一
-- **优势**：无需鼠标，纯键盘操作，适合远程服务器编辑
+#### 什么是FHS
+- **FHS**：Filesystem Hierarchy Standard，文件系统层次结构标准
+- **作用**：定义Linux系统中目录和文件的标准组织结构
+- **目的**：确保不同Linux发行版之间的一致性和兼容性
 
-#### vim的历史和特点
-- **vi**：1976年由Bill Joy开发，是Unix系统的标准编辑器
-- **vim**：1991年由Bram Moolenaar开发，兼容vi并增加大量新功能
-- **模式化设计**：三种不同的操作模式，各司其职
-- **可扩展性**：支持插件和自定义配置
-
-#### vim在Linux系统中的重要性
-- **系统管理**：编辑配置文件、脚本文件
-- **程序开发**：编写代码、调试程序
-- **文档编写**：编写技术文档、README文件
-- **日常使用**：任何需要文本编辑的场景
-
-### 2. vim的安装和启动
-
-#### 检查系统是否已安装vim
+#### FHS目录结构概述
 ```bash
-# 检查vim是否已安装
-vim --version
-
-# 或者使用which命令
-which vim
-
-# 如果未安装，会显示：/usr/bin/which: no vim in (/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin)
+/                    # 根目录，所有文件系统的起点
+├── bin/            # 基本用户命令
+├── boot/           # 启动相关文件
+├── dev/            # 设备文件
+├── etc/            # 系统配置文件
+├── home/           # 用户主目录
+├── lib/            # 系统库文件
+├── media/          # 可移动媒体挂载点
+├── mnt/            # 临时挂载点
+├── opt/            # 可选软件包
+├── proc/           # 进程和系统信息
+├── root/           # root用户主目录
+├── run/            # 运行时数据
+├── sbin/           # 系统管理命令
+├── srv/            # 服务数据
+├── sys/            # 系统设备信息
+├── tmp/            # 临时文件
+├── usr/            # 用户程序和数据
+└── var/            # 变量数据（日志、缓存等）
 ```
 
-#### 使用yum安装vim
+### 2. 根目录（/）
+
+#### 根目录特点
+- **根目录**：文件系统的最顶层目录
+- **作用**：所有其他目录的起点
+- **权限**：通常只有root用户可以在此目录下创建文件
+
+#### 查看根目录
 ```bash
-# 安装vim编辑器
-sudo yum install vim -y
+# 查看根目录内容
+ls -l /
 
-# 验证安装
-vim --version
+# 查看根目录详细信息
+ls -la /
+
+# 查看根目录大小
+du -sh /
 ```
 
-#### 启动vim的几种方式
+### 3. /bin 目录
+
+#### /bin 目录作用
+- **含义**：Binary的缩写
+- **内容**：基本的用户命令和可执行文件
+- **特点**：系统启动和运行所必需的命令
+
+#### 常见命令
 ```bash
-# 1. 直接启动vim（不打开任何文件）
-vim
+# 查看/bin目录内容
+ls /bin/
 
-# 2. 打开现有文件
-vim filename.txt
-
-# 3. 创建新文件
-vim newfile.txt
-
-# 4. 打开文件并跳转到指定行
-vim +10 filename.txt  # 跳转到第10行
-vim + filename.txt    # 跳转到文件末尾
+# 常见命令示例
+/bin/ls        # 列出目录内容
+/bin/cp        # 复制文件
+/bin/mv        # 移动文件
+/bin/rm        # 删除文件
+/bin/cat       # 查看文件内容
+/bin/grep      # 文本搜索
+/bin/find      # 查找文件
+/bin/tar       # 打包和解压
 ```
 
-#### vim的基本界面介绍
-当启动vim时，会看到类似以下界面：
+#### /bin vs /usr/bin
+- **/bin**：系统启动和基本操作必需的命令
+- **/usr/bin**：用户应用程序和工具
 
-```
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-"filename.txt" [New] 0L, 0C
-```
+### 4. /boot 目录
 
-**界面说明：**
-- **波浪号（~）**：表示该行为空行
-- **状态栏**：显示文件名、文件状态等信息
-- **光标位置**：当前编辑位置
-- **模式提示**：显示当前编辑模式（在底部状态栏）
+#### /boot 目录作用
+- **内容**：启动相关文件
+- **重要文件**：
+  - vmlinuz：内核文件
+  - initrd：初始RAM磁盘
+  - grub/：GRUB引导程序配置
 
-**常见状态栏信息：**
-- `[New]`：新文件
-- `[Modified]`：文件已修改
-- `1,1`：光标在第1行第1列
-- `Top`：光标在文件开头
-- `Bot`：光标在文件末尾
-
-### 3. vim的三种模式
-
-vim采用模式化编辑设计，主要有三种工作模式：
-
-#### 命令模式（Normal Mode）
-- **进入方式**：启动vim后**默认**进入此模式
-- **主要功能**：移动光标、删除文本、复制粘贴、执行命令
-
-#### 插入模式（Insert Mode）
-- **进入方式**：在命令模式下按 `i` 键进入 (`insert`的含义)
-- **主要功能**：输入和编辑文本内容
-- **退出方式**：按 `Esc` 键返回命令模式
-
-#### 末行模式（Last Line Mode）
-- **进入方式**：在命令模式下按 `:` 键进入
-- **主要功能**：保存文件、退出vim、搜索替换、执行系统命令
-- **退出方式**：执行命令后自动返回命令模式
-
-#### 模式切换方法
-```
-命令模式 ──i──> 插入模式
-    │                 │
-    │                 │Esc
-    │                 │
-    └──────Esc────────┘
-    │
-    │:
-    │
-    └──────:> 末行模式
-```
-
-### 4. vim基本操作
-
-#### 光标移动
+#### 查看/boot目录
 ```bash
-# 基本移动（方向键也可以使用）
-h    # 左移一个字符
-j    # 下移一行
-k    # 上移一行
-l    # 右移一个字符
+# 查看/boot目录内容
+ls -l /boot/
 
-# 屏幕移动
-Ctrl+f  或 PageDown 键  # 向下翻页
-Ctrl+b  或 PageUp 键  # 向上翻页
+# 查看内核版本
+uname -r
 
-# 文件移动
-:0   # 移动到文件开头
-:$   # 移动到文件末尾
-:n   # 移动到第n行（如 :10 移动到第10行）
+# 查看可用的内核
+ls /boot/vmlinuz*
+
+# 查看GRUB配置
+cat /boot/grub2/grub.cfg
 ```
 
-#### 文本编辑
+#### 启动文件说明
 ```bash
-# 删除操作
-x      # 删除光标所在字符
-dd     # 删除当前行
-ndd    # 删除从当前行开始的n行（如 3dd 删除当前行及以下两行）
-# 复制操作
-yy     # 复制当前行
-nyy    # 复制从当前行开始的n行（如 3yy 复制当前行及以下两行）
-# 粘贴操作
-p      # 在光标后粘贴（注意是命令模式下的p）
-
-# 撤销和重做
-u      # 撤销上一次操作
-Ctrl+r # 重做（撤销的反操作）
+/boot/vmlinuz-4.18.0-348.el8.x86_64    # 内核文件
+/boot/initramfs-4.18.0-348.el8.x86_64.img  # 初始RAM磁盘
+/boot/grub2/                            # GRUB配置目录
+/boot/grub2/grub.cfg                   # GRUB配置文件
+/boot/efi/                             # EFI系统分区
 ```
 
-#### 保存和退出
+### 5. /dev 目录
+
+#### /dev 目录作用
+- **含义**：Device的缩写
+- **内容**：设备文件
+- **类型**：字符设备、块设备、伪设备
+
+#### 设备文件类型
 ```bash
-# 在末行模式下执行
-:w          # 保存文件
-:w filename # 另存为指定文件名
-:q          # 退出vim（文件未修改时）
-:q!         # 强制退出（不保存修改）
-:wq         # 保存并退出
+# 字符设备（按字符传输）
+/dev/ttyS0        # 串行端口
+/dev/null         # 空设备
+/dev/zero         # 零设备
+
+# 块设备（按块传输）
+/dev/sda          # 硬盘
+/dev/sda1         # 硬盘分区
+/dev/cdrom        # 光驱
+
+# 伪设备
+/dev/random       # 随机数生成器
+/dev/urandom      # 非阻塞随机数生成器
 ```
 
-### 5. 搜索和替换
-
-#### 文本搜索
+#### 查看设备文件
 ```bash
-# 基本搜索
-/pattern    # 向下搜索指定的模式
-n           # 跳转到下一个匹配项
-N           # 跳转到上一个匹配项
+# 查看/dev目录内容
+ls /dev/
 
-# 搜索示例
-/hello      # 搜索"hello"
-/^hello     # 搜索以"hello"开头的行
-/hello$     # 搜索以"hello"结尾的行
+# 查看磁盘设备
+ls /dev/sd*
 
+# 查看字符设备
+ls /dev/tty*
+
+# 查看设备信息
+cat /proc/partitions
 ```
 
-#### 文本替换
+### 6. /etc 目录
+
+#### /etc 目录作用
+- **含义**：Et Cetera（等等）的缩写
+- **内容**：系统配置文件
+- **重要性**：系统管理和配置的核心目录
+
+#### 重要配置文件
 ```bash
-# 基本替换语法
-:[range]s/old/new/[flags]
-
-# 常用替换命令
-:%s/old/new/       # 替换整个文件的第一个匹配项
-:%s/old/new/g      # 替换整个文件的所有匹配项
-
-# 范围替换
-:1,10s/old/new/g   # 替换第1到10行的所有匹配项
-
-# 替换标志
-g    # 全局替换（一行中的所有匹配项）
+/etc/passwd       # 用户账户信息
+/etc/group        # 用户组信息
+/etc/shadow       # 用户密码
+/etc/fstab        # 文件系统挂载配置
+/etc/hosts        # 主机名解析
+/etc/resolv.conf  # DNS配置
+/etc/hostname     # 系统主机名
+/etc/sudoers      # sudo权限配置
+/etc/yum.conf     # YUM配置
+/etc/ssh/sshd_config  # SSH服务配置
 ```
 
-#### 正则表达式基础
+#### 网络配置文件
 ```bash
-# 常用正则表达式元字符
-.      # 匹配任意单个字符
-*      # 匹配前一个字符0次或多次
-\+     # 匹配前一个字符1次或多次
-\?     # 匹配前一个字符0次或1次
-^      # 匹配行首
-$      # 匹配行末
-\<     # 匹配单词开头
-\>     # 匹配单词结尾
-[abc]  # 匹配a、b或c中的任意一个
-[^abc] # 匹配除了a、b、c之外的任意字符
-[a-z]  # 匹配a到z的任意小写字母
-
-# 正则表达式示例
-:%s/\<hello\>/hi/g      # 将单词"hello"替换为"hi"
-:%s/^/#/g               # 在每行开头添加#
-:%s/$/;/g               # 在每行末尾添加;
-:%s/\s\+$//             # 删除行末空白字符
-:%s/\r//g               # 删除Windows回车符
+/etc/sysconfig/network-scripts/  # 网络接口配置
+/etc/hosts                       # 本地主机名解析
+/etc/resolv.conf                 # DNS服务器配置
+/etc/nsswitch.conf               # 名称服务切换配置
 ```
 
-### 6. vim配置
-
-#### 配置文件
-vim的配置文件位于用户主目录下：
+#### 服务配置文件
 ```bash
-# vim配置文件位置
-~/.vimrc    # Linux/Unix系统
-~/_vimrc    # Windows系统
+/etc/systemd/system/    # systemd服务配置
+/etc/init.d/           # SysV init脚本
+/etc/xinetd.d/         # xinetd服务配置
 ```
 
-#### 常用配置选项
+### 7. /home 目录
+
+#### /home 目录作用
+- **内容**：普通用户的主目录
+- **结构**：每个用户一个子目录
+- **权限**：用户对自己的主目录有完全控制权
+
+#### 用户目录结构
 ```bash
-# 在~/.vimrc文件中添加以下配置
-
-" 基本设置
-set nocompatible        " 不兼容vi模式
-set number              " 显示行号
-set relativenumber      " 显示相对行号
-set cursorline          " 高亮当前行
-set showcmd             " 显示命令
-set showmode            " 显示当前模式
-set laststatus=2        " 总是显示状态栏
-
-" 搜索设置
-set hlsearch            " 高亮搜索结果
-set incsearch           " 实时搜索
-set ignorecase          " 忽略大小写
-set smartcase           " 智能大小写
-
-" 缩进设置
-set autoindent          " 自动缩进
-set smartindent         " 智能缩进
-set tabstop=4           " 制表符宽度
-set shiftwidth=4        " 缩进宽度
-set expandtab           " 将制表符转换为空格
-set softtabstop=4       " 软制表符宽度
-
-" 界面设置
-set showmatch           " 显示匹配的括号
-set ruler               " 显示光标位置
-set wildmenu            " 命令行补全增强
-set scrolloff=5         " 光标上下保留5行
-
-" 文件设置
-set encoding=utf-8      " 设置编码
-set fileencoding=utf-8  " 文件编码
-set autoread            " 自动重新加载修改的文件
-set backup              " 创建备份文件
-set undofile            " 持久化撤销历史
+/home/
+├── user1/           # 用户1的主目录
+│   ├── Documents/   # 文档
+│   ├── Downloads/   # 下载文件
+│   ├── Pictures/    # 图片
+│   ├── Videos/      # 视频
+│   └── .bashrc      # Bash配置文件
+├── user2/           # 用户2的主目录
+└── ...
 ```
 
-#### 插件管理简介
-vim支持丰富的插件系统，常用插件管理器：
-- **Vundle**：简单易用的插件管理器
-- **Pathogen**：运行时路径管理器
-- **vim-plug**：现代化的插件管理器
-
-**使用vim-plug安装插件示例：**
+#### 隐藏文件和目录
 ```bash
-# 1. 下载vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# 查看用户主目录的隐藏文件
+ls -la ~
 
-# 2. 在~/.vimrc中添加插件配置
-call plug#begin('~/.vim/plugged')
-Plug 'preservim/nerdtree'      " 文件浏览器
-Plug 'vim-airline/vim-airline' " 状态栏美化
-Plug 'tpope/vim-fugitive'      " Git集成
-call plug#end()
-
-# 3. 在vim中执行安装
-:PlugInstall
+# 常见隐藏文件
+.bashrc           # Bash shell配置
+.bash_profile     # Bash登录配置
+.profile          # 用户环境配置
+.vimrc            # Vim编辑器配置
+.ssh/             # SSH密钥和配置
 ```
 
-### 7. 实践练习
+### 8. /lib 和 /lib64 目录
 
-#### 基础练习
-让我们通过实际操作来熟悉vim的基本使用：
+#### /lib 目录作用
+- **含义**：Library的缩写
+- **内容**：系统库文件
+- **类型**：共享库（.so文件）
 
+#### /lib vs /lib64
+- **/lib**：32位系统库
+- **/lib64**：64位系统库
+
+#### 常见库文件
 ```bash
-# 1. 创建练习文件
-vim practice.txt
-
-# 2. 在vim中输入以下内容（按i进入插入模式）
-Hello World!
-This is a vim practice file.
-Learning vim is fun and useful.
-Vim is a powerful text editor.
-
-# 3. 保存文件（按Esc进入命令模式，然后输入:wq）
+/lib/libc.so.6      # C标准库
+/lib/libm.so.6      # 数学库
+/lib/libpthread.so.0  # 线程库
+/lib/ld-linux.so.2  # 动态链接器
 ```
 
-#### 练习任务
+#### 查看库依赖
 ```bash
-# 任务1：光标移动练习
-# 使用h、j、k、l键在文件中移动光标
-# 使用w、b键按单词移动
-# 使用gg跳转到文件开头，G跳转到文件末尾
+# 查看程序依赖的库
+ldd /bin/ls
 
-# 任务2：文本编辑练习
-# 使用dd删除一行
-# 使用yy复制一行，然后用p粘贴
-# 使用x删除单个字符
-# 使用u撤销操作
+# 查看库文件
+ls /lib/
 
-# 任务3：搜索和替换练习
-# 使用/搜索"vim"
-# 使用:%s/vim/VIM/g将所有的vim替换为VIM
-# 使用:u撤销替换
-
-# 任务4：高级操作练习
-# 使用:%s/^/# /在每行开头添加注释
-# 使用:w保存修改
-# 使用:q退出vim
+# 查找特定库
+find /lib -name "*libc*"
 ```
 
-#### 常见使用场景
+### 9. /media 和 /mnt 目录
 
-**场景1：编辑配置文件**
+#### /media 目录
+- **作用**：可移动媒体的自动挂载点
+- **设备**：USB驱动器、CD-ROM、DVD等
+- **特点**：通常由桌面环境自动管理
+
+#### /mnt 目录
+- **作用**：临时挂载点
+- **用途**：手动挂载文件系统
+- **特点**：需要手动管理
+
+#### 挂载示例
 ```bash
-# 编辑系统配置文件
-sudo vim /etc/hosts
+# 挂载USB驱动器到/mnt
+sudo mount /dev/sdb1 /mnt
 
-# 添加自定义域名解析
-127.0.0.1 myproject.local
+# 挂载ISO文件
+sudo mount -o loop image.iso /mnt
 
-# 保存并退出
-:wq
+# 查看挂载点
+mount
+
+# 卸载设备
+sudo umount /mnt
 ```
 
-**场景2：编写Shell脚本**
+### 10. /opt 目录
+
+#### /opt 目录作用
+- **含义**：Optional的缩写
+- **内容**：可选的第三方软件包
+- **特点**：独立安装的软件
+
+#### 软件安装示例
 ```bash
-# 创建脚本文件
-vim hello.sh
-
-# 输入脚本内容
-#!/bin/bash
-echo "Hello from vim!"
-echo "Current date: $(date)"
-
-# 保存并添加执行权限
-:wq
-chmod +x hello.sh
-./hello.sh
+/opt/
+├── google/         # Google软件
+├── jetbrains/      # JetBrains工具
+├── oracle/         # Oracle软件
+└── custom-app/     # 自定义应用程序
 ```
 
-**场景3：编辑程序代码**
+#### 安装软件到/opt
 ```bash
-# 创建Python文件
-vim hello.py
+# 创建软件目录
+sudo mkdir /opt/myapp
 
-# 输入代码
-#!/usr/bin/env python3
-def greet(name):
-    return f"Hello, {name}!"
+# 解压软件包
+sudo tar -zxvf package.tar.gz -C /opt/myapp
 
-if __name__ == "__main__":
-    print(greet("Vim"))
-
-# 保存并运行
-:wq
-python3 hello.py
+# 创建符号链接
+sudo ln -s /opt/myapp/bin/myapp /usr/local/bin/myapp
 ```
 
-#### vim使用技巧
+### 11. /proc 目录
 
-**技巧1：快速移动**
+#### /proc 目录特点
+- **类型**：虚拟文件系统
+- **内容**：进程和系统信息
+- **特点**：运行时生成，不占用磁盘空间
+
+#### 重要文件和目录
 ```bash
-# 使用行号快速跳转
-:50      # 跳转到第50行
-gg=G     # 自动格式化整个文件
-%        # 跳转到匹配的括号
+/proc/cpuinfo       # CPU信息
+/proc/meminfo       # 内存信息
+/proc/version       # 内核版本
+/proc/loadavg       # 系统负载
+/proc/uptime        # 系统运行时间
+/proc/mounts        # 挂载信息
+/proc/partitions    # 分区信息
+/proc/interrupts    # 中断信息
 ```
 
-**技巧2：高效编辑**
+#### 进程信息
 ```bash
-# 批量注释
-Ctrl+v   # 进入块选择模式
-选择多行
-I        # 在行首插入
-输入#    # 输入注释符号
-Esc      # 应用到所有选中行
-
-# 批量删除注释
-Ctrl+v   # 进入块选择模式
-选择注释列
-d        # 删除选中内容
+/proc/1/            # PID为1的进程信息
+/proc/self/         # 当前进程信息
+/proc/[PID]/        # 特定进程信息
 ```
 
-**技巧3：多文件编辑**
+#### 查看系统信息
 ```bash
-# 分屏编辑
-:split   # 水平分屏
-:vsplit  # 垂直分屏
-Ctrl+w   # 切换窗口
+# 查看CPU信息
+cat /proc/cpuinfo
 
-# 标签页编辑
-:tabnew  # 新建标签页
-:tabn    # 下一个标签页
-:tabp    # 上一个标签页
+# 查看内存信息
+cat /proc/meminfo
+
+# 查看系统版本
+cat /proc/version
+
+# 查看系统负载
+cat /proc/loadavg
 ```
 
-### 8. 总结
+### 12. /root 目录
 
-通过本章学习，我们掌握了vim编辑器的核心知识和技能：
+#### /root 目录特点
+- **内容**：root用户的主目录
+- **权限**：只有root用户可以访问
+- **位置**：通常在根目录下
 
-#### 核心概念
-- **模式化编辑**：vim的三种模式（命令模式、插入模式、末行模式）及其切换方法
-- **键盘优先**：无需鼠标，纯键盘操作提高效率
-- **可配置性**：通过.vimrc文件个性化配置编辑环境
-
-#### 基本技能
-- **文件操作**：打开、保存、退出文件
-- **光标移动**：字符、单词、行、屏幕、文件级别的移动
-- **文本编辑**：删除、复制、粘贴、修改操作
-- **搜索替换**：文本搜索和正则表达式替换
-
-#### 进阶能力
-- **配置管理**：设置个性化编辑环境
-- **插件使用**：扩展vim功能
-- **实际应用**：编辑配置文件、编写脚本、开发程序
-
-#### 学习建议
-1. **循序渐进**：从基本操作开始，逐步掌握高级功能
-2. **勤加练习**：通过日常使用巩固技能
-3. **查阅帮助**：使用`:help`命令查看vim内置帮助
-4. **参考社区**：学习vim社区的最佳实践和技巧
-
-#### 常用命令速查表
-```
-模式切换：i/a/o (插入模式) | Esc (命令模式) | : (末行模式)
-文件操作：:w (保存) | :q (退出) | :wq (保存退出) | :q! (强制退出)
-光标移动：h/j/k/l (方向) | w/b (单词) | gg/G (文件头尾)
-文本编辑：x (删除字符) | dd (删除行) | yy (复制) | p (粘贴)
-搜索替换：/pattern (搜索) | :%s/old/new/g (全局替换)
+#### root目录内容
+```bash
+/root/
+├── .bashrc         # root的Bash配置
+├── .ssh/           # root的SSH配置
+├── scripts/        # root脚本
+└── downloads/      # root下载文件
 ```
 
-vim虽然学习曲线较陡，但一旦掌握，将成为你在Linux环境下最强大的文本编辑工具。继续练习，你会越来越熟练！
+#### 访问root目录
+```bash
+# 切换到root用户
+sudo su -
 
-**下一步学习：**
-- 学习更多vim高级命令和技巧
-- 探索vim插件生态系统
-- 在实际项目中应用vim进行开发
+# 查看root目录
+ls -la /root/
+
+# 注意：普通用户无法访问root目录
+```
+
+### 13. /run 目录
+
+#### /run 目录作用
+- **含义**：运行时数据
+- **内容**：系统运行时的临时文件
+- **特点**：系统启动时创建，关机时清除
+
+#### 常见内容
+```bash
+/run/lock/          # 锁文件
+/run/log/           # 日志文件
+/run/systemd/       # systemd运行时数据
+/run/user/          # 用户运行时数据
+```
+
+### 14. /sbin 目录
+
+#### /sbin 目录作用
+- **含义**：System Binary的缩写
+- **内容**：系统管理命令
+- **权限**：通常需要root权限
+
+#### 常见命令
+```bash
+/sbin/ifconfig      # 网络接口配置
+/sbin/iptables      # 防火墙配置
+/sbin/reboot        # 重启系统
+/sbin/shutdown      # 关闭系统
+/sbin/fdisk         # 分区工具
+/sbin/mkfs          # 文件系统创建
+/sbin/service       # 服务管理
+```
+
+### 15. /srv 目录
+
+#### /srv 目录作用
+- **含义**：Service的缩写
+- **内容**：服务数据文件
+- **用途**：网络服务的数据存储位置
+
+#### 常见服务数据
+```bash
+/srv/www/          # Web服务器数据
+/srv/ftp/          # FTP服务器数据
+/srv/git/          # Git仓库
+/srv/samba/        # Samba共享数据
+```
+
+### 16. /sys 目录
+
+#### /sys 目录特点
+- **类型**：虚拟文件系统
+- **内容**：内核和设备信息
+- **作用**：提供设备和驱动程序的接口
+
+#### /sys 目录结构
+```bash
+/sys/class/         # 设备类别
+/sys/block/         # 块设备
+/sys/devices/       # 设备树
+/sys/fs/            # 文件系统信息
+/sys/kernel/        # 内核参数
+/sys/module/        # 模块信息
+```
+
+### 17. /tmp 目录
+
+#### /tmp 目录作用
+- **含义**：Temporary的缩写
+- **内容**：临时文件
+- **特点**：系统重启时通常会被清空
+
+#### 临时文件管理
+```bash
+# 查看/tmp目录
+ls -l /tmp/
+
+# 创建临时文件
+echo "test" > /tmp/testfile
+
+# 查看临时文件大小
+du -sh /tmp/
+
+# 清理临时文件（通常由系统自动处理）
+sudo rm -rf /tmp/*
+```
+
+### 18. /usr 目录
+
+#### /usr 目录作用
+- **含义**：Unix System Resources的缩写
+- **内容**：用户程序和数据
+- **特点**：包含大部分用户应用程序
+
+#### /usr 目录结构
+```bash
+/usr/bin/          # 用户命令
+/usr/sbin/         # 系统管理命令
+/usr/lib/          # 用户库文件
+/usr/local/        # 本地安装的软件
+/usr/share/        # 共享数据
+/usr/include/      # 头文件
+/usr/src/          # 源代码
+```
+
+#### /usr/local 目录
+```bash
+/usr/local/bin/    # 本地用户命令
+/usr/local/sbin/   # 本地系统管理命令
+/usr/local/lib/    # 本地库文件
+/usr/local/share/  # 本地共享数据
+```
+
+### 19. /var 目录
+
+#### /var 目录作用
+- **含义**：Variable的缩写
+- **内容**：变量数据
+- **特点**：内容经常变化的文件
+
+#### /var 目录结构
+```bash
+/var/log/          # 系统日志
+/var/cache/        # 应用程序缓存
+/var/lib/          # 应用程序数据
+/var/spool/        # 队列文件
+/var/tmp/          # 临时文件（重启不删除）
+/var/run/          # 运行时数据
+```
+
+#### 日志文件管理
+```bash
+# 查看系统日志
+ls /var/log/
+
+# 查看特定日志
+tail -f /var/log/messages
+
+# 清理日志文件
+sudo journalctl --vacuum-time=7d
+
+# 查看日志大小
+du -sh /var/log/
+```
+
+### 20. 实践练习
+
+#### 目录结构探索
+```bash
+# 1. 查看整个文件系统结构
+tree -d -L 2 /
+
+# 2. 查看各目录大小
+du -sh /*
+
+# 3. 查看隐藏文件
+ls -la /etc/
+
+# 4. 查看设备文件
+ls /dev/sd*
+
+# 5. 查看进程信息
+ls /proc/ | head -10
+```
+
+#### 文件系统信息
+```bash
+# 1. 查看挂载信息
+mount
+
+# 2. 查看磁盘使用情况
+df -h
+
+# 3. 查看inode使用情况
+df -i
+
+# 4. 查看文件系统类型
+lsblk -f
+```
+
+#### 配置文件管理
+```bash
+# 1. 查看网络配置
+cat /etc/hosts
+
+# 2. 查看用户配置
+cat /etc/passwd | head -5
+
+# 3. 查看服务配置
+ls /etc/systemd/system/
+
+# 4. 查看日志配置
+cat /etc/rsyslog.conf
+```
+
+### 21. 课后作业
+
+#### 1. 目录结构分析
+1. 绘制当前系统的目录结构图
+2. 分析各目录的用途和重要性
+3. 记录各目录的大小和文件数量
+
+#### 2. 配置文件管理
+1. 查看并理解/etc/passwd文件格式
+2. 查看/etc/fstab文件，了解挂载配置
+3. 查看/etc/hosts文件，了解主机名解析
+
+#### 3. 日志文件分析
+1. 查看/var/log目录下的日志文件
+2. 分析系统日志的内容和格式
+3. 学习使用日志查看工具
+
+#### 4. 文件系统管理
+1. 查看系统中所有挂载的文件系统
+2. 了解不同文件系统的特点
+3. 练习挂载和卸载操作
+
+### 22. 故障排除
+
+#### 常见问题及解决方法
+
+##### 1. 磁盘空间不足
+```bash
+# 查看磁盘使用情况
+df -h
+
+# 查找大文件
+find / -type f -size +100M 2>/dev/null
+
+# 清理临时文件
+sudo rm -rf /tmp/*
+sudo journalctl --vacuum-time=7d
+```
+
+##### 2. 配置文件错误
+```bash
+# 备份配置文件
+sudo cp /etc/fstab /etc/fstab.bak
+
+# 检查配置文件语法
+sudo mount -a
+
+# 恢复备份
+sudo cp /etc/fstab.bak /etc/fstab
+```
+
+##### 3. 权限问题
+```bash
+# 查看文件权限
+ls -l /path/to/file
+
+# 修改文件权限
+sudo chmod 755 /path/to/file
+
+# 修改文件所有者
+sudo chown user:group /path/to/file
+```
+
+##### 4. 服务启动失败
+```bash
+# 查看服务状态
+sudo systemctl status service_name
+
+# 查看服务日志
+sudo journalctl -u service_name
+
+# 检查配置文件
+cat /etc/systemd/system/service_name.service
+```
+
+### 23. 扩展学习
+
+#### 文件系统类型
+```bash
+# 查看支持的文件系统
+cat /proc/filesystems
+
+# 查看当前使用的文件系统
+df -T
+
+# 了解不同文件系统的特点
+# ext4: 传统Linux文件系统
+# xfs: 高性能文件系统
+# btrfs: 现代文件系统，支持快照
+```
+
+#### 磁盘管理
+```bash
+# 查看磁盘信息
+lsblk
+
+# 查看分区信息
+fdisk -l
+
+# 创建文件系统
+sudo mkfs.ext4 /dev/sdb1
+
+# 挂载文件系统
+sudo mount /dev/sdb1 /mnt
+```
+
+通过本章学习，你应该能够：
+1. 理解Linux文件系统层次结构标准（FHS）
+2. 熟悉各个重要目录的作用和内容
+3. 掌握文件系统的基本管理操作
+4. 学会查看和分析系统配置文件
+5. 理解日志文件的作用和管理方法
+6. 为系统管理和维护打下坚实基础
