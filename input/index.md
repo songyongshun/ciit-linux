@@ -17,12 +17,12 @@ Layout: /_layout.cshtml
 
 1. [Linux的界面、网络连接和基本文件操作](/chapters/chapter-1)（第4周）
 2. [WSL下Ubuntu的安装与配置](/chapters/chapter-2)（第5周）
-3. [vim编辑器的使用](/chapters/chapter-5)（第6周）
-4. [Linux文件目录结构](/chapters/chapter-8) （第9周）
-5. [Linux用户和权限管理](/chapters/chapter-3)（第10周）
-6. [Linux软件安装和包管理](/chapters/chapter-4)（第11周）
-7. [Shell基础知识](/chapters/chapter-6)（第12周）
-8. [Bash脚本编程](/chapters/chapter-7)（第13周）
+3. [vim编辑器的使用](/chapters/chapter-3)（第6周）
+4. [Linux文件目录结构](/chapters/chapter-4) （第9周）
+5. [Linux用户和权限管理](/chapters/chapter-5)（第10周）
+6. [Linux软件安装和包管理](/chapters/chapter-6)（第11周）
+7. [Shell基础知识](/chapters/chapter-7)（第12周）
+8. [Bash脚本编程](/chapters/chapter-8)（第13周）
 9. [Linux系统进程管理](/chapters/chapter-9)（第14周）
 10. [Linux网络配置和管理](/chapters/chapter-10)（第15周）
 11. [Linux磁盘管理](/chapters/chapter-11)（第16周）
