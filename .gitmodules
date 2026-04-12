@@ -1,3 +1,3 @@
-[submodule "theme/CleanBlog"]
+[submodule "theme"]
 	path = theme
-	url = https://github.com/statiqdev/CleanBlog
+	url = https://github.com/statiqdev/Docable.git

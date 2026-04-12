@@ -9,7 +9,7 @@ location: "Changzhou, China"
 Layout: /_layout.cshtml
 ---
 
-## 熟悉linux系统界面和基本操作
+# 熟悉linux系统界面和基本操作
 - 打开虚拟机软件VMWare Workstation，找到已安装的操作系统CentOS 8，并启动。（弹出提示窗口时，请选择“我已复制了虚拟机”选项）。
 
 - 等待CentOS 8系统启动完成后，登录到系统中。用户名是默认的lenovo，密码是**123456**。(如果不显示密码界面，请按下空格下激活登录界面)。
@@ -27,10 +27,10 @@ Layout: /_layout.cshtml
     - Firefox浏览器：这是一个网络浏览器，可以访问互联网。
 
 
-## 网络连接
+# 网络连接
 注意，首先确保宿主操作系统（也就是Windows操作系统）已连接到网络。
 
-### VMware Workstation网络设置
+## VMware Workstation网络设置
 - 在VMWare Workstation软件中，顶部菜单栏找到“编辑”->"虚拟网络编辑器"，在弹出的窗口中点击“添加网络”，选择VMNet8，点击“确定”完成添加。
 - 如果“添加网络”按钮不可用，请先点击“更改设置”按钮，输入管理员密码后再进行添加。
 ![alt text](image.png)
@@ -46,14 +46,14 @@ Layout: /_layout.cshtml
 
 <img src="image-2.png" alt="alt text" style="width:70%; height:auto; display:block; margin:0 auto;">
 
-### 虚拟机CentOS 8网络设置
+## 虚拟机CentOS 8网络设置
 - 进入CentOS系统，在右上角的**系统状态栏**中，点击网络图标，查看当前的网络连接状态。当出现“已连接（Wired Connected）”状态时，说明网络连接成功。可以尝试打开Firefox浏览器，访问一个网站（例如www.baidu.com）来验证网络连接是否正常。
 
 <img src="image-3.png" alt="alt text" style="width:70%; height:auto; display:block; margin:0 auto;">
 
 
 
-## 使用终端练习文件基本操作
+# 使用终端练习文件基本操作
 请下载该文件，[basic-file.sh](/files/basic-file.sh)
 
 接下来打开终端，执行以下命令:

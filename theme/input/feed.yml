@@ -1,7 +1,5 @@
-FeedSources: => GetString("PostSources")
-FeedFilter: => GetBool("IsPost") && !GetBool("IsPostArchive")
-FeedOrderKey: Published
-FeedOrderDescending: true
-FeedSize: 10
 FeedRss: true
 FeedAtom: true
+FeedSources: "news/posts/{*,!index.*}"
+FeedOrderKey: Published
+FeedOrderDescending: true

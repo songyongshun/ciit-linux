@@ -1,17 +1,15 @@
 ﻿using System.Threading.Tasks;
 using Statiq.App;
-using Statiq.Web;
-using Statiq.Web.Netlify;
+using Statiq.Docs;
 
-namespace ciit_linux
+namespace MySite
 {
-    public class Program
-    {
-        public static async Task<int> Main(string[] args) =>
-            await Bootstrapper
-                .Factory
-                .CreateWeb(args)
-                .AddHostingCommands()
-                .RunAsync();
-    }
+  public class Program
+  {
+    public static async Task<int> Main(string[] args) =>
+      await Bootstrapper
+        .Factory
+        .CreateDocs(args)
+        .RunAsync();
+  }
 }
