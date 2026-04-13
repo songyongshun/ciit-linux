@@ -3,6 +3,7 @@ global using global::Statiq;
 global using global::Statiq.App;
 global using global::Statiq.Common;
 global using global::Statiq.Core;
+global using global::Statiq.Docs;
 global using global::Statiq.Web;
 global using global::System;
 global using global::System.Collections.Generic;

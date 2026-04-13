@@ -1932,3 +1932,5 @@ C:\Users\swan\Documents\repos\ciit-linux\obj\Debug\net8.0\refint\ciit-linux.dll
 C:\Users\swan\Documents\repos\ciit-linux\obj\Debug\net8.0\ciit-linux.pdb
 C:\Users\swan\Documents\repos\ciit-linux\obj\Debug\net8.0\ciit-linux.genruntimeconfig.cache
 C:\Users\swan\Documents\repos\ciit-linux\obj\Debug\net8.0\ref\ciit-linux.dll
+C:\Users\swan\Documents\repos\ciit-linux\bin\Debug\net8.0\Statiq.CodeAnalysis.dll
+C:\Users\swan\Documents\repos\ciit-linux\bin\Debug\net8.0\Statiq.Docs.dll

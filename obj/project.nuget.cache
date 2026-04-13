@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6eIulvK7yFs=",
+  "dgSpecHash": "YiSXI+9/e4w=",
   "success": true,
   "projectFilePath": "C:\\Users\\swan\\Documents\\repos\\ciit-linux\\ciit-linux.csproj",
   "expectedPackageFiles": [
@@ -135,8 +135,10 @@
     "C:\\Users\\swan\\.nuget\\packages\\spectre.console\\0.45.0\\spectre.console.0.45.0.nupkg.sha512",
     "C:\\Users\\swan\\.nuget\\packages\\spectre.console.cli\\0.45.0\\spectre.console.cli.0.45.0.nupkg.sha512",
     "C:\\Users\\swan\\.nuget\\packages\\statiq.app\\1.0.0-beta.72\\statiq.app.1.0.0-beta.72.nupkg.sha512",
+    "C:\\Users\\swan\\.nuget\\packages\\statiq.codeanalysis\\1.0.0-beta.72\\statiq.codeanalysis.1.0.0-beta.72.nupkg.sha512",
     "C:\\Users\\swan\\.nuget\\packages\\statiq.common\\1.0.0-beta.72\\statiq.common.1.0.0-beta.72.nupkg.sha512",
     "C:\\Users\\swan\\.nuget\\packages\\statiq.core\\1.0.0-beta.72\\statiq.core.1.0.0-beta.72.nupkg.sha512",
+    "C:\\Users\\swan\\.nuget\\packages\\statiq.docs\\1.0.0-beta.17\\statiq.docs.1.0.0-beta.17.nupkg.sha512",
     "C:\\Users\\swan\\.nuget\\packages\\statiq.feeds\\1.0.0-beta.72\\statiq.feeds.1.0.0-beta.72.nupkg.sha512",
     "C:\\Users\\swan\\.nuget\\packages\\statiq.handlebars\\1.0.0-beta.72\\statiq.handlebars.1.0.0-beta.72.nupkg.sha512",
     "C:\\Users\\swan\\.nuget\\packages\\statiq.highlight\\1.0.0-beta.72\\statiq.highlight.1.0.0-beta.72.nupkg.sha512",

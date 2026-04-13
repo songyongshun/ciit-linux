@@ -1,151 +1,263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
+        <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism.css">
+        <link href="/assets/css/theme.css" rel="stylesheet" />
+        <link href="/assets/css/styles.css" rel="stylesheet" />
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-core.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+        <script src="https://cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
+	    
+        <!-- Lunr search -->
 
-  <title>My Blog - Linux&#x7BA1;&#x7406;</title>
+        
 
-  <link rel="canonical" href='/'>
+        
 
-      <link type="application/rss+xml" rel="alternate" title="My Blog" href="/feed.rss" />
-      <link type="application/atom+xml" rel="alternate" title="My Blog" href="/feed.atom" />
-
-  <meta name="application-name" content='My Blog' />
-  <meta name="msapplication-tooltip" content='My Blog' />
-  <meta name="msapplication-starturl" content='/' />
-
-  <meta property="og:title" content='My Blog - Linux&#x7BA1;&#x7406;' />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content='/' />
-
-  <link rel="icon" href='/favicon.ico'>
-
-  <!-- Custom fonts for this template -->
-  <link href='/vendor/fontawesome-free/css/all.min.css' rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" data-no-mirror>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" data-no-mirror>
-
-  <!-- Styles for this template (also includes Bootstrap) -->
-  <link href='/scss/clean-blog.css' rel="stylesheet">
-
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
-  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.3.0/dist/quicklink.umd.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet">
-
-  
-
-
-  
-
-</head>
-
-<body>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand" href='/'>My Blog</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      Menu
-      <i class="fas fa-bars"></i>
+        <title>Documentation - My First Statiq page</title>
+    </head>
+    <body class="d-flex flex-column">
+        <div class="flex-grow-1 d-flex flex-column">
+            <div class="bg-nav">
+                <div class="container-xl py-3">
+                    <div class="row">
+                        <div class="offset-lg-2 col-12 col-lg-8 px-0">
+                            <nav class="navbar navbar-expand-md navbar-light align-items-start">
+    <a class="navbar-brand" href="/">
+                <span class="text-primary">Documentation</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse-topnav" aria-controls="collapse-topnav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ms-auto">
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-  <!-- Page Header -->
-  <header class="masthead no-image">
-  <div class="container position-relative">
-    <div class="row">
-      <div class="col-md-12">
-        <div class='site-heading'>
-          <h1>
-            Linux&#x7BA1;&#x7406;
-          </h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-
-  <!-- Main Content -->
-  <div class="container">
-    <div class="row">
-      <div id="content" class="col-md-12">
-        <h2 id="section">课程目录</h2>
-<p>欢迎学习Linux管理课程！本课程将帮助你掌握Linux系统的基本操作和管理技能。</p>
-<h3 id="section-1">章节列表(2026年春季学期)</h3>
-<ol>
-<li><a href="/chapters/chapter-1">Linux的界面、网络连接和基本文件操作</a>（第4周）</li>
-<li><a href="/chapters/chapter-2">WSL下Ubuntu的安装与配置</a>（第5周）</li>
-<li><a href="/chapters/chapter-3">vim编辑器的使用</a>（第6周）</li>
-<li><a href="/chapters/chapter-4">Linux文件目录结构</a> （第9周）</li>
-<li><a href="/chapters/chapter-5">Linux用户和权限管理</a>（第10周）</li>
-<li><a href="/chapters/chapter-6">Linux软件安装和包管理</a>（第11周）</li>
-<li><a href="/chapters/chapter-7">Shell基础知识</a>（第12周）</li>
-<li><a href="/chapters/chapter-8">Bash脚本编程</a>（第13周）</li>
-<li><a href="/chapters/chapter-9">Linux系统进程管理</a>（第14周）</li>
-<li><a href="/chapters/chapter-10">Linux网络配置和管理</a>（第15周）</li>
-<li><a href="/chapters/chapter-11">Linux磁盘管理</a>（第16周）</li>
-<li><a href="/chapters/chapter-12">Linux系统安全和防火墙</a>（第17周）</li>
-</ol>
-<h3 id="section-2">课程说明</h3>
-<p>本课程采用分层结构组织，每个章节都包含理论讲解和实践练习。建议按照顺序学习，以确保掌握必要的基础知识。</p>
-<h3 id="section-3">学习建议</h3>
-<ul>
-<li><strong>理论学习</strong>：先阅读每个章节的理论部分，理解基本概念</li>
-<li><strong>实践操作</strong>：在虚拟机环境中进行实际操作练习</li>
-</ul>
-
-        
-
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- Footer -->
-  <footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p class="copyright">Copyright &#xA9; 2026</p>
-
-        <ul class="list-inline text-center small">
-            <li class="list-inline-item">
-              <a href="/feed.rss"><i class="fa fa-rss"></i> RSS Feed</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="/feed.atom"><i class="fa fa-rss"></i> Atom Feed</a>
-            </li>
+    <div id="collapse-topnav" class="collapse navbar-collapse flex-wrap">
+        <ul class="navbar-nav mr-auto">
+            
         </ul>
-        <br />
-        <div class="font-weight-bold small"><a href="https://statiq.dev">Generated by Statiq</a></div>
-      </div>
+        <ul class="navbar-nav">
+                    <li class="nav-item">
+            <a class="nav-link" href="/linux">&#x5168;&#x90E8;&#x7AE0;&#x8282;</a>
+        </li>
+
+            
+        </ul>
     </div>
-  </div>
-</footer>
+</nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex-grow-1 d-flex flex-column">
+                    <!-- Titlebar -->
+                    <div id="titlebar" class="py-4">
+                        <div class="container-xl">
+                            <div class="row">
+                                <div class="offset-lg-2 col-12 col-lg-8 px-3 px-lg-0 w-100 d-flex flex-wrap align-items-end">
+                                    <div class="flex-grow-1">
+                                        <div class="breadcrumbs d-flex flex-column flex-md-row text-break">
 
+                                        </div>
+                                        <div class="text-white m-0 text-break title">
 
-  <!-- Scripts -->
-  <script src='/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>
-  <script src='/vendor/startbootstrap-clean-blog/js/scripts.js'></script>
-  <script src='/js/clean-blog.js'></script>
-  
+My First Statiq page
+                                        </div>
+                                    </div>
+                                        <div class="navbar navbar-expand-md navbar-dark p-0">
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#left-sidebar" aria-controls="left-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                                                <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Under title -->
+                    <div id="undertitle">
+                        <div class="container-xl">
+                            <div class="row">
+                                    <div class="col-md-3 col-lg-2">
+                                    </div>
+                                    <div class="col-md-9 col-lg-8 bg-white">
+                                    </div>
+                                <div class="col-lg-2 d-none d-lg-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-  
+                <!-- Body -->
+                <div class="flex-grow-1 d-flex flex-column">
+                        <div class="container-xl flex-grow-1 d-flex flex-column">
+                            <div class="row flex-grow-1 align-items-stretch">
+                                        <div id="content" class="offset-lg-2 col-12 col-lg-8 p-4 pt-md-0 bg-white">
+<h1 id="hello-world">Hello World!</h1>
+<p>Hello from my first Statiq page.</p>
 
-</body>
+                                        </div>
+                                <div class="col-lg-2 p-md-0 m-md-0 bg-body">
+                                    <div id="right-sidebar" class="sidebar px-0 px-md-3 pt-3">
+        <div class=" mb-3 sidebar-root">
+            <div class="sidebar-nav-item sidebar-header">On This Page</div>
+            <div class="sidebar-nav-children">
+                    <div class="sidebar-nav-item"><a href="#hello-world">Hello World!</a></div>
+            </div>
+        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Footer -->
+        <div id="footer" class="p-3 text-white">
+            <div class="container-xl">
+                <div class="row">
+    <div class="offset-lg-2 col-12 col-lg-8">
+        <div class="pt-2 font-size-sm text-muted text-center">
+            Generated By <a class="text-muted" href="https://statiq.dev">Statiq</a>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script>
+            $(document).ready(function() {
+                quicklink.listen();
+
+                // Bootstrap tooltips
+                $('[data-toggle="tooltip"]').tooltip();
+
+				// Keeps the sidebars in view on wider viewports
+				let left = null;
+				let leftParent = null;
+				let right = null;
+				let rightParent = null;
+                function stickSidebars()
+				{
+				    if (left == null) {
+                        left = $('#left-sidebar');
+                        right = $('#right-sidebar');
+                    }
+                    if (left.length) {
+                        if (window.innerWidth >= 768) {
+                            if (leftParent == null) {
+                                leftParent = left.parent()[0];
+                            }
+                            if (leftParent) {
+                                let leftRect = leftParent.getBoundingClientRect();
+                                stickSidebar(left,  leftRect);
+                            }
+                        } else {
+                            left.css('position', 'relative');
+                            if (left.css('bottom') != 0) {
+                                left.css('bottom', '0');
+                            }
+                        }
+                    }
+                    if (right.length) {
+                        if (window.innerWidth >= 768) {
+                            if (rightParent == null) {
+                                rightParent = right.parent()[0];
+                            }
+                            if (rightParent) {
+                                let rightRect = rightParent.getBoundingClientRect();
+                                stickSidebar(right,  rightRect);
+                            }
+                        } else {
+                            right.css('position', 'relative');
+                            if (right.css('bottom') != 0) {
+                                right.css('bottom', '0');
+                            }
+                        }
+                    }
+				}
+				function stickSidebar(sidebar, rect) {
+                    // Bottom
+                    if (rect.bottom > window.innerHeight) {
+                        sidebar.css('bottom', rect.bottom - window.innerHeight + "px");
+                    } else {
+                        sidebar.css('bottom', 0);
+                    }
+                    // Top
+                    if (rect.top < 0) {
+                        sidebar.css('position', 'sticky');
+                    } else {
+                        sidebar.css('position', 'absolute');
+                    }
+				}
+				$(window).on("load", function() {
+				    stickSidebars();
+				});
+                $(window).scroll(function() {
+				    stickSidebars();
+				});
+				$(window).resize(function() {
+				    stickSidebars();
+				})
+
+                // Mermaid diagrams
+                mermaid.initialize(
+                {
+                    flowchart:
+                    {
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-fluid');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
+            });
+        </script>
+
+        
+
+        
+    </body>
 </html>
