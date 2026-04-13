@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Statiq.App;
 using Statiq.Docs;
+using Statiq.Common;
 
 namespace MySite
 {
@@ -12,6 +13,7 @@ namespace MySite
         .CreateDocs(args)
         .AddSetting(Keys.Host, "ciit-linux.netlify.app")
         .AddSetting(Keys.LinkRoot, "/")
+        .AddSetting("ThemePath", "theme")
         .RunAsync();
   }
 }
