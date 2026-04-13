@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<id>/</id>
+	<id>http://ciit-linux.netlify.app/</id>
 	<title>Home</title>
-	<link rel="self" href="/" />
+	<link rel="self" href="http://ciit-linux.netlify.app/" />
 	<rights>2026</rights>
-	<updated>2026-04-12T10:22:53Z</updated>
+	<updated>2026-04-13T04:43:30Z</updated>
 </feed>
