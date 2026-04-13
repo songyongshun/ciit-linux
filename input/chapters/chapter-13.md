@@ -1,3 +1,14 @@
+---
+title: "Linux界面、网络连接和基本文件操作"
+collection: teaching
+type: "Undergraduate course"
+permalink: /teaching/2026-spring-teaching/chapter-13
+venue: "常州工业职业技术学院, 信息工程学院"
+date: 2026-03-01
+location: "Changzhou, China"
+Layout: /_layout.cshtml
+---
+
 # Linux 文件目录结构 - 上手操作练习题 (共20题)
 
 > 基于 Chapter 04 知识点设计，所有题目均可在实际Linux系统上操作验证
