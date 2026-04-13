@@ -12824,11 +12824,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\swan\\Documents\\repos\\ciit-linux\\theme\\Docable.csproj",
+      "projectUniqueName": "C:\\Users\\swan\\Documents\\repos\\ciit-linux-test\\theme\\Docable.csproj",
       "projectName": "Docable",
-      "projectPath": "C:\\Users\\swan\\Documents\\repos\\ciit-linux\\theme\\Docable.csproj",
+      "projectPath": "C:\\Users\\swan\\Documents\\repos\\ciit-linux-test\\theme\\Docable.csproj",
       "packagesPath": "C:\\Users\\swan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\swan\\Documents\\repos\\ciit-linux\\theme\\obj\\",
+      "outputPath": "C:\\Users\\swan\\Documents\\repos\\ciit-linux-test\\theme\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\swan\\AppData\\Roaming\\NuGet\\NuGet.Config"
