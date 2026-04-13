@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ciit-linux")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba7dbfb9a18e46bbf7b5088a3bd558a99e2ed51a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a4fb422b0d7976cd64074db976119a87a4ed613")]
 [assembly: System.Reflection.AssemblyProductAttribute("ciit-linux")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ciit-linux")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
