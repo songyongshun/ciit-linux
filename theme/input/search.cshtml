@@ -1,74 +1,85 @@
 HideFromSearchIndex: true
 Excluded: => !Context.GetBool(WebKeys.GenerateSearchIndex)
-ShowInNavbar: false
+ShowInNavigation: false
 ---
 <form>
-  <div class="form-group">
-    <label for="search">Search Query</label>
-    <input class="form-control" type="search" aria-label="Search" id="search-query">
-  </div>
+    <div class="form-group">
+        <label for="search">Search Query</label>
+        <input class="form-control" type="search" aria-label="Search" id="search">
+    </div>
 </form>
 
 <div id="search-results"></div>
 
 @section Scripts
 {
-  <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/pako@2.0.4/dist/pako_inflate.min.js"></script>
-  <script src='@(Context.GetLink(Context.GetPath(WebKeys.SearchScriptPath, "search.js")))'></script>
-  <script>
-    (function(search) {
-      function runSearch() {
-        var query = document.getElementById("search-query").value;
-        document.getElementById("search-results").replaceChildren();
-        if (query.length < 2)
-        {
-          return;
-        }
+    <script>
+        function runSearch(query) {
+            // Clear previous search results
+            $("#search-results").empty();
 
-        search.search(query, function(results) {
-          var list = document.createElement("ul");
-          if (results.length == 0)
-          {
-            const li = document.createElement("li");
-            li.append("No results found");
-            list.appendChild(li);
-          }
-          else
-          {
-            for (const res of results)
+            // If the search term is less than 2 characters, wait until the user types some more stuff
+            if (query.length < 2)
             {
-              const li = document.createElement("li");
-              const a = document.createElement("a");
-              a.setAttribute("href", res.link);
-              a.append(res.title);
-              li.appendChild(a);
-              list.appendChild(li);
+                return;
             }
-          }
-          document.getElementById("search-results").appendChild(list);
-        });
-      }
 
-      function initializeSearch() {
-        var searchField = document.getElementById("search-query");
-        searchField.addEventListener("input", runSearch);
-        searchField.addEventListener("propertychange", runSearch);
-        searchField.addEventListener("paste", runSearch);
+            // Update the URL so that the user can come back to these results
+            var url = new URL(window.location.href);
+            url.searchParams.set("query", query);
+            window.history.replaceState(url.href, "", url.href);
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const queryParam = urlParams.get("query");
-        if (queryParam) {
-          searchField.value = queryParam;
-          runSearch();
+            // Tell Lunr to run the search
+            search.search(query, function(results)
+            {
+                // Set up for scroll to text fragment on results links
+                // https://github.com/WICG/scroll-to-text-fragment
+                var highlight = "#:~:" + query.split(" ").map(term => {
+                    if(term.includes("^"))
+                        term = term.slice(0, term.indexOf("^"));
+                    if(term.includes("~"))
+                        term = term.slice(0, term.indexOf("~"));
+                    if(term.includes(":"))
+                        term = term.slice(term.indexOf(":")+1);
+                    return "text=" + term.replace("*", "").replace("+", "").replace("-", "");
+                }).join("&");
+
+                // Prepare output formatting
+                var listHtml = "<ul>";
+                if (results.length == 0)
+                {
+                    listHtml += "<li>No results found</li>";
+                }
+                else
+                {
+                    for (var i = 0; i < results.length; ++i)
+                    {
+                        var res = results[i];
+                        listHtml += `
+<div class="p-3 mb-2 bg-light page-box">
+    <h4><a href="${res.link}${highlight}">${res.title}</a></h4>
+    <div class="font-size-sm">${res.excerpt}</div>
+</div>
+`;
+                    }
+                }
+                listHtml += "</ul>";
+                $("#search-results").append(listHtml);
+            });            
         }
-      }
+        $(document).ready(function() {
+            // Hook into changes on the search box
+            $("#search").on('input propertychange paste', function() {
+                runSearch($("#search").val());
+            });
 
-      if (document.readyState === 'loading') {
-        document.addEventListener("DOMContentLoaded", initializeSearch);
-      } else {
-        initializeSearch();
-      }
-    })(search); // The search object is defined in search.js
-  </script>
+            // If the URL contains a search parameter, do that search now
+            const urlParams = new URLSearchParams(window.location.search);
+            const queryParam = urlParams.get('query');
+            if (queryParam) {
+                $("#search").val(queryParam);
+                runSearch($("#search").val());
+            }
+        });
+    </script>
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Docable")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c45d42e225d337dabb6ea9524f37a455ae64d714")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a73ea3d884562d9177782dde79968b9e35c0bef")]
 [assembly: System.Reflection.AssemblyProductAttribute("Docable")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Docable")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
