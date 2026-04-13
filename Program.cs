@@ -1,19 +1,17 @@
 ﻿using System.Threading.Tasks;
 using Statiq.App;
-using Statiq.Docs;
-using Statiq.Common;
+using Statiq.Web;
+using Statiq.Web.Netlify;
 
-namespace MySite
+namespace ciit_linux
 {
-  public class Program
-  {
-    public static async Task<int> Main(string[] args) =>
-      await Bootstrapper
-        .Factory
-        .CreateDocs(args)
-        .AddSetting(Keys.Host, "ciit-linux.netlify.app")
-        .AddSetting(Keys.LinkRoot, "/")
-        .AddSetting("ThemePath", "theme")
-        .RunAsync();
-  }
+    public class Program
+    {
+        public static async Task<int> Main(string[] args) =>
+            await Bootstrapper
+                .Factory
+                .CreateWeb(args)
+                .AddHostingCommands()
+                .RunAsync();
+    }
 }

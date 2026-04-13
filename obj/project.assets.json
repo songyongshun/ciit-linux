@@ -2405,24 +2405,6 @@
           "buildTransitive/netcoreapp3.1/Statiq.App.targets": {}
         }
       },
-      "Statiq.CodeAnalysis/1.0.0-beta.72": {
-        "type": "package",
-        "dependencies": {
-          "Buildalyzer.Workspaces": "4.1.2",
-          "Statiq.Common": "1.0.0-beta.72",
-          "System.Linq.Async": "6.0.1"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Statiq.CodeAnalysis.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Statiq.CodeAnalysis.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Statiq.Common/1.0.0-beta.72": {
         "type": "package",
         "dependencies": {
@@ -2471,26 +2453,6 @@
           "lib/netcoreapp3.1/Statiq.Core.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "Statiq.Docs/1.0.0-beta.17": {
-        "type": "package",
-        "dependencies": {
-          "Statiq.CodeAnalysis": "1.0.0-beta.72",
-          "Statiq.Web": "1.0.0-beta.60"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Statiq.Docs.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Statiq.Docs.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/Statiq.Docs.targets": {}
         }
       },
       "Statiq.Feeds/1.0.0-beta.72": {
@@ -7902,21 +7864,6 @@
         "statiq.app.nuspec"
       ]
     },
-    "Statiq.CodeAnalysis/1.0.0-beta.72": {
-      "sha512": "E35OChvIRqkq5gjXg09B/GrSePUJIQgC6TBvxMJELUYIfv89POKuIaef+9IXThim7XxHymJXe/LJqiEwQn3lQA==",
-      "type": "package",
-      "path": "statiq.codeanalysis/1.0.0-beta.72",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "icon.png",
-        "lib/netcoreapp3.1/Statiq.CodeAnalysis.dll",
-        "lib/netcoreapp3.1/Statiq.CodeAnalysis.xml",
-        "statiq.codeanalysis.1.0.0-beta.72.nupkg.sha512",
-        "statiq.codeanalysis.nuspec"
-      ]
-    },
     "Statiq.Common/1.0.0-beta.72": {
       "sha512": "vTmtweZrl2eyGsQCGoMojnb5SEu3ifQwD3ajYfYVga+r6Pol47Q0vQ/1uoCLHDz3k6UtzJ3QAhjipr+P1y68LQ==",
       "type": "package",
@@ -7945,23 +7892,6 @@
         "lib/netcoreapp3.1/Statiq.Core.xml",
         "statiq.core.1.0.0-beta.72.nupkg.sha512",
         "statiq.core.nuspec"
-      ]
-    },
-    "Statiq.Docs/1.0.0-beta.17": {
-      "sha512": "jklFq4gPoBFuBtpWAsGSj/Ai/2Y8cgBLzb47KgqOTKt+2sAdOMO43iTMXWwEilnMF0NBowGE3gUW0eILYYKCOA==",
-      "type": "package",
-      "path": "statiq.docs/1.0.0-beta.17",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "build/netcoreapp3.1/Statiq.Docs.targets",
-        "buildTransitive/netcoreapp3.1/Statiq.Docs.targets",
-        "icon.png",
-        "lib/netcoreapp3.1/Statiq.Docs.dll",
-        "lib/netcoreapp3.1/Statiq.Docs.xml",
-        "statiq.docs.1.0.0-beta.17.nupkg.sha512",
-        "statiq.docs.nuspec"
       ]
     },
     "Statiq.Feeds/1.0.0-beta.72": {
@@ -12997,7 +12927,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Statiq.Docs >= 1.0.0-beta.17"
+      "Statiq.Web >= 1.0.0-beta.60"
     ]
   },
   "packageFolders": {
@@ -13006,11 +12936,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\swan\\Documents\\repos\\ciit-linux\\ciit-linux.csproj",
+      "projectUniqueName": "C:\\Users\\swan\\source\\repos\\ciit-linux\\ciit-linux.csproj",
       "projectName": "ciit-linux",
-      "projectPath": "C:\\Users\\swan\\Documents\\repos\\ciit-linux\\ciit-linux.csproj",
+      "projectPath": "C:\\Users\\swan\\source\\repos\\ciit-linux\\ciit-linux.csproj",
       "packagesPath": "C:\\Users\\swan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\swan\\Documents\\repos\\ciit-linux\\obj\\",
+      "outputPath": "C:\\Users\\swan\\source\\repos\\ciit-linux\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\swan\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -13042,9 +12972,9 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
-          "Statiq.Docs": {
+          "Statiq.Web": {
             "target": "Package",
-            "version": "[1.0.0-beta.17, )"
+            "version": "[1.0.0-beta.60, )"
           }
         },
         "imports": [

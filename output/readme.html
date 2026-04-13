@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A clean blogging theme for Statiq Web">
+
+  <title>My Blog - Clean Blog Theme</title>
+
+  <link rel="canonical" href='/readme'>
+
+      <link type="application/rss+xml" rel="alternate" title="My Blog" href="/feed.rss" />
+      <link type="application/atom+xml" rel="alternate" title="My Blog" href="/feed.atom" />
+
+  <meta name="application-name" content='My Blog' />
+  <meta name="msapplication-tooltip" content='My Blog' />
+  <meta name="msapplication-starturl" content='/' />
+
+  <meta property="og:title" content='My Blog - Clean Blog Theme' />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content='/readme' />
+
+  <link rel="icon" href='/favicon.ico'>
+
+  <!-- Custom fonts for this template -->
+  <link href='/vendor/fontawesome-free/css/all.min.css' rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" data-no-mirror>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" data-no-mirror>
+
+  <!-- Styles for this template (also includes Bootstrap) -->
+  <link href='/scss/clean-blog.css' rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.3.0/dist/quicklink.umd.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet">
+
+  
+
+
+  
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href='/'>My Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto">
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+  <header class="masthead no-image">
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-md-12">
+        <div class='site-heading'>
+          <h1>
+            Clean Blog Theme
+          </h1>
+            <span class="subheading">A clean blogging theme for Statiq Web</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div id="content" class="col-md-12">
+        <h1 id="clean-blog">Clean Blog</h1>
+<p>This is a clean blogging theme adapted from <a href="https://github.com/StartBootstrap/startbootstrap-clean-blog">https://github.com/StartBootstrap/startbootstrap-clean-blog</a>, with some additional goodies of its own.</p>
+<h2 id="minimum-statiq-web-version">Minimum Statiq Web Version</h2>
+<p>This theme requires Statiq Web 1.0.0-beta.36 or later.</p>
+<p>Using an earlier commit of the theme may allow the use of an earlier version of Statiq Web (look at the theme <code>settings.yml</code> file to determine the minimum Statiq Web version for a given version of the theme).</p>
+<h2 id="installation">Installation</h2>
+<p>Statiq themes go in a <code>theme</code> folder alongside your <code>input</code> folder. If your site is inside a git repository, you can add the theme as a git submodule:</p>
+<pre><code class="language-shell">git submodule add https://github.com/statiqdev/CleanBlog.git theme
+</code></pre>
+<p>Alternatively, you can clone the theme directly:</p>
+<pre><code class="language-shell">git clone https://github.com/statiqdev/CleanBlog.git theme
+</code></pre>
+<p>Once inside the <code>theme</code> folder, Statiq will automatically recognize the theme.</p>
+<p>If you're not going to modify theme files directly, you can leave the theme out of your repository and use the <a href="https://www.nuget.org/packages/Devlead.Statiq">Devlead.Statiq</a> package to automatically download it as you build your site. See <a href="https://www.devlead.se/posts/2021/2021-04-10-devlead-statiq-part2-theme-from-uri">this blog post</a> for details.</p>
+<h2 id="site-contents">Site Contents</h2>
+<p>You can add contents to your site using plain HTML and CSS, as well as any of the <a href="https://www.statiq.dev/guide/content-and-data/template-languages/">template languages</a> supported by Statiq.Web. In the examples below, we will assume that you write your articles using Markdown, with <a href="https://www.statiq.dev/guide/documents-and-metadata/front-matter">front matter</a> in YAML.</p>
+<h3 id="home-page">Home Page</h3>
+<p>By default, your blog's home page will be an <a href="https://statiq.dev/web/content-and-data/archives">archive</a>, showing the latest blog posts in inverse chronological order.</p>
+<p>Note that Statiq.Web does not generate archive pages if it finds no contents for them to index. In other words, <strong>the theme will have no home page until you add a blog post</strong>.</p>
+<p>You can provide your own home page by adding an <code>index.cshtml</code> (or <code>index.md</code>) file in your <code>input</code> folder. Unless your custom home page is an archive too, it will be displayed regardless of the presence of any post.</p>
+<h4 id="sidebar">Sidebar</h4>
+<p>On the right side of the list of posts, the default home page sports a vertical bar listing the ten most used tags. Clicking on any tag brings the user to the list of posts that have that tag, similarly to what happens of the &quot;Tags&quot; page.</p>
+<p>All remaining space in the sidebar is yours! Just add a <code>_sidebar.cshtml</code> file in your <code>input</code> folder; it will be trated as a <a href="https://www.statiq.dev/guide/content-and-data/template-languages/razor">Razor partial</a> and inserted just below the list of most used tags.</p>
+<h3 id="blog-posts">Blog Posts</h3>
+<p>Add your blog posts to a <code>posts</code> folder under your own <code>input</code> folder. An example post might be named <code>input/posts/example.md</code> and contain the following content:</p>
+<pre><code class="language-text">Title: This Is An Example Post
+Lead: Yay for examples!
+Published: 12/13/2014
+Tags:
+  - Examples
+  - Tag with spaces
+---
+This is my example blog post content.
+</code></pre>
+<p>The <code>---</code> line separates the <em>front matter</em>, i.e. YAML code containing page-specific settings, from the actual body of the post. YAML syntax is widely known and is usually intuitive; however, if you need a quick tutorial or a refresher you may find <a href="https://learnxinyminutes.com/docs/yaml/">this article</a> useful.</p>
+<p>As for the <code>.md</code> extension, it means that the article body is written with Markdown syntax. And yes, there's <a href="https://learnxinyminutes.com/docs/markdown/">a quick guide</a> for it, too. See also <a href="https://www.statiq.dev/guide/content-and-data/template-languages/markdown">here</a> for Markdown features specific to Statiq.Web.</p>
+<h4 id="published-date">Published Date</h4>
+<p>If you don't specify a <code>Published</code> date, Statiq will use the last modification date of the file. Since Git does not save and restore file times, you should always specify a <code>Published</code> date if you store your blog in a Git repository; otherwise, all your posts will appear to have been published at the date of checkout.</p>
+<h4 id="tags">Tags</h4>
+<p>You may specify as many tags as you like, or even none. Of course, posts with no tags will not appear in the Tags archive.</p>
+<h3 id="static-pages">Static pages</h3>
+<p>Static pages are different from blog posts, in that they have no taxonomy (published date, tags) and thus do not appear in archives. Their usual purpose is to provide information on a site-wide basis, for example an author's bio, portfolio, and/or resume; a privacy policy; a contact form; etc.</p>
+<p>Add your static pages to a <code>pages</code> folder under your own <code>input</code> folder. An example page might be named <code>input/pages/about.md</code> and contain the following content:</p>
+<pre><code class="language-text">NavbarTitle: About
+Order: 1
+Title: About me
+Description: The life and times of James D. Author
+---
+Hi there, I'm James and this is my blog.
+
+Short bio; why I opened a blog; miscellaneous yada yada.
+</code></pre>
+<h2 id="customization">Customization</h2>
+<p>This theme offers lots of customization options. Methods through which you can personalize your blog include:</p>
+<ul>
+<li><strong>Settings</strong> - Quite a lot can be accomplished just by tweaking <a href="#settings">settings</a>, either in a global <code>settings.yml</code> file, in the front matter of documents, or both.</li>
+<li><strong>File addition</strong> - Certain files in the theme are just empty placeholders. Just add a corresponding file in your <code>input</code> folder and it will be used instead of the empty file. This way you can add your own HTML, scripts, and styles, without having to modify the theme.</li>
+<li><strong>File replacement</strong> - You can replace every theme file with your own. Just copy any file from the theme's <code>input</code> folder to your own, modify the copy at your leisure, and enjoy your fully personalized blog.</li>
+</ul>
+<blockquote>
+<p><strong>NOTE:</strong> This theme uses <a href="https://www.statiq.dev/guide/content-and-data/template-languages/razor">Razor</a> to build HTML pages and <a href="https://sass-lang.com/">SASS</a> to build CSS styles. You may want to familiarize with their syntax (besides, of course, HTML and CSS) before making additions and/or modifications.</p>
+</blockquote>
+<p>The remainder of this section illustrates how to customize some specific areas of the theme. More exhaustive references for settings and placeholder files are in subsequent sections.</p>
+<h3 id="basic-configuration">Basic Configuration</h3>
+<p>Here's an example of a <code>settings.yml</code> file:</p>
+<pre><code class="language-yaml"># Hosting settings
+Host: jamesdauthor.github.io # Host name - This example is for GitHub pages
+LinksUseHttps: true # Whether to generate HTTPS links in archives etc. - usually true, of course
+
+# Branding
+SiteTitle: My awesome blog
+SiteDescription: The blog no one but me was missing
+Copyright: =&gt; &#64;$&quot;All content © {DateTime.Now.Year} James D. Author&quot; # You can use C# expressions prefixed by =&gt;
+
+# Blog settings
+DateTimeInputCulture: &quot;&quot; # This determines the expected format for Published dates in posts - Empty string means invariant culture (yyyy-MM-dd format)
+DateTimeDisplayCulture: en-US # This determines the format for displayed dates, e.g. in post headers and archive pages
+GenerateSearchIndex: true # Setting this to false disables both the search box in navigation bar and the search page
+</code></pre>
+<h3 id="the-navigation-bar">The Navigation Bar</h3>
+<p>The navigation bar is a series of links that appears at the top of every page of your blog on desktop browsers, or can be displayed by touching a &quot;Menu&quot; button in the top right corner on mobile browsers.</p>
+<p>The navigation bar includes: links to all static pages (by default, see below), a &quot;Posts&quot; link to a historical archive of posts, and a &quot;Tags&quot; link to an index of all tags.</p>
+<p>A search box is also included at the end of the navigation bar if search index generation is enabled.</p>
+<h4 id="links-to-static-pages">Links To Static Pages</h4>
+<p>If you don't want a page to be linked in the navigation bar, add a <code>ShowInNavbar: false</code> setting in its front matter.</p>
+<p>If you don't specify a value for <code>NavbarTitle</code> in a page, <code>Title</code> will be used as the link text.</p>
+<p>Links are sorted by the value of their <code>Order</code> setting. Pages with <code>Order</code> greater than or equal to 100 will appear after &quot;Posts&quot; and &quot;Tags&quot;.</p>
+<h3 id="destination-paths">Destination Paths</h3>
+<p>By default, posts and static pages are output using the same folder structure they were found in your <code>posts</code> and <code>pages</code> folders, respectively. If you want to modify that, you can use <a href="https://www.statiq.dev/guide/web/directory-metadata">directory metadata</a> to specify a different destination. If you combine that with <a href="https://www.statiq.dev/guide/documents-and-metadata/metadata-values#computed-values">computed values</a>, you can programatically set the destination of your posts.</p>
+<p>For example, the following in a <code>_directory.yml</code> file in the <code>posts</code> folder will result in outputting posts with a path of &quot;yyyy/mm/post-title.html&quot;:</p>
+<pre><code class="language-yaml">DestinationPath: =&gt; $&quot;{Document.GetDateTime(&quot;Published&quot;).ToString(&quot;yyyy/MM&quot;)}/{Document.Destination.FileName}&quot;
+</code></pre>
+<p>Keep in mind that what determines if a document is a post or a static page is its <em>source</em> location (unless, of course, you manually set <code>IsPost</code> or <code>IsPage</code> in front matter). You can go wild with computed destinations, even to the point where your resulting site has no <code>posts</code> or <code>pages</code> directory at all: the correct styles will still be applied to each post or static page, and of course all links (e.g. in archives and navigation bar) will point to your computed destinations.</p>
+<h2 id="settings">Settings</h2>
+<h3 id="global">Global</h3>
+<p>These can be set in a settings file (in addition to any of Statiq's <a href="https://statiq.dev/guide/configuration/settings">settings</a> and <a href="https://statiq.dev/guide/configuration/web-settings">web settings</a>).</p>
+<ul>
+<li><code>SiteTitle</code>: The title of the site.</li>
+<li><code>SiteDescription</code>: The subtitle shown on the home (index) page.</li>
+<li><code>PostSources</code>: A globbing pattern where to find blog posts (defaults to <code>posts/**/*</code>).</li>
+<li><code>PageSources</code>: A globbing pattern where to find static pages (defaults to <code>pages/**/*</code>).</li>
+</ul>
+<p>It's also highly recommended to set <code>Host</code> and <code>LinksUseHttps</code> to match your hosting environment. This ensures that the RSS feeds and other artifacts that rely on absolute hosting information are correctly generated.</p>
+<h3 id="page">Page</h3>
+<p>These can be set in front matter, a sidecar file, etc. (in addition to any of Statiq's <a href="https://statiq.dev/guide/configuration/settings">settings</a> and <a href="https://statiq.dev/guide/configuration/web-settings">web settings</a>).</p>
+<ul>
+<li><code>Title</code>: The title of the page (or post).</li>
+<li><code>NavbarTitle</code>: The title of the page to use in the top-level navbar (optional, <code>Title</code> will be used if not specified).</li>
+<li><code>Description</code>: A description of the page; not displayed as a subtitle for posts, but used nonetheless to build a <code>&lt;meta&gt;</code> HTML tag.</li>
+<li><code>Lead</code>: Descriptive text that expands on the title of a post.</li>
+<li><code>Tags</code>: Tags for a blog post.</li>
+<li><code>Published</code>: The date a page or post was published.</li>
+<li><code>Image</code>: Path to an image for the page or post.</li>
+<li><code>ImageAttribution</code>: Markdown of copyright attribution for the image.</li>
+<li><code>ShowInNavbar</code>: Set to <code>false</code> to hide a static page in the top navigation bar.</li>
+<li><code>IsPost</code>: Set to <code>false</code> to exclude the file from the set of posts. This will also disable post styling like displaying tags in the header.</li>
+<li><code>IsPage</code>: Set to <code>false</code> to exclude the file from the set of static pages. This will also disable navigation bar linking.</li>
+</ul>
+<h3 id="post-comments">Post comments</h3>
+<p>These can be set in a settings file (in addition to any of Statiq's <a href="https://statiq.dev/guide/configuration/settings">settings</a> and <a href="https://statiq.dev/guide/configuration/web-settings">web settings</a>).</p>
+<ul>
+<li><code>CommentEngine</code>: The comment engine to use for posts (empty string or &quot;none&quot; to <em>not</em> display comments).</li>
+</ul>
+<p>Currently, the only available comment engine is <a href="https://giscus/app"><code>giscus</code></a>.</p>
+<p>You can interface to a comment engine of your choice without modifying this theme:</p>
+<ul>
+<li>create a Razor partial named <code>_post-comments-name_of_your_engine.cshtml</code> file in your <code>input</code> folder, containing the necessary HTML code;</li>
+<li>set <code>CommentEngine</code> to <code>name_of_your_engine</code> to have your partial automatically included.</li>
+</ul>
+<h4 id="giscus">Giscus</h4>
+<p><a href="https://giscus/app"><code>giscus</code></a> uses GitHub Discussions as comment storage.</p>
+<p>The following settings must be set in your <code>settings.yml</code> file when <code>CommentEngine</code> is set to <code>giscus</code>:</p>
+<ul>
+<li><code>GiscusRepoName</code>: Name of the repository whose discussions act as storage for post comments.</li>
+<li><code>GiscusRepoId</code>: ID of the repository whose discussions act as storage for post comments.</li>
+<li><code>GiscusCategoryId</code>: ID of the discussion category where new discussions will be created. It is recommended to use a category with the Announcements type so that new discussions can only be created by maintainers and giscus.</li>
+</ul>
+<p>To configure Giscus correctly in your blog, go to <a href="https://giscus.app/">https://giscus.app</a> and follow the configuration instructions, then copy and paste configuration values from the preconfigured <code>&lt;script&gt;</code> tag to your settings file.</p>
+<p>Alternatively, or if you need to tweak some advanced Giscus setting, create a file named <code>_post-comments-giscus.cshtml</code> in your <code>input</code> folder and just copy the preconfigured script into it.</p>
+<h3 id="calculated-settings">Calculated Settings</h3>
+<p>The following keys are calculated in <code>settings.yml</code> and can be overridden by providing new values in your settings or front matter or used from your own pages.</p>
+<ul>
+<li><code>PageTitle</code>: The title that's set for the current page and shown in the browser (by default this is &quot;[Site Title] - [Document Title]&quot;).</li>
+</ul>
+<h2 id="partials">Partials</h2>
+<p>Replace or copy any of these Razor partials in your <code>input</code> folder to override sections of the site:</p>
+<ul>
+<li><code>/_head.cshtml</code>: Additional content for the <code>&lt;head&gt;</code> tag.</li>
+<li><code>/_navigation.cshtml</code>: The navigation bar at the top every page.</li>
+<li><code>/_navbar.cshtml</code>: The items of the navigation bar at the top of the page.</li>
+<li><code>/_header.cshtml</code>: The header section of the page.</li>
+<li><code>/_posts.cshtml</code>: Displays a set of posts stored in the children of a document passed as the partial model data.</li>
+<li><code>/_post.cshtml</code>: Displays an individual post inside a list of posts.</li>
+<li><code>/_post-after-content.cshtml</code>: Displays content at the bottom of a post, before comments.</li>
+<li><code>/_page-after-content.cshtml</code>: Displays content at the bottom of a static page.</li>
+<li><code>/_common-after-content.cshtml</code>: Displays content at the bottom of <em>any</em> page. Included just after <code>/_post-after-content.cshtml</code> / <code>/_page-after-content.cshtml</code>.</li>
+<li><code>/_copyright.cshtml</code>: Displays a copyright attribution for the blog. By default, contains a paragraph with the <code>Copyright</code> setting.</li>
+<li><code>/_post-comments.cshtml</code>: Displays comments for a post.</li>
+<li><code>/_post-comments-{engine}.cshtml</code>: Displays the contents of the &quot;comments&quot; section of a post when the <code>CommentEngine</code> setting is equal, case-insensitively, to <code>{engine}</code>.</li>
+<li><code>/_sidebar.cshtml</code>: Additional content for the sidebar on the main index page (ignored if you provide your own index page).</li>
+<li><code>/_footer.cshtml</code>: The footer at the bottom of all pages.</li>
+<li><code>/_scripts.cshtml</code>: Additional scripts or other content at the bottom of the page.</li>
+</ul>
+<h2 id="sections">Sections</h2>
+<p>In addition to globally changing sections of the site using the partials above you can also add the following Razor sections to any given page to override them for that page (which will typically disable the use of the corresponding partial):</p>
+<ul>
+<li><code>Head</code>: Additional content for the <code>&lt;head&gt;</code> tag (this section is additive with the content in the <code>_head.cshtml</code> partial).</li>
+<li><code>Navigation</code>: The navigation at the top of the layout.</li>
+<li><code>Header</code>: The header section of the page.</li>
+<li><code>Footer</code>: The footer section of the page.</li>
+<li><code>Scripts</code>: Additional scripts or other content at the bottom of the page (this section is additive with the content in the <code>_scripts.cshtml</code> partial).</li>
+</ul>
+<h2 id="styles">Styles</h2>
+<p>There are three distinct extensibility points for styles:</p>
+<ul>
+<li>to override Bootstrap variables, for instance <a href="https://getbootstrap.com/docs/5.2/customize/options/">customize Bootstrap options</a>, create an input file at <code>scss/_bootstrap-variable-overrides.scss</code> and add your variables there;</li>
+<li>to override theme variables, for example to change the main color for the masthead gradient, create an input file at <code>scss/_variable-overrides.scss</code> and add your variables there;</li>
+<li>to override any styles, create an input file at <code>scss/_overrides.scss</code> and add your styles there.</li>
+</ul>
+<p>You will find the definitions of overridable Sass variables in the following files:</p>
+<ul>
+<li><code>input/vendor/bootstrap/scss/_variables.scss</code> (Bootstrap variables and options);</li>
+<li>the whole <code>input/vendor/startbootstrap-clean-blog/scss/variables</code> directory (to customize the Clean Blog theme);</li>
+<li><code>input/scss/_variables.scss</code> (to customize this variation of CleanBlog - masthead gradient color is here).</li>
+</ul>
+<h2 id="porting-from-wyam">Porting From Wyam</h2>
+<p>This blogging theme is roughly compatible with the Wyam CleanBlog theme. Some notes if you're porting:</p>
+<ul>
+<li>You will need to <a href="https://statiq.dev/web/">create a Statiq Web app</a> at the root of your site (you can keep the <code>input</code> directory).
+<ul>
+<li>Run <code>dotnet new console</code> at the root of your site.</li>
+<li>Run <code>dotnet add package Statiq.Web --version x.y.z</code> (using the <a href="https://www.nuget.org/packages/Statiq.Web">latest Statiq Web version</a>).</li>
+<li>Change the generated <code>Program</code> class in <code>Program.cs</code> to:</li>
+</ul>
+</li>
+</ul>
+<pre><code>using System;
+using System.Threading.Tasks;
+using Statiq.App;
+using Statiq.Web;
+
+namespace ...
+{
+  public class Program
+  {
+    public static async Task&lt;int&gt; Main(string[] args) =&gt;
+      await Bootstrapper
+        .Factory
+        .CreateWeb(args)
+        .RunAsync();
+  }
+}
+</code></pre>
+<ul>
+<li><p>Follow the <a href="#installation">installation instructions above</a> to install the theme into your site.</p>
+</li>
+<li><p>Create a <code>settings.yml</code> file at the root of your site and copy over settings from your <code>config.wyam</code> file</p>
+<ul>
+<li>Since the new settings file is YAML you don't need to prefix strings or anything, for example <code>Settings[Keys.Host] = &quot;daveaglick.com&quot;;</code> becomes <code>Host: daveaglick.com</code>.</li>
+<li>If you defined a global &quot;Title&quot; setting in <code>config.wyam</code> the new theme should set &quot;SiteTitle&quot; instead (and if not, a &quot;SiteTitle&quot; should be defined).</li>
+<li>If you defined an &quot;Intro&quot; setting, that should be placed in a new <code>_index.yml</code> file in your <code>input</code> directory with a key of &quot;Description&quot;.</li>
+</ul>
+</li>
+<li><p>If you created an <code>input/assets/css/override.css</code> file, move it to <code>input/scss/_overrides.scss</code> (and you can now use Sass inside the CSS overrides file).</p>
+</li>
+<li><p>Replace any uses of <code>img-response</code> CSS class with <code>img-fluid</code> since this theme uses a newer version of Bootstrap and that CSS class changed.</p>
+</li>
+<li><p>Rename and fix up any override theme files or partials according to the supported ones documented above.</p>
+<ul>
+<li>For example, the old Wyam CleanBlog supported a <code>_PostFooter.cshtml</code> which should be renamed to <code>_post-footer.cshtml</code>.</li>
+<li>The CSS may not match exactly since the new CleanBlog theme is based on the most recent CleanBlog project so you may need to take a look at the default partial implementations in this theme and adjust your override files accordingly.</li>
+</ul>
+</li>
+<li><p>You can likely remove any build scripting and bootstrapping code since you can now run <code>dotnet run -- preview</code> to preview the site.</p>
+<ul>
+<li>You can also now setup <a href="https://statiq.dev/web/deployment/">built-in deployment</a>.</li>
+</ul>
+</li>
+</ul>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="copyright">Copyright &#xA9; 2026</p>
+
+        <ul class="list-inline text-center small">
+            <li class="list-inline-item">
+              <a href="/feed.rss"><i class="fa fa-rss"></i> RSS Feed</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="/feed.atom"><i class="fa fa-rss"></i> Atom Feed</a>
+            </li>
+        </ul>
+        <br />
+        <div class="font-weight-bold small"><a href="https://statiq.dev">Generated by Statiq</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src='/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>
+  <script src='/vendor/startbootstrap-clean-blog/js/scripts.js'></script>
+  <script src='/js/clean-blog.js'></script>
+  
+
+  
+
+</body>
+
+</html>

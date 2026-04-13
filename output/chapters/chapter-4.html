@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>My Blog - Linux&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x7ED3;&#x6784;</title>
+
+  <link rel="canonical" href='/chapters/chapter-4'>
+
+      <link type="application/rss+xml" rel="alternate" title="My Blog" href="/feed.rss" />
+      <link type="application/atom+xml" rel="alternate" title="My Blog" href="/feed.atom" />
+
+  <meta name="application-name" content='My Blog' />
+  <meta name="msapplication-tooltip" content='My Blog' />
+  <meta name="msapplication-starturl" content='/' />
+
+  <meta property="og:title" content='My Blog - Linux&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x7ED3;&#x6784;' />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content='/chapters/chapter-4' />
+
+  <link rel="icon" href='/favicon.ico'>
+
+  <!-- Custom fonts for this template -->
+  <link href='/vendor/fontawesome-free/css/all.min.css' rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" data-no-mirror>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" data-no-mirror>
+
+  <!-- Styles for this template (also includes Bootstrap) -->
+  <link href='/scss/clean-blog.css' rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.3.0/dist/quicklink.umd.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet">
+
+  
+
+
+  
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href='/'>My Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto">
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+  <header class="masthead no-image">
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-md-12">
+        <div class='site-heading'>
+          <h1>
+            Linux&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x7ED3;&#x6784;
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div id="content" class="col-md-12">
+        <h2 id="linux">Linux文件目录结构</h2>
+<h3 id="fhs">1. 文件系统层次结构标准（FHS）</h3>
+<h4 id="fhs-1">什么是FHS</h4>
+<ul>
+<li><strong>FHS</strong>：Filesystem Hierarchy Standard，文件系统层次结构标准</li>
+<li><strong>作用</strong>：定义Linux系统中目录和文件的标准组织结构</li>
+<li><strong>目的</strong>：确保不同Linux发行版之间的一致性和兼容性</li>
+</ul>
+<h4 id="fhs-2">FHS目录结构概述</h4>
+<pre><code class="language-bash">/                    # 根目录，所有文件系统的起点
+├── bin/            # 基本用户命令
+├── boot/           # 启动相关文件
+├── dev/            # 设备文件
+├── etc/            # 系统配置文件
+├── home/           # 用户主目录
+├── lib/            # 系统库文件
+├── media/          # 可移动媒体挂载点
+├── mnt/            # 临时挂载点
+├── opt/            # 可选软件包
+├── proc/           # 进程和系统信息
+├── root/           # root用户主目录
+├── run/            # 运行时数据
+├── sbin/           # 系统管理命令
+├── srv/            # 服务数据
+├── sys/            # 系统设备信息
+├── tmp/            # 临时文件
+├── usr/            # 用户程序和数据
+└── var/            # 变量数据（日志、缓存等）
+</code></pre>
+<h3 id="section">2. 根目录（/）</h3>
+<h4 id="section-1">根目录特点</h4>
+<ul>
+<li><strong>根目录</strong>：文件系统的最顶层目录</li>
+<li><strong>作用</strong>：所有其他目录的起点</li>
+<li><strong>权限</strong>：通常只有root用户可以在此目录下创建文件</li>
+</ul>
+<h4 id="section-2">查看根目录</h4>
+<pre><code class="language-bash"># 查看根目录内容
+ls -l /
+
+# 查看根目录详细信息
+ls -la /
+
+# 查看根目录大小
+du -sh /
+</code></pre>
+<h3 id="bin">3. /bin 目录</h3>
+<h4 id="bin-1">/bin 目录作用</h4>
+<ul>
+<li><strong>含义</strong>：Binary的缩写</li>
+<li><strong>内容</strong>：基本的用户命令和可执行文件</li>
+<li><strong>特点</strong>：系统启动和运行所必需的命令</li>
+</ul>
+<h4 id="section-3">常见命令</h4>
+<pre><code class="language-bash"># 查看/bin目录内容
+ls /bin/
+
+# 常见命令示例
+/bin/ls        # 列出目录内容
+/bin/cp        # 复制文件
+/bin/mv        # 移动文件
+/bin/rm        # 删除文件
+/bin/cat       # 查看文件内容
+/bin/grep      # 文本搜索
+/bin/find      # 查找文件
+/bin/tar       # 打包和解压
+</code></pre>
+<h4 id="bin-vs-usrbin">/bin vs /usr/bin</h4>
+<ul>
+<li><strong>/bin</strong>：系统启动和基本操作必需的命令</li>
+<li><strong>/usr/bin</strong>：用户应用程序和工具</li>
+</ul>
+<h3 id="boot">4. /boot 目录</h3>
+<h4 id="boot-1">/boot 目录作用</h4>
+<ul>
+<li><strong>内容</strong>：启动相关文件</li>
+<li><strong>重要文件</strong>：
+<ul>
+<li>vmlinuz：内核文件</li>
+<li>initrd：初始RAM磁盘</li>
+<li>grub/：GRUB引导程序配置</li>
+</ul>
+</li>
+</ul>
+<h4 id="boot-2">查看/boot目录</h4>
+<pre><code class="language-bash"># 查看/boot目录内容
+ls -l /boot/
+
+# 查看内核版本
+uname -r
+
+# 查看可用的内核
+ls /boot/vmlinuz*
+
+# 查看GRUB配置
+cat /boot/grub2/grub.cfg
+</code></pre>
+<h4 id="section-4">启动文件说明</h4>
+<pre><code class="language-bash">/boot/vmlinuz-4.18.0-348.el8.x86_64    # 内核文件
+/boot/initramfs-4.18.0-348.el8.x86_64.img  # 初始RAM磁盘
+/boot/grub2/                            # GRUB配置目录
+/boot/grub2/grub.cfg                   # GRUB配置文件
+/boot/efi/                             # EFI系统分区
+</code></pre>
+<h3 id="dev">5. /dev 目录</h3>
+<h4 id="dev-1">/dev 目录作用</h4>
+<ul>
+<li><strong>含义</strong>：Device的缩写</li>
+<li><strong>内容</strong>：设备文件</li>
+<li><strong>类型</strong>：字符设备、块设备、伪设备</li>
+</ul>
+<h4 id="section-5">设备文件类型</h4>
+<pre><code class="language-bash"># 字符设备（按字符传输）
+/dev/ttyS0        # 串行端口
+/dev/null         # 空设备
+/dev/zero         # 零设备
+
+# 块设备（按块传输）
+/dev/sda          # 硬盘
+/dev/sda1         # 硬盘分区
+/dev/cdrom        # 光驱
+
+# 伪设备
+/dev/random       # 随机数生成器
+/dev/urandom      # 非阻塞随机数生成器
+</code></pre>
+<h4 id="section-6">查看设备文件</h4>
+<pre><code class="language-bash"># 查看/dev目录内容
+ls /dev/
+
+# 查看磁盘设备
+ls /dev/sd*
+
+# 查看字符设备
+ls /dev/tty*
+
+# 查看设备信息
+cat /proc/partitions
+</code></pre>
+<h3 id="etc">6. /etc 目录</h3>
+<h4 id="etc-1">/etc 目录作用</h4>
+<ul>
+<li><strong>含义</strong>：Et Cetera（等等）的缩写</li>
+<li><strong>内容</strong>：系统配置文件</li>
+<li><strong>重要性</strong>：系统管理和配置的核心目录</li>
+</ul>
+<h4 id="section-7">重要配置文件</h4>
+<pre><code class="language-bash">/etc/passwd       # 用户账户信息
+/etc/group        # 用户组信息
+/etc/shadow       # 用户密码
+/etc/fstab        # 文件系统挂载配置
+/etc/hosts        # 主机名解析
+/etc/resolv.conf  # DNS配置
+/etc/hostname     # 系统主机名
+/etc/sudoers      # sudo权限配置
+/etc/yum.conf     # YUM配置
+/etc/ssh/sshd_config  # SSH服务配置
+</code></pre>
+<h4 id="section-8">网络配置文件</h4>
+<pre><code class="language-bash">/etc/sysconfig/network-scripts/  # 网络接口配置
+/etc/hosts                       # 本地主机名解析
+/etc/resolv.conf                 # DNS服务器配置
+/etc/nsswitch.conf               # 名称服务切换配置
+</code></pre>
+<h4 id="section-9">服务配置文件</h4>
+<pre><code class="language-bash">/etc/systemd/system/    # systemd服务配置
+/etc/init.d/           # SysV init脚本
+/etc/xinetd.d/         # xinetd服务配置
+</code></pre>
+<h3 id="home">7. /home 目录</h3>
+<h4 id="home-1">/home 目录作用</h4>
+<ul>
+<li><strong>内容</strong>：普通用户的主目录</li>
+<li><strong>结构</strong>：每个用户一个子目录</li>
+<li><strong>权限</strong>：用户对自己的主目录有完全控制权</li>
+</ul>
+<h4 id="section-10">用户目录结构</h4>
+<pre><code class="language-bash">/home/
+├── user1/           # 用户1的主目录
+│   ├── Documents/   # 文档
+│   ├── Downloads/   # 下载文件
+│   ├── Pictures/    # 图片
+│   ├── Videos/      # 视频
+│   └── .bashrc      # Bash配置文件
+├── user2/           # 用户2的主目录
+└── ...
+</code></pre>
+<h4 id="section-11">隐藏文件和目录</h4>
+<pre><code class="language-bash"># 查看用户主目录的隐藏文件
+ls -la ~
+
+# 常见隐藏文件
+.bashrc           # Bash shell配置
+.bash_profile     # Bash登录配置
+.profile          # 用户环境配置
+.vimrc            # Vim编辑器配置
+.ssh/             # SSH密钥和配置
+</code></pre>
+<h3 id="lib-lib64">8. /lib 和 /lib64 目录</h3>
+<h4 id="lib">/lib 目录作用</h4>
+<ul>
+<li><strong>含义</strong>：Library的缩写</li>
+<li><strong>内容</strong>：系统库文件</li>
+<li><strong>类型</strong>：共享库（.so文件）</li>
+</ul>
+<h4 id="lib-vs-lib64">/lib vs /lib64</h4>
+<ul>
+<li><strong>/lib</strong>：32位系统库</li>
+<li><strong>/lib64</strong>：64位系统库</li>
+</ul>
+<h4 id="section-12">常见库文件</h4>
+<pre><code class="language-bash">/lib/libc.so.6      # C标准库
+/lib/libm.so.6      # 数学库
+/lib/libpthread.so.0  # 线程库
+/lib/ld-linux.so.2  # 动态链接器
+</code></pre>
+<h4 id="section-13">查看库依赖</h4>
+<pre><code class="language-bash"># 查看程序依赖的库
+ldd /bin/ls
+
+# 查看库文件
+ls /lib/
+
+# 查找特定库
+find /lib -name &quot;*libc*&quot;
+</code></pre>
+<h3 id="media-mnt">9. /media 和 /mnt 目录</h3>
+<h4 id="media">/media 目录</h4>
+<ul>
+<li><strong>作用</strong>：可移动媒体的自动挂载点</li>
+<li><strong>设备</strong>：USB驱动器、CD-ROM、DVD等</li>
+<li><strong>特点</strong>：通常由桌面环境自动管理</li>
+</ul>
+<h4 id="mnt">/mnt 目录</h4>
+<ul>
+<li><strong>作用</strong>：临时挂载点</li>
+<li><strong>用途</strong>：手动挂载文件系统</li>
+<li><strong>特点</strong>：需要手动管理</li>
+</ul>
+<h4 id="section-14">挂载示例</h4>
+<pre><code class="language-bash"># 挂载USB驱动器到/mnt
+sudo mount /dev/sdb1 /mnt
+
+# 挂载ISO文件
+sudo mount -o loop image.iso /mnt
+
+# 查看挂载点
+mount
+
+# 卸载设备
+sudo umount /mnt
+</code></pre>
+<h3 id="opt">10. /opt 目录</h3>
+<h4 id="opt-1">/opt 目录作用</h4>
+<ul>
+<li><strong>含义</strong>：Optional的缩写</li>
+<li><strong>内容</strong>：可选的第三方软件包</li>
+<li><strong>特点</strong>：独立安装的软件</li>
+</ul>
+<h4 id="section-15">软件安装示例</h4>
+<pre><code class="language-bash">/opt/
+├── google/         # Google软件
+├── jetbrains/      # JetBrains工具
+├── oracle/         # Oracle软件
+└── custom-app/     # 自定义应用程序
+</code></pre>
+<h4 id="opt-2">安装软件到/opt</h4>
+<pre><code class="language-bash"># 创建软件目录
+sudo mkdir /opt/myapp
+
+# 解压软件包
+sudo tar -zxvf package.tar.gz -C /opt/myapp
+
+# 创建符号链接
+sudo ln -s /opt/myapp/bin/myapp /usr/local/bin/myapp
+</code></pre>
+<h3 id="proc">11. /proc 目录</h3>
+<h4 id="proc-1">/proc 目录特点</h4>
+<ul>
+<li><strong>类型</strong>：虚拟文件系统</li>
+<li><strong>内容</strong>：进程和系统信息</li>
+<li><strong>特点</strong>：运行时生成，不占用磁盘空间</li>
+</ul>
+<h4 id="section-16">重要文件和目录</h4>
+<pre><code class="language-bash">/proc/cpuinfo       # CPU信息
+/proc/meminfo       # 内存信息
+/proc/version       # 内核版本
+/proc/loadavg       # 系统负载
+/proc/uptime        # 系统运行时间
+/proc/mounts        # 挂载信息
+/proc/partitions    # 分区信息
+/proc/interrupts    # 中断信息
+</code></pre>
+<h4 id="section-17">进程信息</h4>
+<pre><code class="language-bash">/proc/1/            # PID为1的进程信息
+/proc/self/         # 当前进程信息
+/proc/[PID]/        # 特定进程信息
+</code></pre>
+<h4 id="section-18">查看系统信息</h4>
+<pre><code class="language-bash"># 查看CPU信息
+cat /proc/cpuinfo
+
+# 查看内存信息
+cat /proc/meminfo
+
+# 查看系统版本
+cat /proc/version
+
+# 查看系统负载
+cat /proc/loadavg
+</code></pre>
+<h3 id="root">12. /root 目录</h3>
+<h4 id="root-1">/root 目录特点</h4>
+<ul>
+<li><strong>内容</strong>：root用户的主目录</li>
+<li><strong>权限</strong>：只有root用户可以访问</li>
+<li><strong>位置</strong>：通常在根目录下</li>
+</ul>
+<h4 id="root-2">root目录内容</h4>
+<pre><code class="language-bash">/root/
+├── .bashrc         # root的Bash配置
+├── .ssh/           # root的SSH配置
+├── scripts/        # root脚本
+└── downloads/      # root下载文件
+</code></pre>
+<h4 id="root-3">访问root目录</h4>
+<pre><code class="language-bash"># 切换到root用户
+sudo su -
+
+# 查看root目录
+ls -la /root/
+
+# 注意：普通用户无法访问root目录
+</code></pre>
+<h3 id="run">13. /run 目录</h3>
+<h4 id="run-1">/run 目录作用</h4>
+<ul>
+<li><strong>含义</strong>：运行时数据</li>
+<li><strong>内容</strong>：系统运行时的临时文件</li>
+<li><strong>特点</strong>：系统启动时创建，关机时清除</li>
+</ul>
+<h4 id="section-19">常见内容</h4>
+<pre><code class="language-bash">/run/lock/          # 锁文件
+/run/log/           # 日志文件
+/run/systemd/       # systemd运行时数据
+/run/user/          # 用户运行时数据
+</code></pre>
+<h3 id="sbin">14. /sbin 目录</h3>
+<h4 id="sbin-1">/sbin 目录作用</h4>
+<ul>
+<li><strong>含义</strong>：System Binary的缩写</li>
+<li><strong>内容</strong>：系统管理命令</li>
+<li><strong>权限</strong>：通常需要root权限</li>
+</ul>
+<h4 id="section-20">常见命令</h4>
+<pre><code class="language-bash">/sbin/ifconfig      # 网络接口配置
+/sbin/iptables      # 防火墙配置
+/sbin/reboot        # 重启系统
+/sbin/shutdown      # 关闭系统
+/sbin/fdisk         # 分区工具
+/sbin/mkfs          # 文件系统创建
+/sbin/service       # 服务管理
+</code></pre>
+<h3 id="srv">15. /srv 目录</h3>
+<h4 id="srv-1">/srv 目录作用</h4>
+<ul>
+<li><strong>含义</strong>：Service的缩写</li>
+<li><strong>内容</strong>：服务数据文件</li>
+<li><strong>用途</strong>：网络服务的数据存储位置</li>
+</ul>
+<h4 id="section-21">常见服务数据</h4>
+<pre><code class="language-bash">/srv/www/          # Web服务器数据
+/srv/ftp/          # FTP服务器数据
+/srv/git/          # Git仓库
+/srv/samba/        # Samba共享数据
+</code></pre>
+<h3 id="sys">16. /sys 目录</h3>
+<h4 id="sys-1">/sys 目录特点</h4>
+<ul>
+<li><strong>类型</strong>：虚拟文件系统</li>
+<li><strong>内容</strong>：内核和设备信息</li>
+<li><strong>作用</strong>：提供设备和驱动程序的接口</li>
+</ul>
+<h4 id="sys-2">/sys 目录结构</h4>
+<pre><code class="language-bash">/sys/class/         # 设备类别
+/sys/block/         # 块设备
+/sys/devices/       # 设备树
+/sys/fs/            # 文件系统信息
+/sys/kernel/        # 内核参数
+/sys/module/        # 模块信息
+</code></pre>
+<h3 id="tmp">17. /tmp 目录</h3>
+<h4 id="tmp-1">/tmp 目录作用</h4>
+<ul>
+<li><strong>含义</strong>：Temporary的缩写</li>
+<li><strong>内容</strong>：临时文件</li>
+<li><strong>特点</strong>：系统重启时通常会被清空</li>
+</ul>
+<h4 id="section-22">临时文件管理</h4>
+<pre><code class="language-bash"># 查看/tmp目录
+ls -l /tmp/
+
+# 创建临时文件
+echo &quot;test&quot; &gt; /tmp/testfile
+
+# 查看临时文件大小
+du -sh /tmp/
+
+# 清理临时文件（通常由系统自动处理）
+sudo rm -rf /tmp/*
+</code></pre>
+<h3 id="usr">18. /usr 目录</h3>
+<h4 id="usr-1">/usr 目录作用</h4>
+<ul>
+<li><strong>含义</strong>：Unix System Resources的缩写</li>
+<li><strong>内容</strong>：用户程序和数据</li>
+<li><strong>特点</strong>：包含大部分用户应用程序</li>
+</ul>
+<h4 id="usr-2">/usr 目录结构</h4>
+<pre><code class="language-bash">/usr/bin/          # 用户命令
+/usr/sbin/         # 系统管理命令
+/usr/lib/          # 用户库文件
+/usr/local/        # 本地安装的软件
+/usr/share/        # 共享数据
+/usr/include/      # 头文件
+/usr/src/          # 源代码
+</code></pre>
+<h4 id="usrlocal">/usr/local 目录</h4>
+<pre><code class="language-bash">/usr/local/bin/    # 本地用户命令
+/usr/local/sbin/   # 本地系统管理命令
+/usr/local/lib/    # 本地库文件
+/usr/local/share/  # 本地共享数据
+</code></pre>
+<h3 id="var">19. /var 目录</h3>
+<h4 id="var-1">/var 目录作用</h4>
+<ul>
+<li><strong>含义</strong>：Variable的缩写</li>
+<li><strong>内容</strong>：变量数据</li>
+<li><strong>特点</strong>：内容经常变化的文件</li>
+</ul>
+<h4 id="var-2">/var 目录结构</h4>
+<pre><code class="language-bash">/var/log/          # 系统日志
+/var/cache/        # 应用程序缓存
+/var/lib/          # 应用程序数据
+/var/spool/        # 队列文件
+/var/tmp/          # 临时文件（重启不删除）
+/var/run/          # 运行时数据
+</code></pre>
+<h4 id="section-23">日志文件管理</h4>
+<pre><code class="language-bash"># 查看系统日志
+ls /var/log/
+
+# 查看特定日志
+tail -f /var/log/messages
+
+# 清理日志文件
+sudo journalctl --vacuum-time=7d
+
+# 查看日志大小
+du -sh /var/log/
+</code></pre>
+<h3 id="section-24">20. 实践练习</h3>
+<h4 id="section-25">目录结构探索</h4>
+<pre><code class="language-bash"># 1. 查看整个文件系统结构
+tree -d -L 2 /
+
+# 2. 查看各目录大小
+du -sh /*
+
+# 3. 查看隐藏文件
+ls -la /etc/
+
+# 4. 查看设备文件
+ls /dev/sd*
+
+# 5. 查看进程信息
+ls /proc/ | head -10
+</code></pre>
+<h4 id="section-26">文件系统信息</h4>
+<pre><code class="language-bash"># 1. 查看挂载信息
+mount
+
+# 2. 查看磁盘使用情况
+df -h
+
+# 3. 查看inode使用情况
+df -i
+
+# 4. 查看文件系统类型
+lsblk -f
+</code></pre>
+<h4 id="section-27">配置文件管理</h4>
+<pre><code class="language-bash"># 1. 查看网络配置
+cat /etc/hosts
+
+# 2. 查看用户配置
+cat /etc/passwd | head -5
+
+# 3. 查看服务配置
+ls /etc/systemd/system/
+
+# 4. 查看日志配置
+cat /etc/rsyslog.conf
+</code></pre>
+<h3 id="section-28">21. 课后作业</h3>
+<h4 id="section-29">1. 目录结构分析</h4>
+<ol>
+<li>绘制当前系统的目录结构图</li>
+<li>分析各目录的用途和重要性</li>
+<li>记录各目录的大小和文件数量</li>
+</ol>
+<h4 id="section-30">2. 配置文件管理</h4>
+<ol>
+<li>查看并理解/etc/passwd文件格式</li>
+<li>查看/etc/fstab文件，了解挂载配置</li>
+<li>查看/etc/hosts文件，了解主机名解析</li>
+</ol>
+<h4 id="section-31">3. 日志文件分析</h4>
+<ol>
+<li>查看/var/log目录下的日志文件</li>
+<li>分析系统日志的内容和格式</li>
+<li>学习使用日志查看工具</li>
+</ol>
+<h4 id="section-32">4. 文件系统管理</h4>
+<ol>
+<li>查看系统中所有挂载的文件系统</li>
+<li>了解不同文件系统的特点</li>
+<li>练习挂载和卸载操作</li>
+</ol>
+<h3 id="section-33">22. 故障排除</h3>
+<h4 id="section-34">常见问题及解决方法</h4>
+<h5 id="section-35">1. 磁盘空间不足</h5>
+<pre><code class="language-bash"># 查看磁盘使用情况
+df -h
+
+# 查找大文件
+find / -type f -size +100M 2&gt;/dev/null
+
+# 清理临时文件
+sudo rm -rf /tmp/*
+sudo journalctl --vacuum-time=7d
+</code></pre>
+<h5 id="section-36">2. 配置文件错误</h5>
+<pre><code class="language-bash"># 备份配置文件
+sudo cp /etc/fstab /etc/fstab.bak
+
+# 检查配置文件语法
+sudo mount -a
+
+# 恢复备份
+sudo cp /etc/fstab.bak /etc/fstab
+</code></pre>
+<h5 id="section-37">3. 权限问题</h5>
+<pre><code class="language-bash"># 查看文件权限
+ls -l /path/to/file
+
+# 修改文件权限
+sudo chmod 755 /path/to/file
+
+# 修改文件所有者
+sudo chown user:group /path/to/file
+</code></pre>
+<h5 id="section-38">4. 服务启动失败</h5>
+<pre><code class="language-bash"># 查看服务状态
+sudo systemctl status service_name
+
+# 查看服务日志
+sudo journalctl -u service_name
+
+# 检查配置文件
+cat /etc/systemd/system/service_name.service
+</code></pre>
+<h3 id="section-39">23. 扩展学习</h3>
+<h4 id="section-40">文件系统类型</h4>
+<pre><code class="language-bash"># 查看支持的文件系统
+cat /proc/filesystems
+
+# 查看当前使用的文件系统
+df -T
+
+# 了解不同文件系统的特点
+# ext4: 传统Linux文件系统
+# xfs: 高性能文件系统
+# btrfs: 现代文件系统，支持快照
+</code></pre>
+<h4 id="section-41">磁盘管理</h4>
+<pre><code class="language-bash"># 查看磁盘信息
+lsblk
+
+# 查看分区信息
+fdisk -l
+
+# 创建文件系统
+sudo mkfs.ext4 /dev/sdb1
+
+# 挂载文件系统
+sudo mount /dev/sdb1 /mnt
+</code></pre>
+<p>通过本章学习，你应该能够：</p>
+<ol>
+<li>理解Linux文件系统层次结构标准（FHS）</li>
+<li>熟悉各个重要目录的作用和内容</li>
+<li>掌握文件系统的基本管理操作</li>
+<li>学会查看和分析系统配置文件</li>
+<li>理解日志文件的作用和管理方法</li>
+<li>为系统管理和维护打下坚实基础</li>
+</ol>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="copyright">Copyright &#xA9; 2026</p>
+
+        <ul class="list-inline text-center small">
+            <li class="list-inline-item">
+              <a href="/feed.rss"><i class="fa fa-rss"></i> RSS Feed</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="/feed.atom"><i class="fa fa-rss"></i> Atom Feed</a>
+            </li>
+        </ul>
+        <br />
+        <div class="font-weight-bold small"><a href="https://statiq.dev">Generated by Statiq</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src='/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>
+  <script src='/vendor/startbootstrap-clean-blog/js/scripts.js'></script>
+  <script src='/js/clean-blog.js'></script>
+  
+
+  
+
+</body>
+
+</html>

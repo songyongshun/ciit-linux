@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>My Blog - Linux&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;</title>
+
+  <link rel="canonical" href='/chapters/chapter-6'>
+
+      <link type="application/rss+xml" rel="alternate" title="My Blog" href="/feed.rss" />
+      <link type="application/atom+xml" rel="alternate" title="My Blog" href="/feed.atom" />
+
+  <meta name="application-name" content='My Blog' />
+  <meta name="msapplication-tooltip" content='My Blog' />
+  <meta name="msapplication-starturl" content='/' />
+
+  <meta property="og:title" content='My Blog - Linux&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;' />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content='/chapters/chapter-6' />
+
+  <link rel="icon" href='/favicon.ico'>
+
+  <!-- Custom fonts for this template -->
+  <link href='/vendor/fontawesome-free/css/all.min.css' rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" data-no-mirror>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" data-no-mirror>
+
+  <!-- Styles for this template (also includes Bootstrap) -->
+  <link href='/scss/clean-blog.css' rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.3.0/dist/quicklink.umd.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet">
+
+  
+
+
+  
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href='/'>My Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto">
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+  <header class="masthead no-image">
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-md-12">
+        <div class='site-heading'>
+          <h1>
+            Linux&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div id="content" class="col-md-12">
+        <h2 id="linux">Linux软件安装</h2>
+<h3 id="section">1. 软件包管理器基础</h3>
+<h4 id="section-1">什么是软件包管理器</h4>
+<ul>
+<li><strong>软件包管理器</strong>：用于安装、更新、配置和删除软件的工具</li>
+<li><strong>作用</strong>：简化软件管理，自动处理依赖关系</li>
+<li><strong>优势</strong>：比手动编译安装更方便、更安全</li>
+</ul>
+<h4 id="linux-1">Linux主要包管理器</h4>
+<ul>
+<li><strong>APT</strong>：Advanced Package Tool，Debian/Ubuntu系统的包管理器</li>
+<li><strong>YUM</strong>：Yellowdog Updater Modified，基于RPM的高级管理器</li>
+</ul>
+<h3 id="section-2">2. 软件源设置</h3>
+<h4 id="section-3">查看系统包管理器</h4>
+<pre><code class="language-bash"># 检查系统使用的包管理器
+which apt
+which yum
+</code></pre>
+<h4 id="section-4">什么是软件源</h4>
+<ul>
+<li><strong>软件源（Repository）</strong>：存放软件包的服务器</li>
+<li><strong>作用</strong>：提供软件下载和更新的来源</li>
+<li><strong>类型</strong>：官方源、第三方源、本地源</li>
+</ul>
+<h4 id="section-5">查看当前软件源</h4>
+<pre><code class="language-bash"># 查看YUM软件源列表
+yum repolist
+</code></pre>
+<p>由于CentOS 8已经停止维护，建议使用阿里云的镜像源来替代默认的软件源，以获得更快的软件安装和更新速度。以下是配置阿里云镜像源的步骤：</p>
+<pre><code class="language-bash"># 1. 备份原有的软件源配置文件
+sudo cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+# 2. 下载阿里云的CentOS 8镜像源配置文件
+sudo wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo 
+# 3. 清理YUM缓存并生成新的缓存
+sudo yum clean all
+sudo yum makecache
+</code></pre>
+<h4 id="epel">添加EPEL软件源</h4>
+<pre><code class="language-bash"># 安装EPEL源（Extra Packages for Enterprise Linux）
+sudo yum install epel-release
+
+</code></pre>
+<h4 id="section-6">查看当前软件源</h4>
+<pre><code class="language-bash"># 查看YUM软件源列表
+yum repolist
+
+# repo id            repo name
+AppStream          CentOS-8.5.2111 - AppStream - mirrors.aliyun.com # 应用程序、开发工具、桌面环境
+base               CentOS-8.5.2111 - Base - mirrors.aliyun.com # 系统核心组件（内核、基础工具）
+epel               Extra Packages for Enterprise Linux 8 - x86_64 # 第三方常用软件（如 htop, nginx）
+epel-modular       Extra Packages for Enterprise Linux Modular 8 - x86_64 # EPEL模块化源（提供模块化的软件包）
+extras             CentOS-8.5.2111 - Extras - mirrors.aliyun.com # 额外软件包（提供一些不常用的软件包）
+
+# 查看详细的软件源信息
+yum repolist all
+</code></pre>
+<h3 id="section-7">3. 管理软件包</h3>
+<h4 id="section-8">安装软件包</h4>
+<pre><code class="language-bash"># 使用YUM安装软件
+sudo yum install package_name
+
+# 安装多个软件
+sudo yum install package1 package2 package3
+</code></pre>
+<h4 id="section-9">搜索软件包</h4>
+<pre><code class="language-bash"># 搜索可用的软件包
+yum search keyword
+
+# 比如：搜索Firefox浏览器
+yum search firefox
+</code></pre>
+<h4 id="section-10">查看已安装的软件</h4>
+<pre><code class="language-bash"># 列出所有已安装的软件
+yum list installed
+
+# 查看特定软件是否已安装
+yum list installed | grep package_name
+
+# 比如：查看是否安装了vim编辑器
+yum list installed | grep vim
+</code></pre>
+<h4 id="section-11">查看软件包信息</h4>
+<pre><code class="language-bash"># 查看软件包详细信息
+yum info package_name
+
+# 比如：查看vim编辑器的信息
+yum info vim
+</code></pre>
+<h3 id="section-12">4. 软件更新和升级</h3>
+<h4 id="section-13">更新软件包列表</h4>
+<pre><code class="language-bash"># 更新YUM软件包列表
+sudo yum check-update
+</code></pre>
+<h4 id="section-14">升级单个软件</h4>
+<pre><code class="language-bash"># 升级特定软件
+sudo yum update package_name
+</code></pre>
+<h4 id="section-15">升级所有软件</h4>
+<pre><code class="language-bash"># 升级系统中所有可更新的软件
+sudo yum update
+</code></pre>
+<h3 id="section-16">5. 卸载软件</h3>
+<h4 id="section-17">卸载单个软件</h4>
+<pre><code class="language-bash"># 卸载软件（保留配置文件）
+sudo yum remove package_name
+</code></pre>
+<h4 id="section-18">卸载软件及其依赖</h4>
+<pre><code class="language-bash"># 卸载软件并自动移除不再需要的依赖
+sudo yum autoremove package_name
+</code></pre>
+<h4 id="section-19">清理缓存</h4>
+<pre><code class="language-bash"># 清理YUM缓存
+sudo yum clean all
+</code></pre>
+<h3 id="section-20">6. 实践练习</h3>
+<h4 id="section-21">安装常用工具</h4>
+<pre><code class="language-bash"># 1. 安装wget（用于下载文件）
+sudo yum install wget
+
+# 2. 安装htop（系统监控工具）
+sudo yum install htop
+
+# 3. 安装git（版本控制系统）
+sudo yum install git
+</code></pre>
+<h4 id="section-22">配置软件源</h4>
+<pre><code class="language-bash"># 1. 安装EPEL源
+sudo yum install epel-release
+
+# 2. 验证EPEL源
+yum repolist | grep epel
+
+# 3. 搜索EPEL源中的软件
+yum --enablerepo=epel search package_name
+</code></pre>
+<h4 id="section-23">软件管理练习</h4>
+<pre><code class="language-bash"># 1. 查看已安装的软件数量
+yum list installed | wc -l
+
+# 2. 查找特定类型的软件
+yum list installed | grep -i editor
+
+# 3. 查看某个软件的详细信息
+yum info vim
+</code></pre>
+<p>通过本章学习，你应该能够：</p>
+<ol>
+<li>理解Linux软件包管理的基本概念</li>
+<li>熟练使用YUM进行软件管理</li>
+<li>配置和管理软件源</li>
+<li>解决常见的软件安装问题</li>
+<li>为后续的Linux学习和使用打下坚实基础</li>
+</ol>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="copyright">Copyright &#xA9; 2026</p>
+
+        <ul class="list-inline text-center small">
+            <li class="list-inline-item">
+              <a href="/feed.rss"><i class="fa fa-rss"></i> RSS Feed</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="/feed.atom"><i class="fa fa-rss"></i> Atom Feed</a>
+            </li>
+        </ul>
+        <br />
+        <div class="font-weight-bold small"><a href="https://statiq.dev">Generated by Statiq</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src='/vendor/bootstrap/js/bootstrap.bundle.min.js'></script>
+  <script src='/vendor/startbootstrap-clean-blog/js/scripts.js'></script>
+  <script src='/js/clean-blog.js'></script>
+  
+
+  
+
+</body>
+
+</html>

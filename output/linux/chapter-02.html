@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism.css">
+        <link href="/assets/css/theme.css" rel="stylesheet" />
+        <link href="/assets/css/styles.css" rel="stylesheet" />
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-core.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+        <script src="https://cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
+	    
+        <!-- Lunr search -->
+
+        
+
+        
+
+        <title>Home - WSL&#x4E0B;Ubuntu&#x7684;&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;</title>
+    </head>
+    <body class="d-flex flex-column">
+        <div class="flex-grow-1 d-flex flex-column">
+            <div class="bg-nav">
+                <div class="container-xl py-3">
+                    <div class="row">
+                        <div class="offset-lg-2 col-12 col-lg-8 px-0">
+                            <nav class="navbar navbar-expand-md navbar-light align-items-start">
+    <a class="navbar-brand" href="/">
+                <span class="text-primary">Home</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse-topnav" aria-controls="collapse-topnav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="collapse-topnav" class="collapse navbar-collapse flex-wrap">
+        <ul class="navbar-nav mr-auto">
+            
+        </ul>
+        <ul class="navbar-nav">
+                    <li class="nav-item">
+            <a class="nav-link" href="/linux">&#x5168;&#x90E8;&#x7AE0;&#x8282;</a>
+        </li>
+
+            
+        </ul>
+    </div>
+</nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex-grow-1 d-flex flex-column">
+                    <!-- Titlebar -->
+                    <div id="titlebar" class="py-4">
+                        <div class="container-xl">
+                            <div class="row">
+                                <div class="offset-lg-2 col-12 col-lg-8 px-3 px-lg-0 w-100 d-flex flex-wrap align-items-end">
+                                    <div class="flex-grow-1">
+                                        <div class="breadcrumbs d-flex flex-column flex-md-row text-break">
+
+        <span><a href="/linux">&#x7AE0;&#x8282;</a></span>
+                                        </div>
+                                        <div class="text-white m-0 text-break title">
+
+WSL&#x4E0B;Ubuntu&#x7684;&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;
+                                        </div>
+                                    </div>
+                                        <div class="navbar navbar-expand-md navbar-dark p-0">
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#left-sidebar" aria-controls="left-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                                                <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Under title -->
+                    <div id="undertitle">
+                        <div class="container-xl">
+                            <div class="row">
+                                    <div class="col-md-3 col-lg-2">
+                                    </div>
+                                    <div class="col-md-9 col-lg-8 bg-white">
+                                    </div>
+                                <div class="col-lg-2 d-none d-lg-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- Body -->
+                <div class="flex-grow-1 d-flex flex-column">
+                        <div class="container-xl flex-grow-1 d-flex flex-column">
+                            <div class="row flex-grow-1 align-items-stretch">
+                                        <div class="col-md-3 col-lg-2 p-md-0 m-md-0 bg-body">
+                                            <div id="left-sidebar" class="sidebar collapse px-0 px-md-3 pt-3">
+
+<div class="sidebar-root">
+
+<div class="sidebar-nav-item">
+    <a href="/linux">&#x7AE0;&#x8282;&#x5BFC;&#x822A;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-01">Linux&#x754C;&#x9762;&#x3001;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x548C;&#x57FA;&#x672C;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;</a>
+</div>
+<div class="sidebar-nav-item active">
+    <a href="/linux/chapter-02">WSL&#x4E0B;Ubuntu&#x7684;&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-03">vim&#x7F16;&#x8F91;&#x5668;&#x7684;&#x4F7F;&#x7528;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-04">Linux&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x7ED3;&#x6784;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-05">Linux&#x7528;&#x6237;&#x548C;&#x6743;&#x9650;&#x7BA1;&#x7406;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-06">Linux&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-07">Shell&#x57FA;&#x7840;&#x77E5;&#x8BC6;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-08">Linux&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;&#x548C;&#x6027;&#x80FD;&#x4F18;&#x5316;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-09">Linux&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-10">Linux&#x7F51;&#x7EDC;&#x914D;&#x7F6E;&#x548C;&#x7BA1;&#x7406;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-11">Linux&#x78C1;&#x76D8;&#x7BA1;&#x7406;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-12">Linux&#x7CFB;&#x7EDF;&#x5B89;&#x5168;&#x548C;&#x9632;&#x706B;&#x5899;</a>
+</div></div>                                            </div>
+                                        </div>
+                                        <div id="content" class="col-md-9 col-lg-8 p-4 pt-md-0 bg-white">
+<h1 id="wsl">WSL简介</h1>
+<p>Windows Subsystem for Linux (WSL) 是微软在 Windows 10 及更高版本中引入的一个功能，它允许用户在 Windows 系统上直接运行 Linux 发行版，而无需安装虚拟机或双系统。WSL 提供了一个完整的 Linux 环境，包括命令行工具、开发工具和应用程序，使得开发者可以在 Windows 上无缝地进行 Linux 开发。</p>
+<p>WSL 有两个主要版本：</p>
+<ul>
+<li><strong>WSL 1</strong>：通过一个兼容层将 Linux 系统调用转换为 Windows 系统调用，提供了良好的兼容性。</li>
+<li><strong>WSL 2</strong>：使用轻量级的虚拟机技术，提供了更好的性能和完全的 Linux 内核支持。</li>
+</ul>
+<h1 id="wsl-1">安装WSL</h1>
+<h1 id="section">检查系统要求</h1>
+<p>在安装 WSL 之前，请确保您的 Windows 系统满足以下要求：</p>
+<ul>
+<li>Windows 10 版本 2004 及以上（内部版本 19041 及以上）或 Windows 11</li>
+<li>64位处理器</li>
+<li>至少 4GB 的 RAM（推荐 8GB 或更多）</li>
+</ul>
+<h1 id="wsl-2">启用WSL功能</h1>
+<ol>
+<li><p>以管理员身份打开 PowerShell 或命令提示符。</p>
+</li>
+<li><p>运行以下命令启用 WSL 功能：</p>
+<pre><code class="language-powershell">wsl --install
+</code></pre>
+<p>这个命令会自动启用必要的 Windows 功能并安装 WSL 2 和默认的 Linux 发行版（通常是 Ubuntu）。</p>
+</li>
+<li><p>安装完成后，重启计算机。</p>
+</li>
+</ol>
+<h1 id="wsl-3">手动安装WSL（可选）</h1>
+<p>如果您需要手动控制安装过程，可以按照以下步骤操作：</p>
+<ol>
+<li><p>启用 WSL 功能：</p>
+<pre><code class="language-powershell">dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+</code></pre>
+</li>
+<li><p>启用虚拟机平台功能：</p>
+<pre><code class="language-powershell">dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+</code></pre>
+</li>
+<li><p>重启计算机。</p>
+</li>
+<li><p>设置 WSL 2 为默认版本：</p>
+<pre><code class="language-powershell">wsl --set-default-version 2
+</code></pre>
+</li>
+</ol>
+<h1 id="ubuntu">安装Ubuntu</h1>
+<h1 id="microsoft-store">从Microsoft Store安装</h1>
+<ol>
+<li>打开 Microsoft Store。</li>
+<li>搜索 &quot;Ubuntu&quot;。</li>
+<li>选择 &quot;Ubuntu 22.04 LTS&quot; 或最新版本。</li>
+<li>点击 &quot;获取&quot; 或 &quot;安装&quot; 按钮下载并安装。</li>
+</ol>
+<h1 id="section-1">使用命令行安装</h1>
+<p>您也可以通过命令行安装特定的 Ubuntu 版本：</p>
+<pre><code class="language-powershell">wsl --install -d Ubuntu-22.04
+</code></pre>
+<h1 id="ubuntu-1">配置Ubuntu</h1>
+<h1 id="section-2">首次启动</h1>
+<ol>
+<li>安装完成后，在开始菜单中找到并启动 Ubuntu。</li>
+<li>系统会提示您创建一个新的用户账户和密码。请记住这个密码，因为您在使用 sudo 命令时需要输入它。</li>
+</ol>
+<h1 id="section-3">更新系统</h1>
+<p>首次启动后，建议立即更新系统：</p>
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade -y
+</code></pre>
+<h1 id="section-4">安装常用工具</h1>
+<p>为了提高开发效率，您可以安装一些常用的开发工具：</p>
+<pre><code class="language-bash">sudo apt install -y git vim curl wget build-essential
+</code></pre>
+<h1 id="wsl-4">配置WSL</h1>
+<h2 id="section-5">设置默认用户</h2>
+<p>如果您希望以特定用户身份启动 WSL，可以使用以下命令：</p>
+<pre><code class="language-powershell">ubuntu2204 config --default-user yourusername
+</code></pre>
+<p>（将 <code>yourusername</code> 替换为您在 Ubuntu 中创建的用户名）</p>
+<h2 id="section-6">配置网络</h2>
+<p>WSL 2 默认使用 NAT 网络模式，通常不需要额外配置。如果您需要访问 Windows 主机上的服务，可以使用 <code>localhost</code> 或 <code>127.0.0.1</code>。</p>
+<h2 id="section-7">文件系统访问</h2>
+<p>WSL 可以无缝访问 Windows 文件系统。Windows 驱动器会自动挂载在 <code>/mnt/</code> 目录下。例如，C 盘可以通过 <code>/mnt/c/</code> 访问。</p>
+<h1 id="section-8">性能优化</h1>
+<h2 id="zsh-oh-my-zsh">启用 Zsh 和 Oh My Zsh</h2>
+<p>为了获得更好的命令行体验，您可以安装 Zsh 和 Oh My Zsh：</p>
+<pre><code class="language-bash">sudo apt install -y zsh
+sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+</code></pre>
+<h2 id="vs-code">配置 VS Code</h2>
+<p>VS Code 提供了 WSL 扩展，可以让您直接在 WSL 环境中开发：</p>
+<ol>
+<li>在 Windows 中安装 VS Code。</li>
+<li>安装 &quot;Remote - WSL&quot; 扩展。</li>
+<li>在 WSL 中打开项目：<code>code .</code></li>
+</ol>
+<h1 id="section-9">常见问题和解决方案</h1>
+<h1 id="wsl-2-1">WSL 2 启动失败</h1>
+<p>如果遇到 WSL 2 启动失败的问题，可以尝试以下解决方案：</p>
+<ol>
+<li>确保 Windows 虚拟化功能已启用。</li>
+<li>更新 Windows 到最新版本。</li>
+<li>重置 WSL：
+<pre><code class="language-powershell">wsl --shutdown
+wsl --unregister Ubuntu-22.04
+wsl --install -d Ubuntu-22.04
+</code></pre>
+</li>
+</ol>
+<h1 id="section-10">网络连接问题</h1>
+<p>如果遇到网络连接问题：</p>
+<ol>
+<li>检查 Windows 防火墙设置。</li>
+<li>确保 Windows 系统已连接到网络。</li>
+<li>尝试重启 WSL：
+<pre><code class="language-powershell">wsl --shutdown
+</code></pre>
+</li>
+</ol>
+<h1 id="section-11">文件权限问题</h1>
+<p>在 Windows 和 Linux 之间共享文件时可能会遇到权限问题。建议在 WSL 中处理文件，避免直接在 Windows 中修改 WSL 文件系统中的文件。</p>
+<h1 id="section-12">总结</h1>
+<p>通过本章的学习，您已经掌握了在 Windows 系统上安装和配置 WSL 以及 Ubuntu 的基本方法。WSL 为您提供了一个强大的 Linux 开发环境，让您可以在 Windows 上无缝地进行 Linux 开发。接下来，您可以开始使用这个环境进行各种 Linux 相关的学习和开发工作。</p>
+
+
+                                        </div>
+                                <div class="col-lg-2 p-md-0 m-md-0 bg-body">
+                                    <div id="right-sidebar" class="sidebar px-0 px-md-3 pt-3">
+        <div class=" mb-3 sidebar-root">
+            <div class="sidebar-nav-item sidebar-header">On This Page</div>
+            <div class="sidebar-nav-children">
+                    <div class="sidebar-nav-item"><a href="#wsl">WSL&#x7B80;&#x4ECB;</a></div>
+                    <div class="sidebar-nav-item"><a href="#wsl-1">&#x5B89;&#x88C5;WSL</a></div>
+                    <div class="sidebar-nav-item"><a href="#section">&#x68C0;&#x67E5;&#x7CFB;&#x7EDF;&#x8981;&#x6C42;</a></div>
+                    <div class="sidebar-nav-item"><a href="#wsl-2">&#x542F;&#x7528;WSL&#x529F;&#x80FD;</a></div>
+                    <div class="sidebar-nav-item"><a href="#wsl-3">&#x624B;&#x52A8;&#x5B89;&#x88C5;WSL&#xFF08;&#x53EF;&#x9009;&#xFF09;</a></div>
+                    <div class="sidebar-nav-item"><a href="#ubuntu">&#x5B89;&#x88C5;Ubuntu</a></div>
+                    <div class="sidebar-nav-item"><a href="#microsoft-store">&#x4ECE;Microsoft Store&#x5B89;&#x88C5;</a></div>
+                    <div class="sidebar-nav-item"><a href="#section-1">&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x5B89;&#x88C5;</a></div>
+                    <div class="sidebar-nav-item"><a href="#ubuntu-1">&#x914D;&#x7F6E;Ubuntu</a></div>
+                    <div class="sidebar-nav-item"><a href="#section-2">&#x9996;&#x6B21;&#x542F;&#x52A8;</a></div>
+                    <div class="sidebar-nav-item"><a href="#section-3">&#x66F4;&#x65B0;&#x7CFB;&#x7EDF;</a></div>
+                    <div class="sidebar-nav-item"><a href="#section-4">&#x5B89;&#x88C5;&#x5E38;&#x7528;&#x5DE5;&#x5177;</a></div>
+                    <div class="sidebar-nav-item"><a href="#wsl-4">&#x914D;&#x7F6E;WSL</a></div>
+                        <div class="sidebar-nav-children">
+                                <div class="sidebar-nav-item"><a href="#section-5">&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x7528;&#x6237;</a></div>
+                                <div class="sidebar-nav-item"><a href="#section-6">&#x914D;&#x7F6E;&#x7F51;&#x7EDC;</a></div>
+                                <div class="sidebar-nav-item"><a href="#section-7">&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x8BBF;&#x95EE;</a></div>
+                        </div>
+                    <div class="sidebar-nav-item"><a href="#section-8">&#x6027;&#x80FD;&#x4F18;&#x5316;</a></div>
+                        <div class="sidebar-nav-children">
+                                <div class="sidebar-nav-item"><a href="#zsh-oh-my-zsh">&#x542F;&#x7528; Zsh &#x548C; Oh My Zsh</a></div>
+                                <div class="sidebar-nav-item"><a href="#vs-code">&#x914D;&#x7F6E; VS Code</a></div>
+                        </div>
+                    <div class="sidebar-nav-item"><a href="#section-9">&#x5E38;&#x89C1;&#x95EE;&#x9898;&#x548C;&#x89E3;&#x51B3;&#x65B9;&#x6848;</a></div>
+                    <div class="sidebar-nav-item"><a href="#wsl-2-1">WSL 2 &#x542F;&#x52A8;&#x5931;&#x8D25;</a></div>
+                    <div class="sidebar-nav-item"><a href="#section-10">&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x95EE;&#x9898;</a></div>
+                    <div class="sidebar-nav-item"><a href="#section-11">&#x6587;&#x4EF6;&#x6743;&#x9650;&#x95EE;&#x9898;</a></div>
+                    <div class="sidebar-nav-item"><a href="#section-12">&#x603B;&#x7ED3;</a></div>
+            </div>
+        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer" class="p-3 text-white">
+            <div class="container-xl">
+                <div class="row">
+    <div class="offset-lg-2 col-12 col-lg-8">
+        <div class="pt-2 font-size-sm text-muted text-center">
+            Generated By <a class="text-muted" href="https://statiq.dev">Statiq</a>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script>
+            $(document).ready(function() {
+                quicklink.listen();
+
+                // Bootstrap tooltips
+                $('[data-toggle="tooltip"]').tooltip();
+
+				// Keeps the sidebars in view on wider viewports
+				let left = null;
+				let leftParent = null;
+				let right = null;
+				let rightParent = null;
+                function stickSidebars()
+				{
+				    if (left == null) {
+                        left = $('#left-sidebar');
+                        right = $('#right-sidebar');
+                    }
+                    if (left.length) {
+                        if (window.innerWidth >= 768) {
+                            if (leftParent == null) {
+                                leftParent = left.parent()[0];
+                            }
+                            if (leftParent) {
+                                let leftRect = leftParent.getBoundingClientRect();
+                                stickSidebar(left,  leftRect);
+                            }
+                        } else {
+                            left.css('position', 'relative');
+                            if (left.css('bottom') != 0) {
+                                left.css('bottom', '0');
+                            }
+                        }
+                    }
+                    if (right.length) {
+                        if (window.innerWidth >= 768) {
+                            if (rightParent == null) {
+                                rightParent = right.parent()[0];
+                            }
+                            if (rightParent) {
+                                let rightRect = rightParent.getBoundingClientRect();
+                                stickSidebar(right,  rightRect);
+                            }
+                        } else {
+                            right.css('position', 'relative');
+                            if (right.css('bottom') != 0) {
+                                right.css('bottom', '0');
+                            }
+                        }
+                    }
+				}
+				function stickSidebar(sidebar, rect) {
+                    // Bottom
+                    if (rect.bottom > window.innerHeight) {
+                        sidebar.css('bottom', rect.bottom - window.innerHeight + "px");
+                    } else {
+                        sidebar.css('bottom', 0);
+                    }
+                    // Top
+                    if (rect.top < 0) {
+                        sidebar.css('position', 'sticky');
+                    } else {
+                        sidebar.css('position', 'absolute');
+                    }
+				}
+				$(window).on("load", function() {
+				    stickSidebars();
+				});
+                $(window).scroll(function() {
+				    stickSidebars();
+				});
+				$(window).resize(function() {
+				    stickSidebars();
+				})
+
+                // Mermaid diagrams
+                mermaid.initialize(
+                {
+                    flowchart:
+                    {
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-fluid');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
+            });
+        </script>
+
+        
+
+        
+    </body>
+</html>

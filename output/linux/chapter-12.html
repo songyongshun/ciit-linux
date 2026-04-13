@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism.css">
+        <link href="/assets/css/theme.css" rel="stylesheet" />
+        <link href="/assets/css/styles.css" rel="stylesheet" />
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-core.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+        <script src="https://cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
+	    
+        <!-- Lunr search -->
+
+        
+
+        
+
+        <title>Home - Linux&#x7CFB;&#x7EDF;&#x5B89;&#x5168;&#x548C;&#x9632;&#x706B;&#x5899;</title>
+    </head>
+    <body class="d-flex flex-column">
+        <div class="flex-grow-1 d-flex flex-column">
+            <div class="bg-nav">
+                <div class="container-xl py-3">
+                    <div class="row">
+                        <div class="offset-lg-2 col-12 col-lg-8 px-0">
+                            <nav class="navbar navbar-expand-md navbar-light align-items-start">
+    <a class="navbar-brand" href="/">
+                <span class="text-primary">Home</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse-topnav" aria-controls="collapse-topnav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="collapse-topnav" class="collapse navbar-collapse flex-wrap">
+        <ul class="navbar-nav mr-auto">
+            
+        </ul>
+        <ul class="navbar-nav">
+                    <li class="nav-item">
+            <a class="nav-link" href="/linux">&#x5168;&#x90E8;&#x7AE0;&#x8282;</a>
+        </li>
+
+            
+        </ul>
+    </div>
+</nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex-grow-1 d-flex flex-column">
+                    <!-- Titlebar -->
+                    <div id="titlebar" class="py-4">
+                        <div class="container-xl">
+                            <div class="row">
+                                <div class="offset-lg-2 col-12 col-lg-8 px-3 px-lg-0 w-100 d-flex flex-wrap align-items-end">
+                                    <div class="flex-grow-1">
+                                        <div class="breadcrumbs d-flex flex-column flex-md-row text-break">
+
+        <span><a href="/linux">&#x7AE0;&#x8282;</a></span>
+                                        </div>
+                                        <div class="text-white m-0 text-break title">
+
+Linux&#x7CFB;&#x7EDF;&#x5B89;&#x5168;&#x548C;&#x9632;&#x706B;&#x5899;
+                                        </div>
+                                    </div>
+                                        <div class="navbar navbar-expand-md navbar-dark p-0">
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#left-sidebar" aria-controls="left-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                                                <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Under title -->
+                    <div id="undertitle">
+                        <div class="container-xl">
+                            <div class="row">
+                                    <div class="col-md-3 col-lg-2">
+                                    </div>
+                                    <div class="col-md-9 col-lg-8 bg-white">
+                                    </div>
+                                <div class="col-lg-2 d-none d-lg-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- Body -->
+                <div class="flex-grow-1 d-flex flex-column">
+                        <div class="container-xl flex-grow-1 d-flex flex-column">
+                            <div class="row flex-grow-1 align-items-stretch">
+                                        <div class="col-md-3 col-lg-2 p-md-0 m-md-0 bg-body">
+                                            <div id="left-sidebar" class="sidebar collapse px-0 px-md-3 pt-3">
+
+<div class="sidebar-root">
+
+<div class="sidebar-nav-item">
+    <a href="/linux">&#x7AE0;&#x8282;&#x5BFC;&#x822A;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-01">Linux&#x754C;&#x9762;&#x3001;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x548C;&#x57FA;&#x672C;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-02">WSL&#x4E0B;Ubuntu&#x7684;&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-03">vim&#x7F16;&#x8F91;&#x5668;&#x7684;&#x4F7F;&#x7528;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-04">Linux&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x7ED3;&#x6784;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-05">Linux&#x7528;&#x6237;&#x548C;&#x6743;&#x9650;&#x7BA1;&#x7406;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-06">Linux&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-07">Shell&#x57FA;&#x7840;&#x77E5;&#x8BC6;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-08">Linux&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;&#x548C;&#x6027;&#x80FD;&#x4F18;&#x5316;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-09">Linux&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-10">Linux&#x7F51;&#x7EDC;&#x914D;&#x7F6E;&#x548C;&#x7BA1;&#x7406;</a>
+</div>
+<div class="sidebar-nav-item">
+    <a href="/linux/chapter-11">Linux&#x78C1;&#x76D8;&#x7BA1;&#x7406;</a>
+</div>
+<div class="sidebar-nav-item active">
+    <a href="/linux/chapter-12">Linux&#x7CFB;&#x7EDF;&#x5B89;&#x5168;&#x548C;&#x9632;&#x706B;&#x5899;</a>
+</div></div>                                            </div>
+                                        </div>
+                                        <div id="content" class="col-md-9 col-lg-8 p-4 pt-md-0 bg-white">
+<h1 id="linux">Linux系统安全和防火墙</h1>
+<h1 id="section">1. 系统安全概述</h1>
+<h2 id="section-1">安全基本原则</h2>
+<ul>
+<li><strong>最小权限原则</strong>：用户和程序只拥有必要的权限</li>
+<li><strong>纵深防御</strong>：多层安全防护</li>
+<li><strong>定期审计</strong>：持续监控和检查</li>
+</ul>
+<h2 id="section-2">常见安全威胁</h2>
+<ul>
+<li>未授权访问</li>
+<li>暴力破解攻击</li>
+<li>恶意软件</li>
+<li>拒绝服务攻击</li>
+<li>配置错误</li>
+</ul>
+<h1 id="section-3">2. 用户安全管理</h1>
+<h2 id="section-4">密码安全</h2>
+<pre><code class="language-bash"># 设置密码策略
+vi /etc/login.defs
+
+# 密码有效期
+PASS_MAX_DAYS   90
+PASS_MIN_DAYS   0
+PASS_WARN_AGE   7
+</code></pre>
+<h2 id="section-5">用户访问控制</h2>
+<pre><code class="language-bash"># 禁止root远程登录
+vi /etc/ssh/sshd_config
+PermitRootLogin no
+
+# 禁用无用用户
+userdel username
+usermod -L username  # 锁定用户
+</code></pre>
+<h1 id="ssh">3. SSH安全配置</h1>
+<h2 id="ssh-1">SSH安全设置</h2>
+<pre><code class="language-bash">vi /etc/ssh/sshd_config
+
+# 修改默认端口
+Port 2222
+
+# 禁用密码登录
+PasswordAuthentication no
+
+# 启用密钥登录
+PubkeyAuthentication yes
+
+# 限制登录用户
+AllowUsers user1 user2
+</code></pre>
+<h2 id="section-6">密钥认证</h2>
+<pre><code class="language-bash"># 生成密钥对
+ssh-keygen -t rsa -b 4096
+
+# 复制公钥到服务器
+ssh-copy-id user&#64;server
+
+# 重启SSH服务
+systemctl restart sshd
+</code></pre>
+<h1 id="firewalld">4. firewalld防火墙</h1>
+<h2 id="firewalld-1">firewalld基础操作</h2>
+<pre><code class="language-bash"># 启动防火墙
+systemctl start firewalld
+
+# 启用开机启动
+systemctl enable firewalld
+
+# 查看状态
+firewall-cmd --state
+
+# 查看默认区域
+firewall-cmd --get-default-zone
+</code></pre>
+<h2 id="section-7">端口管理</h2>
+<pre><code class="language-bash"># 开放端口
+firewall-cmd --add-port=80/tcp --permanent
+
+# 移除端口
+firewall-cmd --remove-port=80/tcp --permanent
+
+# 开放服务
+firewall-cmd --add-service=http --permanent
+
+# 重新加载配置
+firewall-cmd --reload
+
+# 查看开放端口
+firewall-cmd --list-ports
+</code></pre>
+<h2 id="section-8">区域管理</h2>
+<pre><code class="language-bash"># 查看所有区域
+firewall-cmd --get-zones
+
+# 设置默认区域
+firewall-cmd --set-default-zone=public
+
+# 添加接口到区域
+firewall-cmd --zone=public --add-interface=eth0 --permanent
+</code></pre>
+<h1 id="section-9">5. 系统安全加固</h1>
+<h2 id="section-10">文件权限加固</h2>
+<pre><code class="language-bash"># 查找SUID文件
+find / -type f -perm /4000
+
+# 查找世界可写文件
+find / -type f -perm -0002
+
+# 查找无主文件
+find / -nouser -o -nogroup
+</code></pre>
+<h2 id="section-11">系统更新</h2>
+<pre><code class="language-bash"># 更新系统
+yum update
+
+# 安装安全更新
+yum update --security
+
+# 自动安全更新
+yum install yum-cron
+</code></pre>
+<h1 id="section-12">6. 日志审计</h1>
+<h2 id="section-13">系统日志</h2>
+<pre><code class="language-bash"># 查看系统日志
+journalctl
+
+# 查看认证日志
+journalctl -u sshd
+
+# 查看失败登录
+grep &quot;Failed password&quot; /var/log/secure
+
+# 查看登录历史
+last
+lastb
+</code></pre>
+<h1 id="section-14">7. 实践练习</h1>
+<h2 id="section-15">防火墙配置练习</h2>
+<pre><code class="language-bash"># 1. 启用防火墙
+systemctl start firewalld
+systemctl enable firewalld
+
+# 2. 开放HTTP和HTTPS端口
+firewall-cmd --add-service=http --permanent
+firewall-cmd --add-service=https --permanent
+
+# 3. 重新加载配置
+firewall-cmd --reload
+
+# 4. 查看配置
+firewall-cmd --list-all
+</code></pre>
+<h2 id="ssh-2">SSH安全练习</h2>
+<pre><code class="language-bash"># 1. 生成SSH密钥
+ssh-keygen -t rsa -b 4096
+
+# 2. 配置SSH禁用密码登录
+vi /etc/ssh/sshd_config
+PasswordAuthentication no
+
+# 3. 重启SSH服务
+systemctl restart sshd
+</code></pre>
+<h1 id="section-16">8. 课后作业</h1>
+<h2 id="section-17">1. 安全配置实践</h2>
+<ol>
+<li>配置SSH安全设置</li>
+<li>配置firewalld防火墙规则</li>
+<li>设置用户密码策略</li>
+<li>禁用不必要的系统服务</li>
+</ol>
+<h2 id="section-18">2. 安全审计</h2>
+<ol>
+<li>查看系统日志分析安全事件</li>
+<li>检查系统文件权限</li>
+<li>扫描系统开放端口</li>
+<li>制定系统安全检查清单</li>
+</ol>
+<p>通过本章学习，你应该能够：</p>
+<ol>
+<li>理解Linux系统安全基本原则</li>
+<li>掌握用户和SSH安全配置</li>
+<li>熟练使用firewalld防火墙</li>
+<li>学会系统安全加固方法</li>
+<li>能够进行安全日志审计和入侵检测</li>
+</ol>
+
+
+                                        </div>
+                                <div class="col-lg-2 p-md-0 m-md-0 bg-body">
+                                    <div id="right-sidebar" class="sidebar px-0 px-md-3 pt-3">
+        <div class=" mb-3 sidebar-root">
+            <div class="sidebar-nav-item sidebar-header">On This Page</div>
+            <div class="sidebar-nav-children">
+                    <div class="sidebar-nav-item"><a href="#linux">Linux&#x7CFB;&#x7EDF;&#x5B89;&#x5168;&#x548C;&#x9632;&#x706B;&#x5899;</a></div>
+                    <div class="sidebar-nav-item"><a href="#section">1. &#x7CFB;&#x7EDF;&#x5B89;&#x5168;&#x6982;&#x8FF0;</a></div>
+                        <div class="sidebar-nav-children">
+                                <div class="sidebar-nav-item"><a href="#section-1">&#x5B89;&#x5168;&#x57FA;&#x672C;&#x539F;&#x5219;</a></div>
+                                <div class="sidebar-nav-item"><a href="#section-2">&#x5E38;&#x89C1;&#x5B89;&#x5168;&#x5A01;&#x80C1;</a></div>
+                        </div>
+                    <div class="sidebar-nav-item"><a href="#section-3">2. &#x7528;&#x6237;&#x5B89;&#x5168;&#x7BA1;&#x7406;</a></div>
+                        <div class="sidebar-nav-children">
+                                <div class="sidebar-nav-item"><a href="#section-4">&#x5BC6;&#x7801;&#x5B89;&#x5168;</a></div>
+                                <div class="sidebar-nav-item"><a href="#section-5">&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x63A7;&#x5236;</a></div>
+                        </div>
+                    <div class="sidebar-nav-item"><a href="#ssh">3. SSH&#x5B89;&#x5168;&#x914D;&#x7F6E;</a></div>
+                        <div class="sidebar-nav-children">
+                                <div class="sidebar-nav-item"><a href="#ssh-1">SSH&#x5B89;&#x5168;&#x8BBE;&#x7F6E;</a></div>
+                                <div class="sidebar-nav-item"><a href="#section-6">&#x5BC6;&#x94A5;&#x8BA4;&#x8BC1;</a></div>
+                        </div>
+                    <div class="sidebar-nav-item"><a href="#firewalld">4. firewalld&#x9632;&#x706B;&#x5899;</a></div>
+                        <div class="sidebar-nav-children">
+                                <div class="sidebar-nav-item"><a href="#firewalld-1">firewalld&#x57FA;&#x7840;&#x64CD;&#x4F5C;</a></div>
+                                <div class="sidebar-nav-item"><a href="#section-7">&#x7AEF;&#x53E3;&#x7BA1;&#x7406;</a></div>
+                                <div class="sidebar-nav-item"><a href="#section-8">&#x533A;&#x57DF;&#x7BA1;&#x7406;</a></div>
+                        </div>
+                    <div class="sidebar-nav-item"><a href="#section-9">5. &#x7CFB;&#x7EDF;&#x5B89;&#x5168;&#x52A0;&#x56FA;</a></div>
+                        <div class="sidebar-nav-children">
+                                <div class="sidebar-nav-item"><a href="#section-10">&#x6587;&#x4EF6;&#x6743;&#x9650;&#x52A0;&#x56FA;</a></div>
+                                <div class="sidebar-nav-item"><a href="#section-11">&#x7CFB;&#x7EDF;&#x66F4;&#x65B0;</a></div>
+                        </div>
+                    <div class="sidebar-nav-item"><a href="#section-12">6. &#x65E5;&#x5FD7;&#x5BA1;&#x8BA1;</a></div>
+                        <div class="sidebar-nav-children">
+                                <div class="sidebar-nav-item"><a href="#section-13">&#x7CFB;&#x7EDF;&#x65E5;&#x5FD7;</a></div>
+                        </div>
+                    <div class="sidebar-nav-item"><a href="#section-14">7. &#x5B9E;&#x8DF5;&#x7EC3;&#x4E60;</a></div>
+                        <div class="sidebar-nav-children">
+                                <div class="sidebar-nav-item"><a href="#section-15">&#x9632;&#x706B;&#x5899;&#x914D;&#x7F6E;&#x7EC3;&#x4E60;</a></div>
+                                <div class="sidebar-nav-item"><a href="#ssh-2">SSH&#x5B89;&#x5168;&#x7EC3;&#x4E60;</a></div>
+                        </div>
+                    <div class="sidebar-nav-item"><a href="#section-16">8. &#x8BFE;&#x540E;&#x4F5C;&#x4E1A;</a></div>
+                        <div class="sidebar-nav-children">
+                                <div class="sidebar-nav-item"><a href="#section-17">1. &#x5B89;&#x5168;&#x914D;&#x7F6E;&#x5B9E;&#x8DF5;</a></div>
+                                <div class="sidebar-nav-item"><a href="#section-18">2. &#x5B89;&#x5168;&#x5BA1;&#x8BA1;</a></div>
+                        </div>
+            </div>
+        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer" class="p-3 text-white">
+            <div class="container-xl">
+                <div class="row">
+    <div class="offset-lg-2 col-12 col-lg-8">
+        <div class="pt-2 font-size-sm text-muted text-center">
+            Generated By <a class="text-muted" href="https://statiq.dev">Statiq</a>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script>
+            $(document).ready(function() {
+                quicklink.listen();
+
+                // Bootstrap tooltips
+                $('[data-toggle="tooltip"]').tooltip();
+
+				// Keeps the sidebars in view on wider viewports
+				let left = null;
+				let leftParent = null;
+				let right = null;
+				let rightParent = null;
+                function stickSidebars()
+				{
+				    if (left == null) {
+                        left = $('#left-sidebar');
+                        right = $('#right-sidebar');
+                    }
+                    if (left.length) {
+                        if (window.innerWidth >= 768) {
+                            if (leftParent == null) {
+                                leftParent = left.parent()[0];
+                            }
+                            if (leftParent) {
+                                let leftRect = leftParent.getBoundingClientRect();
+                                stickSidebar(left,  leftRect);
+                            }
+                        } else {
+                            left.css('position', 'relative');
+                            if (left.css('bottom') != 0) {
+                                left.css('bottom', '0');
+                            }
+                        }
+                    }
+                    if (right.length) {
+                        if (window.innerWidth >= 768) {
+                            if (rightParent == null) {
+                                rightParent = right.parent()[0];
+                            }
+                            if (rightParent) {
+                                let rightRect = rightParent.getBoundingClientRect();
+                                stickSidebar(right,  rightRect);
+                            }
+                        } else {
+                            right.css('position', 'relative');
+                            if (right.css('bottom') != 0) {
+                                right.css('bottom', '0');
+                            }
+                        }
+                    }
+				}
+				function stickSidebar(sidebar, rect) {
+                    // Bottom
+                    if (rect.bottom > window.innerHeight) {
+                        sidebar.css('bottom', rect.bottom - window.innerHeight + "px");
+                    } else {
+                        sidebar.css('bottom', 0);
+                    }
+                    // Top
+                    if (rect.top < 0) {
+                        sidebar.css('position', 'sticky');
+                    } else {
+                        sidebar.css('position', 'absolute');
+                    }
+				}
+				$(window).on("load", function() {
+				    stickSidebars();
+				});
+                $(window).scroll(function() {
+				    stickSidebars();
+				});
+				$(window).resize(function() {
+				    stickSidebars();
+				})
+
+                // Mermaid diagrams
+                mermaid.initialize(
+                {
+                    flowchart:
+                    {
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-fluid');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
+            });
+        </script>
+
+        
+
+        
+    </body>
+</html>
