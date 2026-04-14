@@ -13006,11 +13006,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\swan\\Documents\\repos\\thelinux\\thelinux.csproj",
-      "projectName": "thelinux",
-      "projectPath": "C:\\Users\\swan\\Documents\\repos\\thelinux\\thelinux.csproj",
+      "projectUniqueName": "C:\\Users\\swan\\Documents\\repos\\ciit-linux\\ciit-linux.csproj",
+      "projectName": "ciit-linux",
+      "projectPath": "C:\\Users\\swan\\Documents\\repos\\ciit-linux\\ciit-linux.csproj",
       "packagesPath": "C:\\Users\\swan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\swan\\Documents\\repos\\thelinux\\obj\\",
+      "outputPath": "C:\\Users\\swan\\Documents\\repos\\ciit-linux\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\swan\\AppData\\Roaming\\NuGet\\NuGet.Config"

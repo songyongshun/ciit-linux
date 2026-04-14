@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UDIGENdDXV0=",
+  "dgSpecHash": "YiSXI+9/e4w=",
   "success": true,
-  "projectFilePath": "C:\\Users\\swan\\Documents\\repos\\thelinux\\thelinux.csproj",
+  "projectFilePath": "C:\\Users\\swan\\Documents\\repos\\ciit-linux\\ciit-linux.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\swan\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\swan\\.nuget\\packages\\anglesharp\\0.16.1\\anglesharp.0.16.1.nupkg.sha512",
