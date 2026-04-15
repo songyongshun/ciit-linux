@@ -10,6 +10,7 @@ namespace MySite
       await Bootstrapper
         .Factory
         .CreateDocs(args)
+	      .AddSetting(Keys.Host, "ciit-linux.netlify.app")
         .RunAsync();
   }
 }

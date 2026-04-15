@@ -1,12 +1,5 @@
 ---
-Xref: linux/chapter-01
 title: "Linux界面、网络连接和基本文件操作"
-collection: teaching
-type: "Undergraduate course"
-permalink: /teaching/2026-spring-teaching/chapter-01
-venue: "常州工业职业技术学院, 信息工程学院"
-date: 2026-03-01
-location: "Changzhou, China"
 ---
 
 # 熟悉linux系统界面和基本操作
