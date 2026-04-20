@@ -1,24 +1,19 @@
 ---
 Xref: linux/chapter-05
 title: "Linux用户和权限管理"
-collection: teaching
-type: "Undergraduate course"
-permalink: /teaching/2026-spring-teaching/chapter-03
-venue: "常州工业职业技术学院, 信息工程学院"
-date: 2026-03-01
-location: "Changzhou, China"
 ---
-
 # Linux用户和权限管理
 
 # 1. 用户账户基础概念
 
 ## 什么是用户账户
+
 - **用户账户**：Linux系统中用于标识和管理用户身份的机制
 - **作用**：控制用户对系统资源的访问权限
 - **类型**：超级用户（root）、普通用户、系统用户
 
 ## 用户ID（UID）和组ID（GID）
+
 - **UID**：用户标识符，唯一标识系统中的每个用户
 - **GID**：组标识符，唯一标识系统中的每个用户组
 - **特殊UID**：
@@ -29,47 +24,52 @@ location: "Changzhou, China"
 # 2. 用户管理命令
 
 ## 查看用户信息
+
 ```bash
 # 查看当前登录用户
 whoami
 
 # 查看所有登录用户
 who
-w
 
 # 查看系统中所有用户
 cat /etc/passwd
 
 # 查看特定用户信息
 id username
-finger username  # 需要安装finger包
 ```
 
 ## 添加用户
+
 ```bash
-# 添加新用户
+# 添加新用户（默认会创建主目录）
 sudo useradd username
 
-# 添加用户并创建主目录
-sudo useradd -m username
+# 添加用户但不创建主目录
+sudo useradd -M username
 
-# 添加用户并指定shell
-sudo useradd -m -s /bin/bash username
-
-# 添加用户并设置用户ID
+# 添加用户并设置用户ID（在组建集群时可能需要）
 sudo useradd -u 1001 username
-
-# 添加用户并设置注释信息
-sudo useradd -c "User Full Name" username
 ```
 
+## 切换用户
+
+```bash
+# 切换到另一个用户
+su username
+# 切换到root用户
+su
+```
+
+注意，使用su命令切换用户时，如果目标用户没有设置密码，可能会提示“Authentication failure”。
+因此，建议为所有用户设置密码，以确保可以正常切换用户.
+但在root用户的情况下，是可以直接使用su命令切换到任意用户的。
+
 ## 设置用户密码
+
 ```bash
 # 为用户设置密码
 sudo passwd username
-
-# 删除用户密码（禁用账户）
-sudo passwd -d username
 
 # 锁定用户账户
 sudo passwd -l username
@@ -79,21 +79,20 @@ sudo passwd -u username
 ```
 
 ## 修改用户信息
+
 ```bash
-# 修改用户主目录
-sudo usermod -d /home/newdir username
+# 修改用户主目录（有时用户目录在单独一块磁盘分区时需要修改）
+sudo usermod -d /data1/home/newname username
 
 # 修改用户shell
 sudo usermod -s /bin/zsh username
-
-# 修改用户注释信息
-sudo usermod -c "New Comment" username
 
 # 将用户添加到组
 sudo usermod -a -G groupname username
 ```
 
 ## 删除用户
+
 ```bash
 # 删除用户但保留主目录
 sudo userdel username
@@ -105,6 +104,7 @@ sudo userdel -r username
 # 3. 用户组管理
 
 ## 查看组信息
+
 ```bash
 # 查看所有用户组
 cat /etc/group
@@ -120,12 +120,16 @@ getent group groupname
 ```
 
 ## 创建和管理组
+
 ```bash
 # 创建新组
 sudo groupadd groupname
 
 # 创建组并指定GID
 sudo groupadd -g 1001 groupname
+
+# 查看组ID(GID，没有新的命令，而是对id命令添加选项来查看用户所属的组ID，参数为用户名，代表查看指定用户所属的组ID。若无参数，代表查看当前用户所属的组ID)
+id -g username
 
 # 修改组名
 sudo groupmod -n newname oldname
@@ -135,28 +139,68 @@ sudo groupdel groupname
 ```
 
 ## 管理组成员
+
 ```bash
 # 将用户添加到组
 sudo gpasswd -a username groupname
 
 # 从组中删除用户
 sudo gpasswd -d username groupname
-
-# 设置组管理员
-sudo gpasswd -A adminuser groupname
-
-# 设置组密码
-sudo gpasswd groupname
 ```
+
+## 初始组 vs. 附加组
+
+- 初始组 (Primary Group)：
+  用户创建时指定的组（GID 记录在 /etc/passwd 中）。
+  在 /etc/group 文件里，初始组成员的名字通常是空着的，因为系统认为既然这是你的主组，就不必再重复记录一遍。
+- 附加组 (Secondary Group)：
+  当你执行 gpasswd -a user2 user2 时，你实际上是把 user2 显式地作为附加成员加入到了 user2 组中。
+  结果：getent group 命令主要读取 /etc/group。只有当你手动添加（即使是加回同名组）后，该组的成员列表里才会出现 user2 这个名字，命令才会返回结果。
 
 # 4. 文件权限基础
 
 ## 权限类型
+
 - **读权限（r）**：4 - 可以读取文件内容或列出目录内容
 - **写权限（w）**：2 - 可以修改文件内容或在目录中创建/删除文件
 - **执行权限（x）**：1 - 可以执行文件或进入目录
 
+## 权限表示方法
+ls -l命令输出的信息中，第一列显示了文件类型和权限信息。权限信息由10个字符组成，分别表示文件类型和所有者、组用户、其他用户的权限。
+- 第一个字符表示文件类型：
+  - `-`：普通文件
+  - `d`：目录
+  - `l`：符号链接
+  - `c`：字符设备文件
+  - `b`：块设备文件
+- 接下来的9个字符分为三组，每组三个字符，分别表示所有者、组用户和其他用户的权限：
+  - `r`：读权限
+  - `w`：写权限
+  - `x`：执行权限
+
+```bash
+# 符号表示法
+   -rw-r--r--  1 user group size date time filename
+#  | | | | |
+#  | | | | +-- 其他用户权限
+#  | | +------ 组用户权限
+#  | +-------- 所有者权限
+#  +---------- 文件类型
+```
+
+还有另一种表示方法是数字表示法，每个权限位对应一个数字：
+- 读权限（r）对应数字4
+- 写权限（w）对应数字2
+- 执行权限（x）对应数字1
+
+```bash
+# 数字表示法
+chmod 755 filename  # rwxr-xr-x
+chmod 644 filename  # rw-r--r--
+```
+
 ## 查看文件权限
+
 ```bash
 # 查看文件详细信息
 ls -l filename
@@ -168,24 +212,10 @@ ls -ld directoryname
 ls -la
 ```
 
-## 权限表示方法
-```bash
-# 符号表示法
--rw-r--r--  1 user group size date time filename
-#  | | | | |
-#  | | | | +-- 其他用户权限
-#  | | +------ 组用户权限
-#  | +-------- 所有者权限
-#  +---------- 文件类型
-
-# 数字表示法
-chmod 755 filename  # rwxr-xr-x
-chmod 644 filename  # rw-r--r--
-```
-
 # 5. 修改文件权限
 
 ## 使用chmod命令
+
 ```bash
 # 使用符号法修改权限
 chmod u+r filename      # 给所有者添加读权限
@@ -198,274 +228,42 @@ chmod 755 filename      # rwxr-xr-x
 chmod 644 filename      # rw-r--r--
 chmod 777 filename      # rwxrwxrwx
 
-# 递归修改目录权限
+# 递归修改目录权限（文件夹下的所有文件和子目录都会被修改）
 chmod -R 755 directory
 ```
 
 ## 使用chown命令修改所有者
+
 ```bash
 # 修改文件所有者
 sudo chown username filename
 
 # 修改文件所有者和组
 sudo chown username:groupname filename
-sudo chown username.groupname filename  # 某些系统使用点分隔
 
 # 递归修改目录所有者
 sudo chown -R username:groupname directory
 ```
 
-## 使用chgrp命令修改组
-```bash
-# 修改文件组
-sudo chgrp groupname filename
-
-# 递归修改目录组
-sudo chgrp -R groupname directory
-```
-
-# 6. 特殊权限
-
-## SUID权限
-- **作用**：允许用户以文件所有者的身份执行文件
-- **设置方法**：
-```bash
-chmod u+s filename
-chmod 4755 filename  # 数字法，4表示SUID
-```
-
-## SGID权限
-- **作用**：在文件上表示以组身份执行，在目录上表示新创建的文件继承目录的组
-- **设置方法**：
-```bash
-chmod g+s filename
-chmod 2755 filename  # 数字法，2表示SGID
-```
-
-## Sticky Bit
-- **作用**：只允许文件/目录的所有者删除自己的文件
-- **常见用途**：/tmp目录
-- **设置方法**：
-```bash
-chmod +t directoryname
-chmod 1755 directoryname  # 数字法，1表示Sticky Bit
-```
-
-# 7. sudo权限管理
+# 6. sudo权限管理
 
 ## 什么是sudo
+
 - **sudo**：以超级用户权限执行命令的安全方式
 - **优势**：记录命令执行、不需要知道root密码、可以精细控制权限
 
 ## 配置sudo权限
+
 ```bash
-# 编辑sudoers文件（推荐使用visudo）
+# 编辑sudoers文件（推荐使用visudo,通过锁定文件机制防止多个用户同时编辑 /etc/sudoers）
 sudo visudo
-
-# 或者直接编辑文件
-sudo nano /etc/sudoers
 ```
+sudoers的基本语法如下：
 
-## sudoers文件语法
 ```bash
-# 基本语法
-用户名 主机名=(可执行身份) 命令列表
-
-# 示例
-root    ALL=(ALL:ALL) ALL
-%wheel  ALL=(ALL:ALL) ALL
-username ALL=(ALL) ALL
-username ALL=(root) /usr/bin/systemctl
+song ALL=(ALL) ALL
 ```
 
-## 用户组sudo权限
-```bash
-# 将用户添加到sudo组
-sudo usermod -a -G wheel username  # CentOS/RHEL
-sudo usermod -a -G sudo username   # Ubuntu/Debian
+用户/组 主机=(目标用户:目标组) 命令  
 
-# 验证用户是否在sudo组中
-groups username
-```
 
-# 8. 实践练习
-
-## 用户管理练习
-```bash
-# 1. 创建新用户
-sudo useradd -m -s /bin/bash student1
-sudo passwd student1
-
-# 2. 查看用户信息
-id student1
-cat /etc/passwd | grep student1
-
-# 3. 修改用户信息
-sudo usermod -c "Linux Student" student1
-sudo usermod -a -G wheel student1
-
-# 4. 删除用户
-sudo userdel -r student1
-```
-
-## 权限管理练习
-```bash
-# 1. 创建测试文件和目录
-touch testfile.txt
-mkdir testdir
-
-# 2. 修改文件权限
-chmod 644 testfile.txt
-chmod 755 testdir
-
-# 3. 查看权限
-ls -l testfile.txt
-ls -ld testdir
-
-# 4. 修改文件所有者
-sudo chown student1 testfile.txt
-
-# 5. 设置特殊权限
-chmod u+s testfile.txt  # 设置SUID
-chmod g+s testdir       # 设置SGID
-chmod +t testdir        # 设置Sticky Bit
-```
-
-## sudo练习
-```bash
-# 1. 创建新用户
-sudo useradd -m student2
-
-# 2. 将用户添加到sudo组
-sudo usermod -a -G wheel student2
-
-# 3. 验证sudo权限
-su - student2
-sudo whoami  # 应该显示root
-
-# 4. 退出student2账户
-exit
-```
-
-# 9. 课后作业
-
-## 1. 用户管理
-1. 创建3个新用户：user1、user2、user3
-2. 为每个用户设置密码
-3. 查看每个用户的UID和GID
-4. 将user1添加到wheel组
-5. 删除user3用户及其主目录
-
-## 2. 权限练习
-1. 创建一个文件test.txt，设置权限为644
-2. 创建一个目录testdir，设置权限为755
-3. 将test.txt的所有者改为user1
-4. 将testdir的组改为user1的主组
-5. 设置test.txt的SUID权限
-6. 设置testdir的SGID和Sticky Bit权限
-
-## 3. sudo配置
-1. 编辑sudoers文件，为user2添加特定命令的sudo权限
-2. 测试user2是否可以执行指定的sudo命令
-3. 记录sudo命令的执行日志
-
-## 4. 综合练习
-1. 创建一个共享目录/shared
-2. 设置适当的权限，让多个用户可以协作
-3. 配置用户组，实现文件的共享管理
-4. 测试不同用户的访问权限
-
-# 10. 故障排除
-
-## 常见问题及解决方法
-
-### 1. 用户无法登录
-```bash
-# 检查用户是否存在
-id username
-
-# 检查用户账户状态
-sudo passwd -S username
-
-# 检查用户主目录
-ls -ld /home/username
-```
-
-### 2. 权限不足
-```bash
-# 查看文件权限
-ls -l filename
-
-# 检查用户所属组
-groups username
-
-# 临时提升权限
-sudo command
-```
-
-### 3. sudo命令被拒绝
-```bash
-# 检查用户是否在sudo组中
-groups username
-
-# 检查sudoers配置
-sudo visudo
-
-# 查看sudo日志
-sudo tail /var/log/secure
-```
-
-### 4. 文件无法删除
-```bash
-# 检查目录权限
-ls -ld directory
-
-# 检查Sticky Bit设置
-ls -l directory
-
-# 使用sudo删除
-sudo rm filename
-```
-
-# 11. 扩展学习
-
-## 用户资源限制
-```bash
-# 查看用户资源限制
-ulimit -a
-
-# 设置用户资源限制（在/etc/security/limits.conf中）
-username soft nofile 1024
-username hard nofile 2048
-```
-
-## 用户环境配置
-```bash
-# 查看用户环境变量
-env
-
-# 编辑用户环境配置文件
-~/.bashrc
-~/.bash_profile
-~/.profile
-```
-
-## 用户审计
-```bash
-# 查看登录历史
-last
-
-# 查看命令历史
-history
-
-# 查看系统日志
-sudo tail /var/log/secure
-```
-
-通过本章学习，你应该能够：
-1. 理解Linux用户和组的基本概念
-2. 熟练使用用户管理命令
-3. 掌握文件权限的设置和管理
-4. 理解和配置sudo权限
-5. 解决常见的用户和权限问题
-6. 为系统安全和多用户环境管理打下基础
