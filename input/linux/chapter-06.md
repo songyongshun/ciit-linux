@@ -35,28 +35,21 @@ which yum
 - **软件源（Repository）**：存放软件包的服务器
 - **作用**：提供软件下载和更新的来源
 - **类型**：官方源、第三方源、本地源
-## 查看当前软件源
-```bash
-# 查看YUM软件源列表
-yum repolist
-```
+## 软件源设置
 
 由于CentOS 8已经停止维护，建议使用阿里云的镜像源来替代默认的软件源，以获得更快的软件安装和更新速度。以下是配置阿里云镜像源的步骤：
 ```bash
-# 1. 备份原有的软件源配置文件
-sudo cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+# 1. 删除原有的软件源配置文件
+sudo rm -rf /etc/yum.repos.d/*
 # 2. 下载阿里云的CentOS 8镜像源配置文件
 sudo wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo 
 # 3. 清理YUM缓存并生成新的缓存
 sudo yum clean all
 sudo yum makecache
-```
-
-## 添加EPEL软件源
-```bash
-# 安装EPEL源（Extra Packages for Enterprise Linux）
+# 4 添加EPEL软件源（Extra Packages for Enterprise Linux）
 sudo yum install epel-release
-
+# 5. 更新软件包列表
+sudo yum check-update
 ```
 
 ## 查看当前软件源
@@ -74,7 +67,6 @@ extras             CentOS-8.5.2111 - Extras - mirrors.aliyun.com # 额外软件�
 # 查看详细的软件源信息
 yum repolist all
 ```
-
 
 # 3. 管理软件包
 ## 安装软件包
@@ -119,12 +111,6 @@ yum info vim
 
 # 4. 软件更新和升级
 
-## 更新软件包列表
-```bash
-# 更新YUM软件包列表
-sudo yum check-update
-```
-
 ## 升级单个软件
 ```bash
 # 升级特定软件
@@ -156,49 +142,3 @@ sudo yum autoremove package_name
 # 清理YUM缓存
 sudo yum clean all
 ```
-
-# 6. 实践练习
-
-## 安装常用工具
-```bash
-# 1. 安装wget（用于下载文件）
-sudo yum install wget
-
-# 2. 安装htop（系统监控工具）
-sudo yum install htop
-
-# 3. 安装git（版本控制系统）
-sudo yum install git
-```
-
-## 配置软件源
-```bash
-# 1. 安装EPEL源
-sudo yum install epel-release
-
-# 2. 验证EPEL源
-yum repolist | grep epel
-
-# 3. 搜索EPEL源中的软件
-yum --enablerepo=epel search package_name
-```
-
-## 软件管理练习
-```bash
-# 1. 查看已安装的软件数量
-yum list installed | wc -l
-
-# 2. 查找特定类型的软件
-yum list installed | grep -i editor
-
-# 3. 查看某个软件的详细信息
-yum info vim
-```
-
-
-通过本章学习，你应该能够：
-1. 理解Linux软件包管理的基本概念
-2. 熟练使用YUM进行软件管理
-3. 配置和管理软件源
-4. 解决常见的软件安装问题
-5. 为后续的Linux学习和使用打下坚实基础

@@ -93,4 +93,10 @@ chsh -s /bin/zsh  # 切换默认Shell为zsh，重启后生效
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ```
 
+也可以直接下载zsh-syntax-highlighting脚本并执行：
+```bash
+sudo yum install wget
+wget https://ciit-linux.netlify.app/files/zsh-syntax.sh | bash
+```
+
 ---
