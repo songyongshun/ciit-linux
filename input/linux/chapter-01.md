@@ -66,3 +66,17 @@ sudo ./basic-file.sh
 ```
 当提示输入密码的时候，请输入123456（注意输入密码时不会显示任何字符）。
 
+
+# 问题解决方案
+## 在wifi里显示no wifi adapter found
+- 解决方法:
+```bash
+cd /etc/sysconfig/network-scripts
+ls # 查看当前目录下的文件，找到以ifcfg-开头的文件，比如ifcfg-ens33
+sudo vim ifcfg-ens33 # 使用vim编辑器打开该文件，按i进入编辑模式
+# 将onboot=no改为onboot=yes，保存并退出（按Esc键，输入:wq，按回车键）
+sudo systemctl restart NetworkManager # 重启网络服务
+# 或者重启
+sudo reboot
+```
+
