@@ -33,24 +33,12 @@ location: "Changzhou, China"
 # 查看CPU基本信息
 cat /proc/cpuinfo
 
-# 查看CPU核心数
-nproc
-
 # 查看CPU使用情况
 top
-
-# 实时监控CPU使用
-htop  # 需要安装
 ```
 
 ## CPU使用率分析
 ```bash
-# 使用vmstat监控CPU
-vmstat 1 5  # 每秒采样，共5次
-
-# 使用sar监控CPU（需要安装sysstat）
-sar -u 1 5
-
 # 查看CPU详细信息
 lscpu
 ```
@@ -59,25 +47,15 @@ lscpu
 ```bash
 # 查看系统负载
 uptime
-
-# 查看负载详细信息
-cat /proc/loadavg
-
-# 使用w命令查看负载
-w
 ```
 
 ## CPU性能优化
 ```bash
-# 查找CPU占用高的进程
-ps aux --sort=-%cpu | head -10
+# 查找CPU占用高的进程，默认是按PID排序的，可以加上排序参数
+ps -aux --sort=-%cpu | head -10
 
 # 监控特定进程的CPU使用
 top -p PID
-
-# 调整进程优先级
-nice -n 10 command
-renice 5 PID
 ```
 
 # 3. 内存监控
@@ -92,21 +70,12 @@ cat /proc/meminfo
 
 # 使用top查看内存使用
 top
-
-# 使用htop查看内存使用
-htop
 ```
 
 ## 内存使用分析
 ```bash
 # 查看内存使用排名
 ps aux --sort=-%mem | head -10
-
-# 查看进程内存详细信息
-pmap PID
-
-# 监控内存使用趋势
-vmstat 1 10
 ```
 
 ## 交换空间监控
@@ -116,21 +85,6 @@ swapon -s
 
 # 查看交换分区详细信息
 cat /proc/swaps
-
-# 监控交换使用情况
-vmstat -s
-```
-
-## 内存优化
-```bash
-# 清理缓存（需要root权限）
-sync; echo 3 > /proc/sys/vm/drop_caches
-
-# 调整内存参数
-echo 1 > /proc/sys/vm/overcommit_memory
-
-# 查看内存泄漏
-valgrind --tool=memcheck program
 ```
 
 # 4. 磁盘监控
@@ -143,36 +97,8 @@ df -h
 # 查看目录大小
 du -sh /path/to/directory
 
-# 查看文件系统信息
-lsblk -f
-
 # 查看磁盘分区
 fdisk -l
-```
-
-## 磁盘I/O监控
-```bash
-# 使用iostat监控磁盘I/O（需要安装sysstat）
-iostat -x 1 5
-
-# 使用iotop监控磁盘I/O（需要安装）
-iotop
-
-# 查看磁盘详细信息
-cat /proc/diskstats
-```
-
-## 磁盘性能分析
-```bash
-# 测试磁盘读写性能
-dd if=/dev/zero of=testfile bs=1G count=1 oflag=direct
-dd if=testfile of=/dev/null bs=1G iflag=direct
-
-# 查看磁盘队列长度
-iostat -x 1 | grep -E "(Device|sda)"
-
-# 监控磁盘使用趋势
-df -h | tail -n +2 | awk '{print $5 " " $6}' | sort -nr
 ```
 
 ## 磁盘优化
