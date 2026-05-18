@@ -45,7 +45,12 @@ lscpu
 
 ## CPU负载监控
 ```bash
-# 查看系统负载
+# 查看系统启动时间
+uptime -s
+# 以更易读的方式查看系统的运行时间
+uptime -p
+
+# 过去1分钟、5分钟、15分钟的平均负载
 uptime
 ```
 
@@ -178,6 +183,37 @@ lsof -p PID
 # 查看进程环境变量
 cat /proc/PID/environ | tr '\0' '\n'
 ```
+
+## 进程性能统计（pidstat）
+```bash
+# 查看进程CPU使用统计（每隔1秒刷新一次）
+pidstat 1
+
+# 查看特定进程的CPU使用
+pidstat -p PID 1
+
+# 查看进程内存使用统计
+pidstat -r 1
+
+# 查看进程I/O统计
+pidstat -d 1
+
+# 查看进程上下文切换统计
+pidstat -w 1
+
+# 查看所有进程的完整统计信息（CPU+内存+I/O）
+pidstat -urd 1
+
+# 查看线程级别的统计信息
+pidstat -t 1
+
+# 仅显示活跃的进程（非零统计值）
+pidstat --human 1
+```
+
+> **说明**：pidstat 是 sysstat 工具包中的一员，它能够按进程或线程粒度统计 CPU、内存、磁盘 I/O、上下文切换等性能数据，比 `top` 或 `ps` 提供更细粒度的进程性能分析能力。首次使用需安装 sysstat 包：
+> - Ubuntu/Debian：`sudo apt install sysstat`
+> - CentOS/RHEL：`sudo yum install sysstat`
 
 ## 进程管理
 ```bash

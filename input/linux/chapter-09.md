@@ -33,13 +33,6 @@ ps
 
 # 查看所有进程
 ps aux
-ps -ef
-
-# 显示进程树
-ps axjf
-
-# 自定义输出
-ps -eo pid,ppid,cmd,%mem,%cpu
 ```
 
 ## top命令
@@ -53,15 +46,6 @@ M  # 按内存排序
 T  # 按时间排序
 k  # 杀死进程
 q  # 退出
-```
-
-## htop命令
-```bash
-# 安装htop
-sudo yum install htop
-
-# 运行htop
-htop
 ```
 
 ## pstree命令
@@ -91,9 +75,6 @@ Z  Zombie       僵尸进程
 ```bash
 # 查看所有进程状态
 ps -eo pid,stat,cmd
-
-# 查找僵尸进程
-ps aux | awk '$8 ~ /^Z/ { print $2 }'
 ```
 
 # 4. 进程控制
@@ -103,15 +84,11 @@ ps aux | awk '$8 ~ /^Z/ { print $2 }'
 # 后台运行程序
 command &
 
+# 比如
+sleep 300 &
 # 查看后台作业
 jobs
 
-# 后台进程转到前台
-fg %1
-
-# 前台进程转到后台
-Ctrl + z
-bg %1
 ```
 
 ## 终止进程
@@ -124,29 +101,9 @@ kill -9 PID
 
 # 按名称终止
 killall process_name
-pkill process_name
-
-# 发送信号
-kill -l          # 列出所有信号
-kill -TERM PID   # 正常终止
-kill -HUP PID    # 重启进程
 ```
 
-# 5. 进程优先级
-
-## nice值
-```bash
-# nice值范围: -20(最高) 到 19(最低)
-# 默认nice值: 0
-
-# 以指定优先级启动程序
-nice -n 10 command
-
-# 修改运行中进程优先级
-renice 5 PID
-```
-
-# 6. 守护进程
+# 5. 守护进程
 
 ## 什么是守护进程
 - 后台运行的特殊进程
@@ -172,65 +129,8 @@ systemctl status service_name
 systemctl enable service_name
 ```
 
-# 7. 实践练习
-
-## 进程查看练习
-```bash
-# 1. 查看所有进程
-ps aux
-
-# 2. 查找特定进程
-ps aux | grep sshd
-
-# 3. 查看进程树
-pstree
-
-# 4. 实时监控进程
-top
-```
-
-## 进程管理练习
-```bash
-# 1. 后台运行程序
-sleep 300 &
-
-# 2. 查看后台作业
-jobs
-
-# 3. 终止后台进程
-kill %1
-
-# 4. 调整进程优先级
-nice -n 10 sleep 60 &
-renice 5 $!
-```
-
-## 服务管理练习
-```bash
-# 1. 查看sshd服务状态
-systemctl status sshd
-
-# 2. 查看所有运行的服务
-systemctl list-units --type=service --state=running
-```
-
-# 8. 课后作业
-
-## 1. 进程管理实践
-1. 使用ps命令查看系统所有进程
-2. 使用top命令监控系统资源使用
-3. 练习前后台进程切换
-4. 学习使用kill命令终止进程
-
-## 2. 服务管理
-1. 查看系统中运行的服务
-2. 练习启停服务操作
-3. 配置服务开机自动启动
-4. 查看服务日志信息
-
 通过本章学习，你应该能够：
 1. 理解进程的基本概念和属性
 2. 熟练使用各种进程查看命令
 3. 掌握进程控制和管理方法
-4. 理解进程优先级和调度
-5. 学会管理系统服务和守护进程
+4. 学会管理系统服务和守护进程
