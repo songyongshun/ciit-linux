@@ -24,6 +24,7 @@ location: "Changzhou, China"
 - 网关地址
 - DNS服务器
 - 主机名
+- 接口（interface）
 
 # 2. 网络接口管理
 
@@ -125,6 +126,7 @@ nmap 192.168.1.0/24
 ## 查看连接
 ```bash
 # 查看所有监听端口
+# ss来自于iproute2工具集，功能更强大，性能更好
 ss -tuln
 
 # 传统方式
@@ -140,7 +142,6 @@ ss -tuln | grep ESTAB
 ```bash
 # 查看网络服务状态
 systemctl status NetworkManager
-systemctl status network
 
 # 重启网络服务
 systemctl restart NetworkManager
@@ -157,49 +158,6 @@ hostname newhostname
 # 永久修改
 hostnamectl set-hostname newhostname
 ```
-
-# 7. 实践练习
-
-## 网络配置练习
-```bash
-# 1. 查看网络接口信息
-ip addr show
-
-# 2. 查看路由表
-ip route show
-
-# 3. 测试网络连通性
-ping -c 4 www.baidu.com
-
-# 4. 查看DNS配置
-cat /etc/resolv.conf
-```
-
-## 网络测试练习
-```bash
-# 1. 查看监听端口
-ss -tuln
-
-# 2. 测试远程端口
-nc -zv 192.168.1.1 22
-
-# 3. 追踪路由
-traceroute www.baidu.com
-```
-
-# 8. 课后作业
-
-## 1. 网络配置实践
-1. 查看系统所有网络接口信息
-2. 配置静态IP地址
-3. 设置默认网关和DNS服务器
-4. 测试网络连通性
-
-## 2. 网络故障排除
-1. 学习网络故障排除步骤
-2. 使用ping、traceroute等工具定位问题
-3. 查看系统日志分析网络问题
-4. 练习常见网络问题解决方法
 
 通过本章学习，你应该能够：
 1. 理解TCP/IP网络基本概念

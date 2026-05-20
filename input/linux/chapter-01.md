@@ -1,6 +1,7 @@
+Xref: linux/chapter-01
+Title: "Linux界面、网络连接和基本文件操作"
 ---
-title: "Linux界面、网络连接和基本文件操作"
----
+
 # 熟悉linux系统界面和基本操作
 
 - 打开虚拟机软件VMWare Workstation，找到已安装的操作系统CentOS 8，并启动。（弹出提示窗口时，请选择“我已复制了虚拟机”选项）。
