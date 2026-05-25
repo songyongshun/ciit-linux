@@ -32,7 +32,7 @@ echo $SHELL
 # 查看系统可用Shell
 cat /etc/shells
 
-# 切换Shell
+# 切换Shell（系统重启后生效）
 chsh -s /bin/zsh
 ```
 
