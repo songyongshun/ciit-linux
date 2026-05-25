@@ -21,6 +21,7 @@ nvm 用于管理多个 Node.js 版本，安装方式如下：
 
 ```bash
 sudo yum install curl
+sudo yum install libatomic #Node.js 在较新的版本中增加了对该库的依赖
 ```
 
 ### 2.2 下载并安装 nvm
@@ -28,7 +29,8 @@ sudo yum install curl
 
 ```bash
 
-curl -o- https://ciit-linux.netlify.app/files/install.sh | bash
+curl -OL https://gitee.com/RubyMetric/nvm-cn/raw/main/install.sh | bash
+
 ```
 
 > 上述命令会下载 nvm 安装脚本并自动执行，将 nvm 添加到 `~/.bashrc` 中。
@@ -47,7 +49,7 @@ source ~/.bashrc
 nvm --version
 ```
 
-若输出版本号（如 `0.40.1`）则表示安装成功。
+若输出版本号（如 `0.40.4`）则表示安装成功。
 
 ---
 
@@ -59,38 +61,27 @@ nvm --version
 nvm ls-remote
 ```
 
-该命令会列出所有可安装的 Node.js 版本。CodeBuddy CLI 推荐使用 Node.js 18.x 或更高版本。
+该命令会列出所有可安装的 Node.js 版本。CodeBuddy CLI 推荐使用 Node.js 20.x 或更高版本。
 
 ### 3.2 安装指定版本
 
 ```bash
-nvm install 18
+nvm install 26
 ```
 
-> 以上命令会安装 Node.js 18.x 的最新稳定版。  
-> 如要安装其他版本，可将 `18` 替换为版本号，例如 `nvm install 20`。
+> 以上命令会安装 Node.js 26.x 的最新稳定版。  
 
 ### 3.3 验证安装
 
 ```bash
 node --version
-npm --version
 ```
 
 输出应为：
 
 ```
-v18.20.x （实际小版本号可能不同）
-10.x.x
+v26.2.0 （实际小版本号可能不同）
 ```
-
-### 3.4 设置默认 Node.js 版本
-
-```bash
-nvm alias default 18
-```
-
-这样每次打开新终端时，nvm 会自动切换到 Node.js 18。
 
 ---
 
@@ -99,10 +90,16 @@ nvm alias default 18
 ### 4.1 全局安装
 
 ```bash
-npm install -g @codebuddy/cli
+npm install -g @tencent-ai/codebuddy-code --verbose
 ```
 
-> 注意：`@codebuddy/cli` 是 CodeBuddy 官方 CLI 包的名称，请根据实际发布的包名调整。
+> 注意：`@tencent-ai/codebuddy-code` 是 CodeBuddy 官方 CLI 包的名称，请根据实际发布的包名调整。
+
+可以借机使用`iftop`命令监控网络流量，确认下载过程正常：
+
+```bash
+sudo iftop 
+```
 
 ### 4.2 验证安装
 
@@ -119,77 +116,21 @@ codebuddy --version
 ### 5.1 初始化（首次使用）
 
 ```bash
-codebuddy init
+mkdir buddy_work
+cd buddy_work
+codebuddy
+# 选择信任此目录并继续
+# 选择Log in via Chinese Site
 ```
+会打开浏览器，按照提示登录并授权后，返回终端即可完成配置。
 
-按照提示完成 API Key 等配置。
+### 5.2 中文输入法
+在设置->Regional Settings->Input Sources中添加输入法，选择Other->Chinese (Intelligent Pinyin)，即可使用中文输入法。
 
-### 5.2 常用命令
 
-| 命令                           | 说明                       |
-| ------------------------------ | -------------------------- |
-| `codebuddy ask "问题描述"`     | 向 AI 提问                 |
-| `codebuddy explain <file>`     | 解释指定文件中的代码       |
-| `codebuddy review <file>`      | 审查指定文件中的代码       |
-| `codebuddy refactor <file>`    | 重构指定文件中的代码       |
-| `codebuddy chat`               | 进入交互式对话模式         |
-| `codebuddy configure`          | 重新配置 CLI 参数          |
+### 5.3 引入
 
-### 5.3 示例
-
-```bash
-# 询问代码相关问题
-codebuddy ask "如何在 CentOS 8 上配置静态 IP？"
-
-# 解释某个文件
-codebuddy explain index.js
-
-# 进入交互对话模式
-codebuddy chat
-```
-
----
-
-## 6. 常见问题
-
-### 6.1 nvm 命令找不到
-
-如果重启终端后 `nvm` 提示命令未找到，请检查 `~/.bashrc` 中是否包含以下内容：
-
-```bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-```
-
-如缺失可手动添加，然后执行 `source ~/.bashrc`。
-
-### 6.2 npm 安装速度慢
-
-可配置淘宝镜像加速：
-
-```bash
-npm config set registry https://registry.npmmirror.com
-```
-
-### 6.3 CodeBuddy CLI 命令找不到
-
-确认 Node.js 版本 ≥ 18，并重新执行全局安装：
-
-```bash
-node --version    # 确认版本
-npm install -g @codebuddy/cli
-which codebuddy
-```
-
----
-
-## 7. 总结
-
-| 步骤           | 命令/操作                                      |
-| -------------- | ---------------------------------------------- |
-| 安装 nvm       | `curl -o- ... \| bash`                         |
-| 安装 Node.js   | `nvm install 18` 并设置默认版本                |
-| 安装 CodeBuddy | `npm install -g @codebuddy/cli`                |
-| 初始化配置     | `codebuddy init`                               |
-| 使用           | `codebuddy ask/review/refactor/chat` 等命令    |
+你可以问：
+- 帮我产生1到10之间的整数1000个，随机得到，统计各个整数出现的次数
+- 帮我用html画一个红色圆，旁边有一个按钮，可以调节半径大小
+ 
