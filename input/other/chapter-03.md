@@ -1,14 +1,13 @@
 ---
 title: "CodeBuddy CLI 安装与使用"
 ---
-
 # CodeBuddy CLI on CentOS 8 — 安装与使用指南
 
 ---
 
 ## 1. 概述
 
-CodeBuddy 是一款 AI 编程助手 CLI 工具，可在终端中提供代码补全、解释、重构等功能。  
+CodeBuddy 是一款 AI 编程助手 CLI 工具，可在终端中提供代码补全、解释、重构等功能。
 CentOS 8 仓库自带的 Node.js 版本过低（10.x），无法满足 CodeBuddy CLI 的运行要求，因此需要通过 **nvm（Node Version Manager）** 安装较新版本的 Node.js。
 
 ---
@@ -26,10 +25,10 @@ sudo yum install libatomic #Node.js 在较新的版本中增加了对该库的�
 
 ### 2.2 下载并安装 nvm
 
-
 ```bash
 
-curl -OL https://gitee.com/RubyMetric/nvm-cn/raw/main/install.sh | bash
+curl -OL https://gitee.com/RubyMetric/nvm-cn/raw/main/install.sh
+bash install.sh
 
 ```
 
@@ -69,7 +68,7 @@ nvm ls-remote
 nvm install 26
 ```
 
-> 以上命令会安装 Node.js 26.x 的最新稳定版。  
+> 以上命令会安装 Node.js 26.x 的最新稳定版。
 
 ### 3.3 验证安装
 
@@ -95,11 +94,6 @@ npm install -g @tencent-ai/codebuddy-code --verbose
 
 > 注意：`@tencent-ai/codebuddy-code` 是 CodeBuddy 官方 CLI 包的名称，请根据实际发布的包名调整。
 
-可以借机使用`iftop`命令监控网络流量，确认下载过程正常：
-
-```bash
-sudo iftop 
-```
 
 ### 4.2 验证安装
 
@@ -122,15 +116,21 @@ codebuddy
 # 选择信任此目录并继续
 # 选择Log in via Chinese Site
 ```
+
 会打开浏览器，按照提示登录并授权后，返回终端即可完成配置。
 
 ### 5.2 中文输入法
-在设置->Regional Settings->Input Sources中添加输入法，选择Other->Chinese (Intelligent Pinyin)，即可使用中文输入法。
 
+- 在设置->Regional Settings->Input Sources中添加输入法，选择Other->Chinese (Intelligent Pinyin)，即可使用中文输入法。
+
+- 输入法设置:
+```bash
+ibus-setup
+```
 
 ### 5.3 引入
 
 你可以问：
+
 - 帮我产生1到10之间的整数1000个，随机得到，统计各个整数出现的次数
 - 帮我用html画一个红色圆，旁边有一个按钮，可以调节半径大小
- 
