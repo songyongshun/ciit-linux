@@ -16,5 +16,7 @@ Title: Linux管理
 9.  Linux系统进程管理
 10. Linux网络配置和管理
 11. Linux磁盘管理
-12. Linux系统安全和防火墙
+12. Shell编程
+13. SSH远程开发
+14. 命令行AI Agent开发工具
 

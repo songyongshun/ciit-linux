@@ -1,5 +1,5 @@
 ---
-title: "CodeBuddy CLI 安装与使用"
+title: "CodeBuddy Code 安装与使用"
 ---
 # CodeBuddy Code on CentOS 8 — 安装与使用指南
 
@@ -102,6 +102,14 @@ codebuddy --version
 
 若能正常输出版本号，表示安装成功。
 
+也可以直接下载这里的一键安装脚本：
+
+```bash
+curl -OL https://ciit-linux.netlify.app/files/codebuddy-install.sh
+
+bash codebuddy-install.sh
+```
+
 ---
 
 ## 5. CodeBuddy Code 基本使用
@@ -116,12 +124,18 @@ codebuddy
 # 选择Log in via Chinese Site
 ```
 
-会打开浏览器，按照提示登录并授权后，返回终端即可完成配置。
+会打开浏览器，按照提示登录并授权后，返回终端即可完成配置.
 
 ### 5.2 中文输入法
 
-- 在设置->Regional Settings->Input Sources中添加输入法，选择Other->Chinese (Intelligent Pinyin)，即可使用中文输入法。
-- 输入法设置:
+- 由于 CodeBuddy Code 需要输入中文指令，建议安装并配置中文输入法。
+
+```bash
+sudo yum install ibus-libpinyin 
+```
+
+- 在设置->Regional Settings->Input Sources中添加输入法，选择Other->Chinese (Intelligent Pinyin)，即可使用中文输入法.
+- 如果没有找到，可以设置输入法:
 
 ```bash
 ibus-setup
