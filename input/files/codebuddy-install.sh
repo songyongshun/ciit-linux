@@ -6,11 +6,11 @@ sudo wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/C
 sudo yum clean all
 sudo yum makecache
 # 4 添加EPEL软件源（Extra Packages for Enterprise Linux）
-sudo yum install epel-release
+sudo yum -y install epel-release
 # 5. 更新软件包列表
 sudo yum check-update
 
-sudo yum install libatomic
+sudo yum -y install libatomic
 curl -OL https://gitee.com/RubyMetric/nvm-cn/raw/main/install.sh
 bash install.sh
 source ~/.bashrc
